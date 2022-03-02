@@ -1,7 +1,14 @@
 ---
 layout : base
 ---
+{% set css %}
+  {% include "../css/conduct.css" %}
+{% endset %}
 
+
+<style>
+  {{ css  | safe }}
+</style>
 
 <div>
 {{ content | safe }}

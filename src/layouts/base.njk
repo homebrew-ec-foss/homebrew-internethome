@@ -6,7 +6,6 @@
     <link rel="canonical" href={{ page.url | url | absoluteUrl(site.url) }}>
     <script src="https://cdn.tailwindcss.com"></script>
     {% bundledcss %}
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 
@@ -65,14 +64,14 @@
             <nav class="flex items-center justify-between flex-wrap ">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
       <h1 class="site-title">
-            <a href={{ "/" | url }}>
+            <a class="text-2xl"href={{ "/" | url }}>
               {{site.name}}
             </a>
           </h1>
   </div>
 
               <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto">
-<div class="text-sm lg:flex-grow">
+                <div class="text-sm lg:flex-grow"> 
                 {% for item in site.headerLinks %}
                   {% set currentAttribute = '' %}
                   {% set externalAttribute = '' %}
@@ -85,7 +84,7 @@
                     {% set currentAttribute = 'aria-current="page"' %}
                   {% endif %}
 
-                    <a href="{{ item.url | url }}" class="mt-4 lg:mt-0  hover:text-teal mr-4" {{ currentAttribute | safe }} {{ externalAttribute | safe }}>{{ item.text }}</a>
+                    <a href="{{ item.url | url }}" class="mt-4 lg:mt-0  hover:text-teal mr-4 text-base" {{ currentAttribute | safe }} {{ externalAttribute | safe }}>{{ item.text }}</a>
                 {% endfor %}
                 </div>
               </div>
@@ -100,10 +99,10 @@
         {{ content | safe }}
       </main>
 
-      <footer class="footer">
+      <footer class="container mx-auto">
         <div class="footer__content">
 
-          <ul class="hero__social-links">
+            <ul class="flex item-center justify-between gap-4 ">
             {% if site.socialLinks %}
               {% for item in site.socialLinks %}
                 {% set externalAttribute = '' %}

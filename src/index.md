@@ -3,6 +3,6 @@ layout: home
 title: 'Eleventy Duo'
 ---
 
-# Hello World
+# Homebrew : Genesis 
 
-Eleventy Duo is a minimal and beautiful Eleventy theme for personal blogs. Checkout the [project's github repo](https://github.com/yinkakun/eleventy-duo) for more info.
+Homebrew is a FOSS community brought to you by HackerSpace ECC. This the first FOSS based community in PESU EC Campus.

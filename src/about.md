@@ -1,8 +1,7 @@
 ---
-title: About Aidan Charles Powell
 layout: about.njk
-name: Aidan Charles Powell
-image: '/images/me.jpeg'
+name: Homebrew
+image: '/images/logo-small-white.svg'
 ---
 
 Homebrew is an open source community powered by enthusiasts from numerous domains.

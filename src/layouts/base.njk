@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href={{ page.url | url | absoluteUrl(site.url) }}>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     {% bundledcss %}
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -59,15 +59,20 @@
 
       <header class="header">
         <div class="header__content">
-          <h1 class="site-title">
+        
+
+          {% if site.headerLinks %}
+            <nav class="flex items-center justify-between flex-wrap ">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <h1 class="site-title">
             <a href={{ "/" | url }}>
               {{site.name}}
             </a>
           </h1>
+  </div>
 
-          {% if site.headerLinks %}
-            <nav class="nav">
-              <ul class="nav__list">
+              <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto">
+<div class="text-sm lg:flex-grow">
                 {% for item in site.headerLinks %}
                   {% set currentAttribute = '' %}
                   {% set externalAttribute = '' %}
@@ -80,11 +85,10 @@
                     {% set currentAttribute = 'aria-current="page"' %}
                   {% endif %}
 
-                  <li class="nav-item">
-                    <a href="{{ item.url | url }}" {{ currentAttribute | safe }} {{ externalAttribute | safe }}>{{ item.text }}</a>
-                  </li>
+                    <a href="{{ item.url | url }}" class="mt-4 lg:mt-0  hover:text-teal mr-4" {{ currentAttribute | safe }} {{ externalAttribute | safe }}>{{ item.text }}</a>
                 {% endfor %}
-              </ul>
+                </div>
+              </div>
             </nav>
 
           {% endif %}

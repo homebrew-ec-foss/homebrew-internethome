@@ -20,6 +20,11 @@
             "external": false
         },
         {
+            "text": "Code of Conduct",
+            "url": "/conduct",
+            "external": false
+        },
+        {
             "text": "About",
             "url": "/about",
             "external": false

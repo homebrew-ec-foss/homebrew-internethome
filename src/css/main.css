@@ -8,6 +8,7 @@
 @import 'footer.css';
 @import 'post.css';
 @import 'about.css';
+@import 'conduct.css';
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
 
@@ -27,7 +28,7 @@
   max-width: 48.75rem;
   margin-left: auto;
   margin-right: auto;
-}
+  }
 
 html {
 font-family: 'Alegreya', serif;

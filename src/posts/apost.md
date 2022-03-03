@@ -1,26 +1,41 @@
 ---
-title: Another post with rich media
-date: '2020-12-21'
-tags: [demo-content, media]
-decription: The last person we talked to said this would be ready action item, and what do you feel you would bring to the table if you were hired for this position bells and whistles.
+title: The World of Open Source!
+date: '2022-03-03'
+tags: [FOSS, Homebrew]
+decription: Open source software plays an essential part of software development and the growth of budding developers. Let's find out more about open source software, read on!
 permalink: posts/{{ title | slug }}/index.html
 ---
 
-The last person we talked to said this would be ready action item, and what do you feel you would bring to the table if you were hired for this position bells and whistles. Rock Star/Ninja UI put a record on and see who dances, or cannibalize. We need to socialize the comms with the wider stakeholder community we need to future-proof this forcing function or get six alpha pups in here for a focus group. Helicopter view quarterly sales are at an all-time low so future-proof going forward we’re ahead of the curve on that one yet due diligence, so get buy-in. Back to the drawing-board action item get six alpha pups in here for a focus group ramp up.
-
-## Image
+If you are a tech enthusiast, you must've come across this common term, "open source". Most usually, open source software are alternatives to paid software to most students and thrifty enthusiasts. But what actually is open source and why is it important to understand it? Let's find out!
 
 
-Low-hanging fruit design thinking loop back, race without a finish line. Screw the pooch hit the ground running game-plan, for on-brand but completeley fresh quick-win that jerk from finance really threw me under the bus pulling teeth. Level the playing field. Strategic high-level 30,000 ft view to be inspired is to become creative, innovative and energized we want this philosophy to trickle down to all our stakeholders knowledge is power UX, nor can we take this offline, yet product management breakout fastworks. Cross-pollination I just wanted to give you a heads-up please use “solutionise” instead of solution ideas! 🙂 or strategic staircase, for value prop viral engagement we want to see more charts. Productize level the playing field great plan! let me diarize this, and we can synchronise ourselves at a later timepoint or draw a line in the sand innovation is hot right now but horsehead offer, punter. Low-hanging fruit thought shower, or waste of resources time to open the kimono nor UI idea shower baseline the procedure and samepage your department. Organic growth proceduralize. Player-coach. It’s a simple lift and shift job deliverables or pulling teeth, and three-martini lunch personal development. What’s the status on the deliverables for eow?. Cannibalize knowledge is power and staff engagement.
+## What is open source?
 
-## Video
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Yw6u6YkTgQ4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Imagine a world where you could have endless number of contributors to work on your application and improve it, quite the world, right!? You do not need to imagine it since that is what open source is, simply put. Open source is a form of development of any tool and/or service, while sharing the complete source code and legal rights to access and use your work for free. This gives the users a chance to see the transparency of the tool or service that they use and more importantly, it gives other developers enough information to potentially improve upon the application.
 
-Action item screw the pooch, so cannibalize, nor streamline, so Bob called an all-hands this afternoon t-shaped individual but drink the Kool-aid. Productize diversify kpis so quick win to be inspired is to become creative, innovative and energized we want this philosophy to trickle down to all our stakeholders bench mark, or customer centric, for critical mass. UX touch base we need a recap by eod, cob or whatever comes first so core competencies, for work flows , so overcome key issues to meet key milestones.
 
-## Audio
+As you might already know, Linux, one of the most popular operating systems, is open source. This means that anyone with the knowledge of C programming can contribute to Linux!
 
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/422530128&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/louie-zong" title="Louie Zong" target="_blank" style="color: #cccccc; text-decoration: none;">Louie Zong</a> · <a href="https://soundcloud.com/louie-zong/hello-world" title="hello world" target="_blank" style="color: #cccccc; text-decoration: none;">hello world</a></div>
+## Why open source?
 
-At the end of the day. Can we align on lunch orders one-sheet, yet action item this vendor is incompetent . Reach out horsehead offer we need a recap by eod, cob or whatever comes first. UI message the initiative bottleneck mice win-win-win or UX, yet let’s unpack that later. Those options are already baked in with this model not a hill to die on yet touch base but touch base drink from the firehose, for ultimate measure of success so hammer out. Not the long pole in my tent. The last person we talked to said this would be ready pushback. Viral engagement granularity organic growth. We don’t want to boil the ocean one-sheet, get six alpha pups in here for a focus group, nor value-added level the playing field. Cross functional teams enable out of the box brainstorming cross-pollination, yet we need a paradigm shift. Criticality gain traction, for shoot me an email herding cats win-win, or feature creep time vampire. Cloud strategy.
+Open source software has one of, if not, the biggest communities when compared to proprietary software. This ensures that a user or a developer can get support and have a place to discuss the issues that they encounter with several other users and developers. This feedback helps to improve the software even more since the developers and the users are so closely linked. 
+
+We all know how expensive proprietary software can be. Yes, they should be bought by people who know how to use them and can get the most out of them. But, what about people who are trying to learn a certain skill like photo editing, music production, coding etc. without spending a lot of money on software? Open source software is the solution to that answer! For every proprietary software out there, there is a free and open source software present. They are by no means inferior to the proprietary counterparts but are even better in most scenarios. 
+
+Here is a small list of open source alternatives to popular proprietary software:
+
+- [GIMP](https://www.gimp.org/) - an alternative to Photoshop.
+- [Octave](https://www.gnu.org/software/octave/index) - an alternative to MATLAB.
+- [LibreOffice](https://www.libreoffice.org/discover/libreoffice/) - an alternative to MS Office tools.
+- [7-Zip](https://www.7-zip.org/) - an alternative to WinRAR.
+- [Audacity](https://www.audacityteam.org/) - a FOS audio editing tool.
+- [Pop!_OS](https://pop.system76.com/) - a Debian-based Linux distribution alternative to Windows.
+
+## What can you do to contribute?
+
+If all the above information has impressed you, take a step forward and contribute to open source! Homebrew's main objective is to nurture FOSS development in budding developers. If you are interested to join our community and learn more about open source contributions check out the links provided below!
+
+- [Join Homebrew!](https://deploy-preview-6--sharp-wright-d62960.netlify.app/getstarted/)
+- [How to use Git](https://www.rowjee.com/blog/git_up_and_running)
+- [FOSS development courses](https://www.freecodecamp.org/)

@@ -4,7 +4,6 @@ name: Homebrew
 image: '/images/logo-small-white.svg'
 ---
 
-
 ## What is Homebrew?
 
 Homebrew aims to be a community of FOSS enthusiasts, as well as the one-stop shop for those
@@ -16,7 +15,7 @@ actual Homebrew.
 
 ## Who is Homebrew catering to?
 
-The students of pes university, EC campus. As well as every human on earth interested in FOSS.
+The students of PES university, EC campus. As well as every human on earth interested in FOSS.
 
 ## Why Homebrew?
 

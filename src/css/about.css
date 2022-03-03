@@ -1,20 +1,7 @@
-.about h1 {
-  margin-bottom: 2rem;
+img{
+    float : right;
+    height : 600px;
+    width : 500px;
+    align-content : center;
 }
 
-.about img {
-  min-width : 500px;
-  float: none;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-}
-
-@media (min-width: 35.9375em) {
-  .about img {
-    width: 200px;
-    float: right;
-    margin-left: 1rem;
-    margin-top: 0.5rem;
-  }
-}

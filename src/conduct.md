@@ -10,7 +10,7 @@ The need of code of conduct is quite high in this age, by joining you automatica
 
 This code of conduct is written to guide an individual’s choices and actions within the free and open source software (FOSS) community. This code will help one determine the purpose and the course of his work as well as his place as a member of this community.
 
-## 1. The Ethic of Reciprocity
+### 1. The Ethic of Reciprocity
 
 The most fundamental ethic is that of reciprocity–do unto others as they do unto you. Are you treating others in a manner that they would not treat you? If so, then your actions are out of bounds and you should cease those actions. Emotional reactions should be calculated carefully. Before acting, decide how the potential response might benefit you and/or the community and how it might hinder you and/or the community.
 
@@ -51,7 +51,7 @@ Competition amongst individuals should not be shunned but encouraged! The brutal
 
 
 
-## Enforcing the code of conduct
+# Enforcing the code of conduct
 
 
 ### 1. Verbal warning

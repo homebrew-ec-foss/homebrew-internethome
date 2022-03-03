@@ -1,15 +1,10 @@
 ---
 layout : base
 ---
-{% set css %}
-  {% include "../css/conduct.css" %}
-{% endset %}
 
+  <div class="hero-content">
+    <div class="intro">
+      {{ content | safe }}
+    </div>
 
-<style>
-  {{ css  | safe }}
-</style>
-
-<div>
-{{ content | safe }}
-</div>
+   </div>

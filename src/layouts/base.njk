@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href={{ page.url | url | absoluteUrl(site.url) }}>
-    <script src="https://cdn.tailwindcss.com"></script>
-    {% bundledcss %}
+<script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>    
+{% bundledcss %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+<style type="text/tailwindcss">
+
+  h1 {
+    @apply my-3;
+    @apply text-5xl;
+  }
+  h2 {
+      @apply my-1;
+    @apply text-3xl;
+  }
+  h3 {
+      @apply my-1;
+    @apply text-2xl;
+  }
+
+@tailwind components;
+
+@tailwind utilities;
+</style>
 
     <title>
       {{  title  | escape }}

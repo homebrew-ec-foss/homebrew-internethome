@@ -36,6 +36,6 @@ Here is a small list of open source alternatives to popular proprietary software
 
 If all the above information has impressed you, take a step forward and contribute to open source! Homebrew's main objective is to nurture FOSS development in budding developers. If you are interested to join our community and learn more about open source contributions check out the links provided below!
 
-- [Join Homebrew!](https://deploy-preview-6--sharp-wright-d62960.netlify.app/getstarted/)
+- [Join Homebrew!](https://sharp-wright-d62960.netlify.app/getstarted/)
 - [How to use Git](https://www.rowjee.com/blog/git_up_and_running)
 - [FOSS development courses](https://www.freecodecamp.org/)

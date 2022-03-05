@@ -22,18 +22,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 }
 
-:root {
-    --mainColor: #ff9800;
-  }
-  
-  body {
-    align-items: center;
-    display: flex;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    height: 100vh;
-    justify-content: center;
-  }
+
   
   a {
     background: linear-gradient(to bottom, var(--mainColor) 0%, var(--mainColor) 100%);

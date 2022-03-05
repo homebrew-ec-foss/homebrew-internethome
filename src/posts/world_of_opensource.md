@@ -25,17 +25,17 @@ We all know how expensive proprietary software can be. Yes, they should be bough
 
 Here is a small list of open source alternatives to popular proprietary software:
 
-* • [GIMP](https://www.gimp.org/) - an alternative to Photoshop.
-* • [Octave](https://www.gnu.org/software/octave/index) - an alternative to MATLAB.
-* • [LibreOffice](https://www.libreoffice.org/discover/libreoffice/) - an alternative to MS Office tools.
-* • [7-Zip](https://www.7-zip.org/) - an alternative to WinRAR.
-* • [Audacity](https://www.audacityteam.org/) - a FOS audio editing tool.
-* • [Pop!_OS](https://pop.system76.com/) - a Debian-based Linux distribution alternative to Windows.
+- [GIMP](https://www.gimp.org/) - an alternative to Photoshop.
+- [Octave](https://www.gnu.org/software/octave/index) - an alternative to MATLAB.
+- [LibreOffice](https://www.libreoffice.org/discover/libreoffice/) - an alternative to MS Office tools.
+- [7-Zip](https://www.7-zip.org/) - an alternative to WinRAR.
+- [Audacity](https://www.audacityteam.org/) - a FOS audio editing tool.
+- [Pop!_OS](https://pop.system76.com/) - a Debian-based Linux distribution alternative to Windows.
 
 ## What can you do to contribute?
 
 If all the above information has impressed you, take a step forward and contribute to open source! Homebrew's main objective is to nurture FOSS development in budding developers. If you are interested to join our community and learn more about open source contributions check out the links provided below!
 
-- • [Join Homebrew!](https://sharp-wright-d62960.netlify.app/getstarted/)
-- • [How to use Git](https://www.rowjee.com/blog/git_up_and_running)
-- • [FOSS development courses](https://www.freecodecamp.org/)
+- [Join Homebrew!](https://sharp-wright-d62960.netlify.app/getstarted/)
+- [How to use Git](https://www.rowjee.com/blog/git_up_and_running)
+- [FOSS development courses](https://www.freecodecamp.org/)

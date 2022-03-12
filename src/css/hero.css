@@ -9,7 +9,7 @@
 
 .hero p {
   font-size: var(--text-2xl);
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .hero__social-links {

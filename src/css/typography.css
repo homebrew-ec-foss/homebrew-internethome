@@ -21,7 +21,7 @@ body {
   font-variant-ligatures: contextual;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
-  font-family: 'Alegreya', sans-serif;
+  font-family:"IBM Plex Sans", 'Alegreya', sans-serif;
 }
 
 h1,

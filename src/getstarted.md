@@ -1,5 +1,6 @@
 ---
-layout : getstarted
+layout : conduct
+name: Homebrew
 ---
 
 # Who is Homebrew for?

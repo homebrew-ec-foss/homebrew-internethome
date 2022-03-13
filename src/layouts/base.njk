@@ -4,31 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href={{ page.url | url | absoluteUrl(site.url) }}>
-<script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>    
-{% bundledcss %}
+  {% bundledcss %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-<style type="text/tailwindcss">
-  ul, ol {
-    list-style: revert;
-  }
-  h1 {
-    @apply my-3;
-    @apply text-5xl;
-  }
-  h2 {
-      @apply my-1;
-    @apply text-3xl;
-  }
-  h3 {
-      @apply my-1;
-    @apply text-2xl;
-  }
-
-@tailwind components;
-
-@tailwind utilities;
-</style>
 
     <title>
       {{  title  | escape }}
@@ -79,37 +57,35 @@
 
       <header class="header">
         <div class="header__content">
-        
 
           {% if site.headerLinks %}
-            <nav class="flex items-center justify-between flex-wrap ">
-  <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <h1 class="site-title">
-            <a class="text-2xl"href={{ "/" | url }}>
-              {{site.name}}
-            </a>
-          </h1>
-  </div>
+          <nav class="navbar">
 
-              <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto">
-                <div class="text-sm lg:flex-grow"> 
+            <div class="navbar-header" >
+              <a href="/"> 
+              <img class="navbar-header-image" href="/" src="/images/nav-logo.png" alt="">
+              </a>
+            </div>
+
+            <div class="navbar-body">
+              <div class="navbar-body-content"> 
                 {% for item in site.headerLinks %}
-                  {% set currentAttribute = '' %}
-                  {% set externalAttribute = '' %}
+                {% set currentAttribute = '' %}
+                {% set externalAttribute = '' %}
 
-                  {% if item.external %}
-                    {% set externalAttribute = 'target="_blank" rel="noopener noreferrer"' %}
-                  {% endif %}
+                {% if item.external %}
+                {% set externalAttribute = 'target="_blank" rel="noopener noreferrer"' %}
+                {% endif %}
 
-                  {% if page.url == item.url %}
-                    {% set currentAttribute = 'aria-current="page"' %}
-                  {% endif %}
+                {% if page.url == item.url %}
+                {% set currentAttribute = 'aria-current="page"' %}
+                {% endif %}
 
-                    <a href="{{ item.url | url }}" class="mt-4 lg:mt-0  hover:text-teal mr-4 text-base" {{ currentAttribute | safe }} {{ externalAttribute | safe }}>{{ item.text }}</a>
+                <a href="{{ item.url | url }}" class="nav-link" {{ currentAttribute | safe }} {{ externalAttribute | safe }}>{{ item.text }}</a>
                 {% endfor %}
-                </div>
               </div>
-            </nav>
+            </div>
+          </nav>
 
           {% endif %}
 
@@ -123,7 +99,7 @@
       <footer class="container mx-auto">
         <div class="footer__content">
 
-            <ul class="flex item-center justify-between gap-4 list-none ">
+            <div class="footer_flex">
             {% if site.socialLinks %}
               {% for item in site.socialLinks %}
                 {% set externalAttribute = '' %}
@@ -152,7 +128,7 @@
                 </li>
               {% endfor %}
             {% endif %}
-          </ul>
+          </div>
 
           {% if site.showFooterAttribution %}
             <p class="footer__attribution">

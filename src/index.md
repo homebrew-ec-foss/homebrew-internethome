@@ -3,6 +3,6 @@ layout: home
 title: 'Eleventy Duo'
 ---
 
-# Homebrew : Genesis 
+# Homebrew FOSS by HackerSpace PESUECC
 
-Homebrew is a FOSS community brought to you by HackerSpace ECC. This the first FOSS based community in PESU EC Campus.
+Celebrate the Spirit of Free and Open Source Software with Homebrew, PESU ECC's First FOSS Community!

@@ -15,7 +15,7 @@
 }
 
 .post-list__wrapper {
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 .post-list__heading {
@@ -45,13 +45,13 @@
 }
 
 .post-list__title a {
+  color: inherit;
+  text-decoration-color: var(--accent);
   font-weight: normal;
-  text-decoration: none;
-  color: rgb(41, 41, 41);
 }
 
 .post-list__title a:hover {
-  /* color: var(--accent); */
+  color: var(--accent);
   text-decoration: underline;
 }
 

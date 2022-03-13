@@ -99,7 +99,7 @@
       <footer class="container mx-auto">
         <div class="footer__content">
 
-            <ul class="flex item-center justify-between gap-4 list-none ">
+            <div class="footer_flex">
             {% if site.socialLinks %}
               {% for item in site.socialLinks %}
                 {% set externalAttribute = '' %}
@@ -128,7 +128,7 @@
                 </li>
               {% endfor %}
             {% endif %}
-          </ul>
+          </div>
 
           {% if site.showFooterAttribution %}
             <p class="footer__attribution">

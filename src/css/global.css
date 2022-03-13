@@ -290,5 +290,8 @@ mark {
     width: 15rem;
   }
 }
-
-
+.footer_flex{
+    display : flex;
+    list-style : none;
+    grid-gap : 3vw;
+}

@@ -69,16 +69,16 @@ I am using simple packages `gcc` and `make` for this comparison.The speed is mea
 
 #### With Parallel Downloads 
 
-<img src="WithParallelDownloads.png"/>
+<img src="./WithParallelDownloads.png"/>
 
 #### Without Parallel Downloads
 
-<img src="WithoutParallelDownloads.png"/>
+<img src="./WithoutParallelDownloads.png"/>
 
 
-* It can be seen that ParallelDownloads take less time to download the packages.
+1. It can be seen that ParallelDownloads take less time to download the packages.
 
-* This is greatly helpful for downloading multiple packages.
+2. This is greatly helpful for downloading multiple packages.
 
 ### Bibliography
 

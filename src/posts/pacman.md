@@ -25,22 +25,22 @@ The pacman package manager is one of the major distinguishing features of Arch L
 
 ### Installing a single package or a list of packages
 ```bash
-    sudo pacman -S package_name1 package_name2 ...
+sudo pacman -S package_name1 package_name2 ...
 ```
 
 ### Install using regex
 ```bash
-    sudo pacman -S $(pacman -Ssq package_regex)
+sudo pacman -S $(pacman -Ssq package_regex)
 ```
 
 ### Remove a package
 ```bash
-    sudo pacman -R package_name
+sudo pacman -R package_name
 ```
 
 ### Updating all packages in system
 ```bash
-    sudo pacman -Syu
+sudo pacman -Syu
 ```
 
 ## So how is pacman 6.0 better than the previous versions?
@@ -69,11 +69,11 @@ I am using simple packages `gcc` and `make` for this comparison.The speed is mea
 
 #### With Parallel Downloads 
 
-![With Parallel Downloads](WithParallelDownloads.png)
+![With Parallel Downloads](https://raw.githubusercontent.com/homebrew-ec-foss/homebrew-internethome/dev/src/images/WithParallelDownloads.png?token=GHSAT0AAAAAABSQ27LJYXABGLIQITXYSVFEYRQYFWQ)
 
 #### Without Parallel Downloads
 
-![Without Parallel Downloads](WithoutParallelDownloads.png)
+![Without Parallel Downloads](https://raw.githubusercontent.com/homebrew-ec-foss/homebrew-internethome/dev/src/images/WithoutParallelDownloads.png?token=GHSAT0AAAAAABSQ27LJ7QGPM5NZFOLX26FMYRQYGLA)
 
 
 * It can be seen that ParallelDownloads take less time to download the packages.

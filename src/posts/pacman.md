@@ -69,11 +69,11 @@ I am using simple packages `gcc` and `make` for this comparison.The speed is mea
 
 #### With Parallel Downloads 
 
-![With Parallel Downloads](https://raw.githubusercontent.com/homebrew-ec-foss/homebrew-internethome/dev/src/images/WithParallelDownloads.png?token=GHSAT0AAAAAABSQ27LJYXABGLIQITXYSVFEYRQYFWQ)
+![With Parallel Downloads](/images/WithParallelDownloads.png)
 
 #### Without Parallel Downloads
 
-![Without Parallel Downloads](https://raw.githubusercontent.com/homebrew-ec-foss/homebrew-internethome/dev/src/images/WithoutParallelDownloads.png?token=GHSAT0AAAAAABSQ27LJ7QGPM5NZFOLX26FMYRQYGLA)
+![Without Parallel Downloads](/images/WithoutParallelDownloads.png)
 
 
 * It can be seen that ParallelDownloads take less time to download the packages.

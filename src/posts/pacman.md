@@ -69,11 +69,11 @@ I am using simple packages `gcc` and `make` for this comparison.The speed is mea
 
 #### With Parallel Downloads 
 
-![With Parallel Downloads](/images/WithParallelDownloads.png)
+<img src="WithParallelDownloads.png"/>
 
 #### Without Parallel Downloads
 
-![Without Parallel Downloads](/images/WithoutParallelDownloads.png)
+<img src="WithoutParallelDownloads.png"/>
 
 
 * It can be seen that ParallelDownloads take less time to download the packages.

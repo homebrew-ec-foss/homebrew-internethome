@@ -6,6 +6,7 @@ decription: Why pacman(version 6.0) is faster and better than other package mana
 permalink: posts/{{ title | slug }}/index.html
 ---
 
+*Posted by [Adarsh Liju Abraham](https://github.com/Adarsh-Liju)*
 
 ## Introduction
 
@@ -69,16 +70,16 @@ I am using simple packages `gcc` and `make` for this comparison.The speed is mea
 
 #### With Parallel Downloads 
 
-<img src="./WithParallelDownloads.png"/>
+![With Parallel Downloads](/images/WithParallelDownloads.png )
 
 #### Without Parallel Downloads
 
-<img src="./WithoutParallelDownloads.png"/>
+![With Parallel Downloads](/images/WithParallelDownloads.png )
 
 
-1. It can be seen that ParallelDownloads take less time to download the packages.
+* It can be seen that ParallelDownloads take less time to download the packages.
 
-2. This is greatly helpful for downloading multiple packages.
+* This is greatly helpful for downloading multiple packages.
 
 ### Bibliography
 

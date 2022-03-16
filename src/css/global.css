@@ -294,3 +294,7 @@ mark {
     list-style : none;
     grid-gap : 3vw;
 }
+
+.main {
+  width: 100%;
+}

@@ -10,13 +10,23 @@
     "defaultSocialImage": "/images/default-social-image.png",
     "headerLinks": [
         {
+            "text": "Home",
+            "url": "/",
+            "external": false
+        },
+        {
+            "text": "Join Us!",
+            "url": "/getstarted",
+            "external": false
+        },
+        {
             "text": "Blog",
             "url": "/blog",
             "external": false
         },
         {
-            "text": "Join In!",
-            "url": "/getstarted",
+            "text": "Events",
+            "url": "/events",
             "external": false
         },
         {

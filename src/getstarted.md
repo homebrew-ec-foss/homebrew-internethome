@@ -3,10 +3,15 @@ layout : conduct
 name: Homebrew
 ---
 
-# Who is Homebrew for?
+# Join Us! 
 
+## Welcome, fellow Open-Sourcerer!
 
-Now that you are convinced it is indeed for you. How do you join? Read along!
+At the moment, *Homebrew FOSS by HackerSpace PESUECC* is an invite-only community. We'll be public soon!
 
-# How to join
+If you wish to join Homebrew, you must complete the entry challenge located here. You'll recieve an invite to the server as and when you've appropriately completed the challenge!
+
+Github: [homebrew-ec-foss/entry-challenge](https://github.com/homebrew-ec-foss/entry-challenge)
+
+To Complete the challenge, a basic knowledge of Git and Github is necessary. [Here](https://www.rowjee.com/blog/git_up_and_running) is a good starting point for the same!
 

@@ -273,8 +273,7 @@ mark {
   }
 
   .navbar-body-content {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .nav-link {
@@ -286,12 +285,16 @@ mark {
   }
 
   .navbar-header-image {
-    height: 13rem;
-    width: 15rem;
+    height: 5rem;
+    width: 5rem;
   }
 }
 .footer_flex{
     display : flex;
     list-style : none;
     grid-gap : 3vw;
+}
+
+.main {
+  width: 100%;
 }

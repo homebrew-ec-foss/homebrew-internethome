@@ -10,7 +10,7 @@ Well, I came across golang just recently as i needed the socket programming capa
 
 Before we move further, lets understand what Concurrency is, both in Layman's terms and in definition form.  
 
-Suppose Alice and Joe have the Sunday to themselves without their chaotic kids ruining the weekend and they do want to enjoy their weekend and go out on a date!  
+Suppose Alice and Joe have the Sunday to themselves without their chaotic kids ruining the weekend and they want to enjoy their weekend and go out on a date!  
 But the house is a mess, so Alice decides to finish her numerous chores and then enjoy the rest of the evening with her husband but unfortunately she cannot single-handedly finish all the chores by the evening, so Joe also starts helping her out and finish all the chores together one-by-one.  
 
 What Joe and Alice decided to do to finish their chores before the evening, is exactly what **Concurrency** is!  
@@ -33,7 +33,7 @@ Well so goroutines are basically the component of concurrent execution or the su
 Well, if you think about it goroutines it is nothing but normal functions, what makes it goroutines are the aspect of concurrent execution which can be achieved by appending the go keyword before the function call to execute it in a seperate thread along with other goroutines if any.  
 
 Here is a code snippet for you to understand go routines better :-  
-```
+```go
 package main
 
 func fn(a int, b int){
@@ -54,7 +54,7 @@ Now you must be thinking.... Wait wha? I thought only goroutines execute concurr
 Channels are a method of communication between two goroutines in a totally dumbed down form. To be specific, it is a pipe between two goroutines which acts like an interface for interprocess or inter-thread communication. It is a datatype as per go which is simplified to an extent that any developer can exploit the beauty of concurrency in golang!  
 
 Here's an code snippet for y'all to relate better :-
-``` 
+```go
 package main
 
 import "fmt"

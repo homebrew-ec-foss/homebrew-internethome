@@ -298,3 +298,21 @@ mark {
 .main {
   width: 100%;
 }
+
+.member_contacts{
+    display : inline;
+    padding-right : 20px;
+}
+.member_contacts_heading{
+    display : inline;
+    padding-right : 20px;
+}
+
+.p_contacts{
+    display : inline;
+}
+
+.member_name{
+    display : inline;
+    font-weight: bold;
+}

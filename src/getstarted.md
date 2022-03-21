@@ -21,9 +21,10 @@ To Complete the challenge, a basic knowledge of Git and Github is necessary. [He
 
 Finishing this challenge puts your name on a site, pretty cool,no?
 
-The source repository and the website [It's one you are currently on] link is given below. See that tab in navbar called "members"? Its your task is to add you name in that page, as a part of member circle. 
+The source repository and the website [It's one you are currently on] link is given below. See that tab in navbar called "members"? Its your task is to add you name in that page, as a part of outer member circle. 
 
-Oh also not just your name, add it in such a way your name shows up as link redirecting to your github account/Dashboard page.
+And there is a right way of doing this, If you try and write it directly to NJK file we will not accept your pr.
+Oh also not just your name, add all the needed fields to generate those hyper links rightfully.
 
 Now we leave figuring out the code base to you, All the best :)
 

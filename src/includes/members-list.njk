@@ -1,0 +1,11 @@
+<ul>
+
+{% for post in memberlist  %}
+    <li class="post-list__item">
+      <div>
+      <h1>{{ post.data.name }}</h1>
+      </div>
+    </li>
+  {% endfor %}
+
+</ul>

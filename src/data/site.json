@@ -1,68 +1,73 @@
 {
-    "name": "Homebrew PESUECC",
-    "description": "Eleventy Duo is a minimal and beautiful Eleventy theme for personal blogs.",
-    "url": "https://eleventyduo.netlify.app",
-    "author": {
-        "name": "Author Name",
-        "email": "author@site.com",
-        "twitterHandle": "author_handle"
+  "name": "Homebrew PESUECC",
+  "description": "Eleventy Duo is a minimal and beautiful Eleventy theme for personal blogs.",
+  "url": "https://eleventyduo.netlify.app",
+  "author": {
+    "name": "Author Name",
+    "email": "author@site.com",
+    "twitterHandle": "author_handle"
+  },
+  "defaultSocialImage": "/images/default-social-image.png",
+  "headerLinks": [
+    {
+      "text": "Home",
+      "url": "/",
+      "external": false
     },
-    "defaultSocialImage": "/images/default-social-image.png",
-    "headerLinks": [
-        {
-            "text": "Home",
-            "url": "/",
-            "external": false
-        },
-        {
-            "text": "Join Us!",
-            "url": "/getstarted",
-            "external": false
-        },
-        {
-            "text": "Blog",
-            "url": "/blog",
-            "external": false
-        },
-        {
-            "text": "Events",
-            "url": "/events",
-            "external": false
-        },
-        {
-            "text": "Code of Conduct",
-            "url": "/conduct",
-            "external": false
-        },
-        {
-            "text": "About",
-            "url": "/about",
-            "external": false
-        }
-    ],
-    "socialLinks": [
-        {
-            "text": "Instagram",
-            "url": "https://www.instagram.com/peshackerspace.ecc/",
-            "external": true
-        },
-        {
-            "text": "GitHub",
-            "url": "https://github.com/homebrew-ec-foss",
-            "external": true
-        },
-        {
-            "text": "Twitter",
-            "url": "https://twitter.com/",
-            "external": true
-        }
-    ],
-    "footerLinks": [
-        {
-            "text": "RSS",
-            "url": "/feed.xml",
-            "external": true
-        }
-    ],
-    "showFooterAttribution": true
+    {
+      "text": "Join Us!",
+      "url": "/getstarted",
+      "external": false
+    },
+    {
+      "text": "Blog",
+      "url": "/blog",
+      "external": false
+    },
+    {
+      "text": "Events",
+      "url": "/events",
+      "external": false
+    },
+    {
+      "text": "Code of Conduct",
+      "url": "/conduct",
+      "external": false
+    },
+    {
+      "text": "About",
+      "url": "/about",
+      "external": false
+    },
+    {
+      "text": "Members",
+      "url": "/members",
+      "external": false
+    }
+  ],
+  "socialLinks": [
+    {
+      "text": "Instagram",
+      "url": "https://www.instagram.com/peshackerspace.ecc/",
+      "external": true
+    },
+    {
+      "text": "GitHub",
+      "url": "https://github.com/homebrew-ec-foss",
+      "external": true
+    },
+    {
+      "text": "Twitter",
+      "url": "https://twitter.com/",
+      "external": true
+    }
+  ],
+  "footerLinks": [
+    {
+      "text": "RSS",
+      "url": "/feed.xml",
+      "external": true
+    }
+  ],
+  "showFooterAttribution": true
 }

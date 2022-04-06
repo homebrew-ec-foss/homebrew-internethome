@@ -4,9 +4,11 @@ date: '2022-03-26'
 tags: [Kotlin]
 decription: Why Kotlin should replace Java on your list of most used languages.
 permalink: posts/{{ title | slug }}/index.html
+name: Manab Kumar Biswas
+link: https://github.com/Manab784
 ---
 
-*Posted by [Manab Kumar Biswas](https://github.com/Manab784)*
+
 
 **Java**, alongside a few other frameworks has been the industry standard for building applications that run on multiple platforms - Mobile, PC's, Web Applications and loads more. But, something changed at [**Google I/O 2017**](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjo2abj8eL2AhVPldgFHRJfAmYQwqsBegQIFRAB&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DCNLVZjBE08g&usg=AOvVaw15-zzYHlOWBwEM2BexVhTH); **Kotlin** was made the officially supported language for Android App Dev. 
 
@@ -68,3 +70,5 @@ Kotlin provides for complete interoperability with Java, which means you can use
 ![Decompile To Java](/images/Decomplie To Java.png)
 
 Well, there are tons of other reasons as to why Kotlin should make it to your *Most Used Languages List*, but we'd like to call it an end here. ***Happy reading!***
+
+*Posted by [Manab Kumar Biswas](https://github.com/Manab784)*

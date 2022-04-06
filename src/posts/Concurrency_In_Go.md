@@ -3,7 +3,7 @@ title: For Concurrency at its best, It's Go time!
 date: '2022-03-17'  
 tags: [golang,concurrency]  
 description: Concurrent execution has been a concept which has been going around for years but has it ever been THIS easy in the developer's side!?  
-name: Mukund Deepak
+Aname: Mukund Deepak
 link: https://www.github.com/mukunddeepak
 ---  
 

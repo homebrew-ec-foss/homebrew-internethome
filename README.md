@@ -17,7 +17,7 @@ this repo and setup the preview.
 
 - You can now access the website locally by going to `http://localhost:8080` on your browser.
 
-Note: Requires nodejs to be installed.
+Note: Requires nodejs (node 16 to be specific) to be installed.
 
 ## Manually Edit contents
 
@@ -65,6 +65,8 @@ title: Even yet another post with rich media
 date: '2020-12-24'
 tags: [demo-content, media]
 decription: The last person we talked to said this would be ready action item, and what do you feel you would bring to the table if you were hired for this position bells and whistles. #optional
+Aname : <Must be exact match as in members file>
+link : Optional <Can be used if no members page>
 ---
 
 Contents

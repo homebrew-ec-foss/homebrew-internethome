@@ -9,10 +9,11 @@ permalink: posts/{{ title | slug }}/index.html
 
 By hackerspace mentor team. This blog comprises of the content taught and learnt during our offline event `systemctl start linux`.
 
-```
-# ls,cd,mkdir : Module 1
-## ls
 
+## ls,cd,mkdir : Module 1 
+
+### ls
+```
 # Basic PWD : prints current working directory 
 pwd 
 # Basic usage of ls : 
@@ -29,8 +30,7 @@ ls -l
 # List permissions and last modified for all contents inclusding hidden 
 ls -a -l OR la -l
 ```
-## cd
-
+### cd
 ```
 # Basic use : 
 cd
@@ -47,8 +47,7 @@ git clone https:github.com/junegunn/fzf.git ~/.fzf
 cd ~/.fzf 
 ./isntall 
 ```
-## mkdir
-
+### mkdir
 ```
 # basic use : 
 mkdir <folder name> 
@@ -58,18 +57,18 @@ mkdir dir_1 dir_2
 mkdir -p dir_1/sub_dir_1
 ```
 
-# Jobs : Module 4
+## Jobs : Module 4
 
-## What is Job control?
+### What is Job control?
 
 Job control is nothing but the ability to stop/suspend the execution of
 processes (command) and continue/resume their execution as per your
 requirements.
 
-## What is the purpose of Job command in UNIX?
+### What is the purpose of Job command in UNIX?
 
 
-## Jobs Commands:
+### Jobs Commands:
 ```
 jobs
 #  To display the process ID or jobs for the job whose name begins with “p,”Alternatively, we can use **jobs %p** !!
@@ -95,15 +94,9 @@ sleep 100 &
 jobs -n**
 ```
 
-# grep,wget,zip,unzip,tar : Module 6
+## grep,wget,zip,unzip,tar : Module 6
 
-## grep
-
-- Why is grep very important? How is it used?
-- Explain grep with a live example.
-- Show a demo , and explain how grep works.
-- Various ways grep is used with cat.
-- Examples
+### grep
 ```
 # basic
 cat <file> | grep <something>
@@ -112,7 +105,7 @@ cat <file> | grep -c <something>
 # case intensive
 cat <file> | grep -i <something>
 ```
-## wget/curl
+### wget/curl
 ```
 # wget basic
 wget <website-name>
@@ -121,9 +114,8 @@ wget --recursive <website-name>
 # Store a file
 wget <image-url> >> <image-name>
 ```
-## tar, zip , unzip
-
-1. tar
+### tar, zip , unzip
+- tar
 ```
 # Create tar Archive File in Linux
 tar -cvf <tar-file>.tar <tar-dir>
@@ -134,7 +126,7 @@ tar -xvf <tar-file>.tar
 # Unzip gzip files in Current Directory
 tar -xvf <gzip-file>.tar.gz
 ```
-2. zip
+- zip
 ```
 # Basic
 zip <myfile>.zip <filename>.txt
@@ -145,7 +137,7 @@ zip –u <filename>.zip <new-file>.txt
 # Delete orginal files after zipping
 zip –m <filename>.zip <file>.txt
 ```
-3. unzip
+- unzip
 ```
 # Basic
 unzip <file>.zip

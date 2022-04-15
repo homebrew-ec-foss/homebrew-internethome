@@ -5,7 +5,6 @@ tags: [Kotlin]
 decription: Why Kotlin should replace Java on your list of most used languages.
 permalink: posts/{{ title | slug }}/index.html
 Aname: Manab Kumar Biswas
-link: https://github.com/Manab784
 ---
 
 

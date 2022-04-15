@@ -4,6 +4,8 @@ date: '2022-04-15'
 tags: [linux,workshop]
 decription: Your cheat sheet for linux commands!
 permalink: posts/{{ title | slug }}/index.html
+Aname: Mentor team
+link: /members
 ---
 # systemctl start linux 
 
@@ -13,7 +15,7 @@ By hackerspace mentor team. This blog comprises of the content taught and learnt
 ## ls,cd,mkdir : Module 1 
 
 ### ls
-```
+```py
 # Basic PWD : prints current working directory 
 pwd 
 # Basic usage of ls : 
@@ -21,9 +23,9 @@ ls
 # Lists all files, hidden files and folder too 
 ls -a 
 # Lists contents of directory given an "absolute" path 
-ls /absolute
+ls /path/to/some/folder/from/root
 # Lists contents of directory given an "relative" path originating from PWD 
-ls ./relative
+ls ./path/to/some/folder/from/pwd
 # Gives permissions and last modified of all normal contents of the directory 
 ls -l 
 # Any of these can be combined with each other with some obv logic, like : 

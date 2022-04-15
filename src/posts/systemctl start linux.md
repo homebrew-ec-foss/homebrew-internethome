@@ -4,8 +4,8 @@ date: '2022-04-15'
 tags: [linux,workshop]
 decription: Your cheat sheet for linux commands!
 permalink: posts/{{ title | slug }}/index.html
-Aname: Mentor team
-link: /members
+author_name: Mentor team
+author_link: /members
 ---
 # systemctl start linux 
 

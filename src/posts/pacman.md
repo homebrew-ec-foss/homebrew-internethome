@@ -4,9 +4,11 @@ date: '2022-03-16'
 tags: [FOSS]
 decription: Why pacman(version 6.0) is faster and better than other package managers.
 permalink: posts/{{ title | slug }}/index.html
+Aname: Adarsh Liju Abraham
+link: https://github.com/Adarsh-Liju
 ---
 
-*Posted by [Adarsh Liju Abraham](https://github.com/Adarsh-Liju)*
+
 
 ## Introduction
 
@@ -87,3 +89,4 @@ I am using simple packages `gcc` and `make` for this comparison.The speed is mea
 * [Pacman-Wikipedia](https://en.wikipedia.org/wiki/Arch_Linux#Pacman)
 * [Parallel Downloads in Pacman](https://ostechnix.com/enable-parallel-downloading-in-pacman-in-arch-linux/)
 
+*Posted by [Adarsh Liju Abraham](https://github.com/Adarsh-Liju)*

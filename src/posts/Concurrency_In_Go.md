@@ -3,8 +3,10 @@ title: For Concurrency at its best, It's Go time!
 date: '2022-03-17'  
 tags: [golang,concurrency]  
 description: Concurrent execution has been a concept which has been going around for years but has it ever been THIS easy in the developer's side!?  
+Aname: Mukund Deepak
+link: https://www.github.com/mukunddeepak
 ---  
-*Written by [Mukund Deepak](https://www.github.com/mukunddeepak)*  
+
 
 Well, I came across golang just recently as i needed the socket programming capabilities for my Networks Project. Curious to learn the langauge, I sat and grinded the fundamentals of Golang for two days which was very similar to that of C and Python and Java, until i saw the concurrency capabilities of this amazing langauge.  
 
@@ -88,3 +90,4 @@ This above snippet implies that messages can only send data but not recieve data
 
 And with that, I hope that i have convinced you on what wonders go can do with concurrency if the above two fundamental concepts are applied appropriately!  
   
+*Written by [Mukund Deepak](https://www.github.com/mukunddeepak)*  

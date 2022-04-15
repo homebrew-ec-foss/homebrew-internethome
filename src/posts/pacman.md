@@ -4,8 +4,8 @@ date: '2022-03-16'
 tags: [FOSS]
 decription: Why pacman(version 6.0) is faster and better than other package managers.
 permalink: posts/{{ title | slug }}/index.html
-Aname: Adarsh Liju Abraham
-link: https://github.com/Adarsh-Liju
+author_name: Adarsh Liju Abraham
+author_link: https://githubx.com/Adarsh-Liju
 ---
 
 

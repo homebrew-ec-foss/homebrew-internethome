@@ -4,8 +4,8 @@ date: '2022-03-03'
 tags: [FOSS, Homebrew]
 decription: Open source software plays an essential part of software development and the growth of budding developers. Let's find out more about open source software, read on!
 permalink: posts/{{ title | slug }}/index.html
-name: Homebrew
-link: https://github.com/homebrew-ec-foss/homebrew-internethome
+author_name: Homebrew
+author_link: https://github.com/homebrew-ec-foss/homebrew-internethome
 
 ---
 

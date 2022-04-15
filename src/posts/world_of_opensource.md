@@ -6,7 +6,6 @@ decription: Open source software plays an essential part of software development
 permalink: posts/{{ title | slug }}/index.html
 author_name: Homebrew
 author_link: https://github.com/homebrew-ec-foss/homebrew-internethome
-
 ---
 
 If you are a tech enthusiast, you must've come across this common term, "open source". Most usually, open source software are alternatives to paid software to most students and thrifty enthusiasts. But what actually is open source and why is it important to understand it? Let's find out!

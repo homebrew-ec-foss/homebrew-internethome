@@ -1,12 +1,18 @@
+---
+title: Systemctl start linux
+date: '2022-04-15'
+tags: [linux,workshop]
+decription: Your cheat sheet for linux commands!
+permalink: posts/{{ title | slug }}/index.html
+---
 # systemctl start linux 
 
 By hackerspace mentor team. This blog comprises of the content taught and learnt during our offline event `systemctl start linux`.
 
-
+```
 # ls,cd,mkdir : Module 1
 ## ls
 
-```sh 
 # Basic PWD : prints current working directory 
 pwd 
 # Basic usage of ls : 
@@ -25,7 +31,7 @@ ls -a -l OR la -l
 ```
 ## cd
 
-```sh
+```
 # Basic use : 
 cd
 # cd to current users home directory 
@@ -43,7 +49,7 @@ cd ~/.fzf
 ```
 ## mkdir
 
-```sh
+```
 # basic use : 
 mkdir <folder name> 
 # Creating multiple folder
@@ -62,12 +68,9 @@ requirements.
 
 ## What is the purpose of Job command in UNIX?
 
-Displays status of jobs in the current shell session.
 
 ## Jobs Commands:
-
-```sh
-# To display the status of jobs in the current shell
+```
 jobs
 #  To display the process ID or jobs for the job whose name begins with “p,”Alternatively, we can use **jobs %p** !!
 jobs -p %p 
@@ -79,14 +82,13 @@ jobs -p
 jobs -r
 # Jobs that have stopped 
 jobs -s
-# to find if job is part of shell or an external command or both
 type -a jobs OR command -V jobs
 ```
 
 **How do I list only processes that have changed status since the
 last notification?**
 
-```sh
+```
 # Start new job
 sleep 100 &
 # Show jobs that have stopped or exited since last notified.
@@ -102,8 +104,7 @@ jobs -n**
 - Show a demo , and explain how grep works.
 - Various ways grep is used with cat.
 - Examples
-
-```sh
+```
 # basic
 cat <file> | grep <something>
 # number of instances
@@ -112,8 +113,7 @@ cat <file> | grep -c <something>
 cat <file> | grep -i <something>
 ```
 ## wget/curl
-
-```sh
+```
 # wget basic
 wget <website-name>
 # recursive download
@@ -124,8 +124,7 @@ wget <image-url> >> <image-name>
 ## tar, zip , unzip
 
 1. tar
-
-```sh 
+```
 # Create tar Archive File in Linux
 tar -cvf <tar-file>.tar <tar-dir>
 # Create gzip Archive File in Linux
@@ -136,8 +135,7 @@ tar -xvf <tar-file>.tar
 tar -xvf <gzip-file>.tar.gz
 ```
 2. zip
-
-```sh
+```
 # Basic
 zip <myfile>.zip <filename>.txt
 # Remove the file from archive
@@ -148,8 +146,7 @@ zip –u <filename>.zip <new-file>.txt
 zip –m <filename>.zip <file>.txt
 ```
 3. unzip
-
-```sh 
+```
 # Basic
 unzip <file>.zip
 # Unzip to a different directory

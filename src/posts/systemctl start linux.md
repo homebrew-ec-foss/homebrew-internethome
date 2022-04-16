@@ -124,7 +124,7 @@ stat <file_name>
 
 #### Permissions 
 
-The permission system in linux us quite a beautiful thing. But before we can learn that, we need to learn a bit about the user system in linux. 
+The permission system in linux is quite a beautiful thing. But before we can learn that, we need to learn a bit about the user system in linux. 
 
 There can be many users accessing a single computer and its files. These users can be part of `groups`. `superuser` is another user in every system that has no restriction to any file.
 
@@ -156,7 +156,7 @@ and now finally, say the current owner get all permission, other in his group al
 ```
 
    user group other 
-   rwx   r-x   --x 
+   rwx   rwx   --x 
    7     7     0   => 770
 ```
 

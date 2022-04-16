@@ -1,0 +1,279 @@
+Better default code blocks 
+
+Signed-off-by: NavinShrinivas <karupal2002@gmail.com>
+
+Fixes those horrendous looking code blocks with pre tag and ayu theme
+background
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   src/css/main.css
+#	modified:   src/posts/systemctl start linux.md
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/src/css/main.css b/src/css/main.css
+index ec2f087..883b2d8 100644
+--- a/src/css/main.css
++++ b/src/css/main.css
+@@ -30,3 +30,6 @@
+   margin-right: auto;
+ }
+ 
++pre{
++    background : #0f1419;
++}
+diff --git a/src/posts/systemctl start linux.md b/src/posts/systemctl start linux.md
+index 4827167..f211b36 100644
+--- a/src/posts/systemctl start linux.md	
++++ b/src/posts/systemctl start linux.md	
+@@ -14,48 +14,81 @@ By hackerspace mentor team. This blog comprises of the content taught and learnt
+ 
+ ## ls,cd,mkdir : Module 1 
+ 
+-### ls
+-```py
+-# Basic PWD : prints current working directory 
+-pwd 
+-# Basic usage of ls : 
++### ls 
++Basic PWD : prints current working directory 
++```
++pwd
++```
++Basic usage of ls : 
++```
+ ls 
+-# Lists all files, hidden files and folder too 
++```
++Lists all files, hidden files and folder too 
++```
+ ls -a 
+-# Lists contents of directory given an "absolute" path 
++```
++Lists contents of directory given an "absolute" path 
++```
+ ls /path/to/some/folder/from/root
+-# Lists contents of directory given an "relative" path originating from PWD 
++```
++Lists contents of directory given an "relative" path originating from PWD 
++```
+ ls ./path/to/some/folder/from/pwd
+-# Gives permissions and last modified of all normal contents of the directory 
++```
++Gives permissions and last modified of all normal contents of the directory 
++```
+ ls -l 
+-# Any of these can be combined with each other with some obv logic, like : 
+-# List permissions and last modified for all contents inclusding hidden 
++```
++Any of these can be combined with each other with some obviously logic, like : 
++List permissions and last modified for all contents including hidden 
++```
+ ls -a -l OR la -l
+ ```
+ ### cd
++
++Basic use : 
+ ```
+-# Basic use : 
+ cd
+-# cd to current users home directory 
+-cd ~/ cd → home directory
+-# cd to move one directiry up 
++```
++cd to current users home directory 
++```
++cd ~/
++```
++cd to move one directiry up 
++```
+ cd ..
+-# Change directory using absolute paths 
++```
++Change directory to root directory : 
++```
+ cd /
+-# Change directory using relative paths
+-cd 
+-# Installiog FZF 
++```
++Change directory using absolute paths 
++
++```
++cd /path/to/some/folder/from/root
++```
++Change directory using relative paths
++```
++cd ./path/to/some/folder/from/pwd 
++```
++Installiog FZF 
++```
+ git clone https:github.com/junegunn/fzf.git ~/.fzf
+ cd ~/.fzf 
+ ./isntall 
+ ```
++
+ ### mkdir
++basic use : 
+ ```
+-# basic use : 
+ mkdir <folder name> 
+-# Creating multiple folder
++```
++Creating multiple folder
++```
+ mkdir dir_1 dir_2 
+-# Creating directories withing directories 
++```
++Creating directories withing directories 
++```
+ mkdir -p dir_1/sub_dir_1
+ ```
+ 
+@@ -71,17 +104,28 @@ requirements.
+ 
+ 
+ ### Jobs Commands:
++Basic usage : 
+ ```
+ jobs
+-#  To display the process ID or jobs for the job whose name begins with “p,”Alternatively, we can use **jobs %p** !!
++```
++To display the process ID or jobs for the job whose name begins with “p,”Alternatively, we can use **jobs %p** !!
++```
+ jobs -p %p 
+-# Information about each job 
++```
++ Information about each job 
++```
+ jobs -l
+-# Display jobs with PID's only 
++```
++Display jobs with PID's only 
++```
+ jobs -p
+-# Currently running jobs
++```
++Currently running jobs
++```
+ jobs -r
+-# Jobs that have stopped 
++```
++Jobs that have stopped 
++```
+ jobs -s
+ type -a jobs OR command -V jobs
+ ```
+@@ -99,54 +143,83 @@ jobs -n**
+ ## grep,wget,zip,unzip,tar : Module 6
+ 
+ ### grep
++basic
+ ```
+-# basic
+ cat <file> | grep <something>
+-# number of instances
++```
++number of instances
++```
+ cat <file> | grep -c <something>
+-# case intensive
++```
++case intensive
++```
+ cat <file> | grep -i <something>
+ ```
+ ### wget/curl
++wget basic
+ ```
+-# wget basic
+ wget <website-name>
+-# recursive download
++```
++recursive download
++```
+ wget --recursive <website-name>
+-# Store a file
++```
++Store a file
++```
+ wget <image-url> >> <image-name>
+ ```
+ ### tar, zip , unzip
+-- tar
++#### tar
++
++Create tar Archive File in Linux
+ ```
+-# Create tar Archive File in Linux
+ tar -cvf <tar-file>.tar <tar-dir>
+-# Create gzip Archive File in Linux
++```
++Create gzip Archive File in Linux
++```
+ tar cvzf <gzip-file>.tar.gz <gzip-dir>
+-# Untar tar files in Current Directory
++```
++Untar tar files in Current Directory
++```
+ tar -xvf <tar-file>.tar
+-# Unzip gzip files in Current Directory
++```
++Unzip gzip files in Current Directory
++```
+ tar -xvf <gzip-file>.tar.gz
+ ```
+-- zip
++#### zip
++Basic
+ ```
+-# Basic
+ zip <myfile>.zip <filename>.txt
+-# Remove the file from archive
++```
++Remove the file from archive
++```
+ zip –d <filename>.zip <file>.txt
+-# Update the file from archive
++```
++Update the file from archive
++```
+ zip –u <filename>.zip <new-file>.txt
+-# Delete orginal files after zipping
++```
++Delete orginal files after zipping
++```
+ zip –m <filename>.zip <file>.txt
+ ```
+-- unzip
++
++#### unzip
++
++Basic
+ ```
+-# Basic
+ unzip <file>.zip
+-# Unzip to a different directory
++```
++Unzip to a different directory
++```
+ unzip <filename>.zip -d </path/to/directory>
+-# Use password to unzip
++```
++Use password to unzip
++```
+ unzip -P <password> <filename>.zip
+-# Exclude some files
++```
++Exclude some files
++```
+ unzip <filename>.zip -x <file1-to-exclude> <file2-to-exclude>
+ ```

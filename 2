@@ -101,80 +101,14 @@ So what exactly is the touch command? If we ask the man pages, we get "changes f
 These time stamps should have been observed in the previous module in the command `ls -a -l`. Even though touch is to modify time stamps it is rarely used so. 
 
 basic use : 
-changes time stamp is file exists, else creates new file 
 ```
 touch <file_name>
 ```
-what if you dont want it creating new files? 
-```
-touch -c <file_name>
-```
-what if you want to only change the acess time stamp? 
-```
-touch -a <file_name> 
-```
-and if you want to modify only modification time stamp 
-```
-touch -m <file_name>
-```
-Soooo, how do u see those time stamps?
-```
-stat <file_name> 
-```
 
-#### Permissions 
 
-The permission system in linux us quite a beautiful thing. But before we can learn that, we need to learn a bit about the user system in linux. 
 
-There can be many users accessing a single computer and its files. These users can be part of `groups`. `superuser` is another user in every system that has no restriction to any file.
 
-whenever one uses `sudo`, they are doing the commands as if they are the `superuser` and begin able to do commands as super users naturally needs a password. `sudo` is analogous to administrator in windows but much more secure and useful.
 
-To ones using our repl session, all commands are executed  superuser without any password.
-
-Now we are prime to learn permissions, get those binary thinking hats on! 
-
-for any given folder or file we have three types of access: 
-```
-read write execute  (rwx, remember the order its important)
-```
-for any given access types, 1 is used if allowed, 0 if not 
-
-so if user has read and execute permissions : 
-```
-
- rwx 
- 111 => 7
-```
-Now, of course we gotta give permissions for owner, groups and other.Groups being the group that current owner is part of and others well being everyone except the owner and his group.
-
-Once again the order matter so remember it : 
-```
-   owner group others (ugo)
-```
-and now finally, say the current owner get all permission, other in his group also get all and others get none. 
-```
-
-   user group other 
-   rwx   r-x   --x 
-   7     7     0   => 770
-```
-
-You now know how to calculate linux permissions! Congratulations.
-so how do we set these permissions? 
-
-we use : `chmod`
-#### chmod 
-Basic usage : 
-```
-sudo chmod 770 /absolute/path/to/some/folder/or/file 
-```
-We can also use relative path, no restrictions.
-
-It is always advised to execute chmod as `superuser`
-
-We can also change the owner of the file using `chown`, which I wont be covering in this module!
-There us quite a bit more to the linux permissions system, but that all for now. Onto the next module.
 
 ## Jobs : Module 4
 

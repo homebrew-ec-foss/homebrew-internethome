@@ -33,7 +33,7 @@ ls -l
 ls -a -l OR la -l
 ```
 ### cd
-```
+```py
 # Basic use : 
 cd
 # cd to current users home directory 
@@ -50,7 +50,7 @@ cd ~/.fzf
 ./isntall 
 ```
 ### mkdir
-```
+```py
 # basic use : 
 mkdir <folder name> 
 # Creating multiple folder
@@ -71,7 +71,7 @@ requirements.
 
 
 ### Jobs Commands:
-```
+```py
 jobs
 #  To display the process ID or jobs for the job whose name begins with “p,”Alternatively, we can use **jobs %p** !!
 jobs -p %p 
@@ -89,7 +89,7 @@ type -a jobs OR command -V jobs
 **How do I list only processes that have changed status since the
 last notification?**
 
-```
+```py
 # Start new job
 sleep 100 &
 # Show jobs that have stopped or exited since last notified.
@@ -99,7 +99,7 @@ jobs -n**
 ## grep,wget,zip,unzip,tar : Module 6
 
 ### grep
-```
+```py
 # basic
 cat <file> | grep <something>
 # number of instances
@@ -108,7 +108,7 @@ cat <file> | grep -c <something>
 cat <file> | grep -i <something>
 ```
 ### wget/curl
-```
+```py
 # wget basic
 wget <website-name>
 # recursive download
@@ -118,7 +118,7 @@ wget <image-url> >> <image-name>
 ```
 ### tar, zip , unzip
 - tar
-```
+```py
 # Create tar Archive File in Linux
 tar -cvf <tar-file>.tar <tar-dir>
 # Create gzip Archive File in Linux
@@ -129,7 +129,7 @@ tar -xvf <tar-file>.tar
 tar -xvf <gzip-file>.tar.gz
 ```
 - zip
-```
+```py
 # Basic
 zip <myfile>.zip <filename>.txt
 # Remove the file from archive
@@ -140,7 +140,7 @@ zip –u <filename>.zip <new-file>.txt
 zip –m <filename>.zip <file>.txt
 ```
 - unzip
-```
+```py
 # Basic
 unzip <file>.zip
 # Unzip to a different directory

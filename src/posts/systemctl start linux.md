@@ -54,7 +54,7 @@ cd to current users home directory
 ```
 cd ~/
 ```
-cd to move one directiry up 
+cd to move one directory up 
 ```
 cd ..
 ```
@@ -71,7 +71,7 @@ Change directory using relative paths
 ```
 cd ./path/to/some/folder/from/pwd 
 ```
-Installiog FZF 
+Installing FZF 
 ```
 git clone https:github.com/junegunn/fzf.git ~/.fzf
 cd ~/.fzf 
@@ -96,7 +96,7 @@ mkdir -p dir_1/sub_dir_1
 
 #### Touch 
 
-So what exactly is the touch command? If we ask the man pages, we get "changes file stamps". This is something where even seasoned linux user go wrong. touch DOES not create files for you, it modifies the time stamp on those files.
+So what exactly is the touch command? If we ask the man pages, we get "changes file stamps". This is something where even seasoned linux user go wrong.Touch DOES not create files for you, it modifies the time stamp on those files.
 
 These time stamps should have been observed in the previous module in the command `ls -a -l`. Even though touch is to modify time stamps it is rarely used so. 
 
@@ -105,11 +105,11 @@ changes time stamp is file exists, else creates new file
 ```
 touch <file_name>
 ```
-what if you dont want it creating new files? 
+what if you don't want it creating new files? 
 ```
 touch -c <file_name>
 ```
-what if you want to only change the acess time stamp? 
+what if you want to only change the access time stamp? 
 ```
 touch -a <file_name> 
 ```
@@ -128,19 +128,19 @@ The permission system in linux is quite a beautiful thing. But before we can lea
 
 There can be many users accessing a single computer and its files. These users can be part of `groups`. `superuser` is another user in every system that has no restriction to any file.
 
-whenever one uses `sudo`, they are doing the commands as if they are the `superuser` and begin able to do commands as super users naturally needs a password. `sudo` is analogous to administrator in windows but much more secure and useful.
+Whenever one uses `sudo`, they are doing the commands as if they are the `superuser` and begin able to do commands as super users naturally needs a password. `sudo` is analogous to administrator in windows but much more secure and useful.
 
 To ones using our repl session, all commands are executed  superuser without any password.
 
 Now we are prime to learn permissions, get those binary thinking hats on! 
 
-for any given folder or file we have three types of access: 
+For any given folder or file we have three types of access: 
 ```
 read write execute  (rwx, remember the order its important)
 ```
 for any given access types, 1 is used if allowed, 0 if not 
 
-so if user has read and execute permissions : 
+So if user has read and execute permissions : 
 ```
 
  rwx 
@@ -156,12 +156,12 @@ and now finally, say the current owner get all permission, other in his group al
 ```
 
    user group other 
-   rwx   rwx   --x 
+   rwx   rwx   ---
    7     7     0   => 770
 ```
 
 You now know how to calculate linux permissions! Congratulations.
-so how do we set these permissions? 
+So how do we set these permissions? 
 
 we use : `chmod`
 #### chmod 
@@ -174,7 +174,7 @@ We can also use relative path, no restrictions.
 It is always advised to execute chmod as `superuser`
 
 We can also change the owner of the file using `chown`, which I wont be covering in this module!
-There us quite a bit more to the linux permissions system, but that all for now. Onto the next module.
+There is quite a bit more to the linux permissions system, but that all for now. Onto the next module.
 
 ## Jobs : Module 4
 

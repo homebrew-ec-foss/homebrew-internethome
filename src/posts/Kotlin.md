@@ -11,7 +11,7 @@ author_name: Manab Kumar Biswas
 
 **Java**, alongside a few other frameworks has been the industry standard for building applications that run on multiple platforms - Mobile, PC's, Web Applications and loads more. But, something changed at [**Google I/O 2017**](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjo2abj8eL2AhVPldgFHRJfAmYQwqsBegQIFRAB&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DCNLVZjBE08g&usg=AOvVaw15-zzYHlOWBwEM2BexVhTH); **Kotlin** was made the officially supported language for Android App Dev. 
 
-![Kotlin vs Java](/images/Kotlin vs Java.png)
+![Kotlin vs Java](../images/KotlinvsJava.png)
 
 Put on your reading glasses, as we take a deep dive into why Kotlin makes your *App Dev* experience smooooooth.
 
@@ -62,11 +62,11 @@ Kotlin provides for complete interoperability with Java, which means you can use
 
 *Tip: [Android Studio](https://developer.android.com/studio) gives you the ability to convert Java Code to Kotlin or vice versa ! Simply paste Java/Kotlin code onto the IDE and click on the prompt to see the magic happen !!*
 
-![Java Kotlin Interoperability](/images/Java Kotlin Interoperability.png)
+![Java Kotlin Interoperability](../images/JavaKotlinInteroperability.png)
 
 *Pro Tip: Android Studio also gives you the ability to decompile Kotlin Code into Java. On the Menu Bar, navigate to **Tools->Kotlin->Decompile Kotlin to Java** and see the magic happen !*
 
-![Decompile To Java](/images/Decomplie To Java.png)
+![Decompile To Java](../images/DecompileToJava.png)
 
 Well, there are tons of other reasons as to why Kotlin should make it to your *Most Used Languages List*, but we'd like to call it an end here. ***Happy reading!***
 

@@ -26,7 +26,22 @@
       <h3 class="post-list__title">
         <a href="{{ post.url }}">{{ post.data.title }}</a>
       </h3>
-      <a href="{{ post.data.author_link }}"> {{ post.data.author_name }}</a>
+      {% if post.data.author_link %}
+        <a href="{{ post.data.author_link}}"> {{ post.data.author_name }}</a>
+      {% else %}
+        {% set linked = false %}
+        {%- for member in collections.inner_members -%}
+            {% if member.data.name==post.data.author_name %}
+                <a href="{{ member.data.github }}"> {{ post.data.author_name }}</a>
+                {% set linked=true %}
+            {% endif %}
+        {%- endfor -%}
+        {% if linked==false %}
+            <a href="{{ "/" }}" style="pointer-events: none"> {{ post.data.author_name }}</a>
+        {% endif %} 
+
+      {% endif %}
+
       <p class="post-list__excerpt">{{ post.templateContent | excerpt | safe  }}</p>
 
       <a class="post-list__read-more" href="{{ post.url }}">read article</a>

@@ -1,49 +1,140 @@
 ---
-title: Systemctl start linux
+title: systemctl start linux
 date: '2022-04-15'
 tags: [linux,workshop]
 decription: Your cheat sheet for linux commands!
 permalink: posts/{{ title | slug }}/index.html
-author_name: Mentor team
+author_name: The Mentors of Hackerspace PESUECC
 author_link: /members
 ---
-# systemctl start linux 
 
-By hackerspace mentor team. This blog comprises of the content taught and learnt during our offline event `systemctl start linux`.
+## README!
 
+Welcome to `systemctl start linux`! This is our very first workshop on the wonderful, enchanting world of Linux, and we're here to hold your hand through the process of exploring this world yourself.
 
-## ls,cd,mkdir : Module 1 
+This post serves as a standing reference for the workshop (and later)! Feel free to come back here and refer to the content as you please.
 
-### ls 
-Basic PWD : prints current working directory 
+If you've got more doubts, or if you'd like to just nerd out about how cool this stuff is, Make sure you join the [Homebrew By Hackerspace PESUECC Discord]()!
+
+Ready? Here we go!
+
+I'd like to welcome you to the Linux Operating System! Every single line of code you use here has been contributed as an effort by people around the globe, working for the public good. Then again, Linux isn't the power user's choice for no reason - we're here to show you why it's a favorite.
+
+So, you wake up, and you're in a strange place. All you have with you is a computer, with a single character on it -
+
 ```bash
-pwd
-``` 
-Basic usage of ls : 
-```bash
-ls 
+$ 
 ```
+
+Say Hi to Shelly, your friendly neighborhood UNIX Shell! 
+
+> What the hell is a shell?
+
+A shell is nothing but a text-based interface for you to use your beloved computer. Think of the shell as your really smart friend who prefers texting over anything else, and thus, wants only to speak via text. This seems silly at the moment, but trust me, you'll see why this is an advantage at times!
+
+The Shell works as a REPL - a Read, Edit, Print Loop - where you 
+- Read what the shell says
+- Edit or write a command or collection of commands to the shell
+- read the output Printed by the shell
+- Loop until you're done
+
+The shell works on a collection (and combination) of commands, some of which you will explore today.
+
+> Remember! If you're ever confused about a command, simply type into your shell -
+
+> `$ man <command>`
+
+> This opens up the in-built help system, known as Manual Pages!
+
+## 0 - What is this place?
+- Covered - `clear`, `pwd`, `whoami`, Directories, and Expansion
+
+### whoami
+
+What is this place? *Who am I*, you wonder? Out of **instinct**, you type that into your computer..
+
+```bash
+$ whoami
+someone_really_cool
+```
+
+The `whoami` command tells you, simply put, who you are on the computer! Think of this is the way you ask if Shelly knows you. For more information, refer to `man whoami`!
+
+### pwd
+
+Good! Now that we know where we are, it's time to find out where in the computer we are! 
+
+> But Why?
+
+That's an excellent question! In Linux, [everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file#:~:text=Everything%20is%20a%20file%20describes,bytes%20exposed%20through%20the%20filesystem). Given this, it's essential to know where you are so you don't modify the wrong file by mistake, and say, accidentally get rid of the computer's ability to adjust brightness (not kidding, see `/sys/class/backlight/`).
+
+How this actually works isn't something we'll cover in this workshop, but in essence, everything - network interfaces, displays, mice, keyboards, WiFi Adapters, Gaming Controllers, Processes, Hard Drives - to Linux, they're all files! You can read more about this [here](https://www.linux.com/training-tutorials/linux-filesystem-explained/).
+
+A *collection of files* is known, as you know, as a *folder*. The formal term for the same is *directory*.
+
+The place you're currently located in Linux is always known as the *working directory*. To find out where we are, we can use the `pwd` (`p`rint `w`orking `d`irectory) command.
+
+```bash
+$ pwd
+/home/anirudh
+```
+
+### clear
+
+Lastly, before you start the next module, we'll show you how to make sure you don't get lost in the text on the terminal! Key in -
+```
+$ clear
+```
+
+And the screen should be empty, save for out friendly neighbourhood prompt `$`!
+
+
+## 1 - `ls`, `cd`, `mkdir`
+
+### `pwd`
+
+Basic PWD : prints current working directory 
+
+```bash
+$ pwd # shows you the current working directory
+```
+
+### `ls`
+
+Basic usage of ls : 
+
+```bash
+$ ls 
+```
+
 Lists all files, hidden files and folder too 
 ```bash 
-ls -a 
-``` 
-Lists contents of directory given an "absolute" path 
-```bash 
-ls /path/to/some/folder/from/root
+$ ls -a 
 ```
+
+Lists contents of directory given an "absolute" path 
+
+```bash 
+$ ls /path/to/some/folder/from/root
+```
+
 Lists contents of directory given an "relative" path originating from PWD 
 ```bash 
-ls ./path/to/some/folder/from/pwd
+$ ls ./path/to/some/folder/from/pwd
 ```
+
 Gives permissions and last modified of all normal contents of the directory 
 ```bash 
-ls -l 
+$ ls -l 
 ```
+
 Any of these can be combined with each other with some obviously logic, like : 
 List permissions and last modified for all contents including hidden 
+
 ```bash 
-ls -a -l OR la -l
+$ ls -a -l OR la -l
 ```
+
 ### cd
 
 Basic use : 

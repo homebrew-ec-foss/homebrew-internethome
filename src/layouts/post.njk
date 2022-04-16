@@ -5,6 +5,23 @@ layout: base.njk
 <article class="post">
   <header class="post__header">
     <h1>{{ title }}</h1>
+
+      Written By {% if author_link %}
+        <a href="{{ author_link}}"> {{ author_name }}</a>
+      {% else %}
+        {% set linked = false %}
+        {%- for member in collections.inner_members -%}
+            {% if member.data.name==author_name %}
+                <a href="{{ member.data.github }}"> {{ author_name }}</a>
+                {% set linked=true %}
+            {% endif %}
+        {%- endfor -%}
+        {% if linked==false %}
+            <a href="{{ "/" }}" style="pointer-events: none"> {{ author_name }}</a>
+        {% endif %} 
+
+      {% endif %}
+
     <div class="post__details">
       <time datetime="{{ page.date | htmlDateString }}">
         {{ page.date | readableDate }}

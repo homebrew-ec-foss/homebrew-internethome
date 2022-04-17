@@ -1,13 +1,13 @@
 {
-  "name": "Homebrew PESUECC",
-  "description": "Eleventy Duo is a minimal and beautiful Eleventy theme for personal blogs.",
+  "name": "Homebrew | Hackerspace PESUECC",
+  "description": "Homebrew is the destination FOSS community in PESU Univertsity created and managed by Hackerspace PESUECC",
   "url": "https://eleventyduo.netlify.app",
   "author": {
     "name": "Author Name",
     "email": "author@site.com",
     "twitterHandle": "author_handle"
   },
-  "defaultSocialImage": "/images/default-social-image.png",
+  "defaultSocialImage": "/images/nav-logo.png",
   "headerLinks": [
     {
       "text": "Home",

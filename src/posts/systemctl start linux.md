@@ -91,7 +91,7 @@ And the screen should be empty, save for out friendly neighbourhood prompt `$`!
 
 ## 1 - `ls`, `cd`, `mkdir`
 
-### `pwd`
+### pwd 
 
 Basic PWD : prints current working directory 
 
@@ -99,7 +99,7 @@ Basic PWD : prints current working directory
 $ pwd # shows you the current working directory
 ```
 
-### `ls`
+### ls
 
 Basic usage of ls : 
 
@@ -139,51 +139,51 @@ $ ls -a -l OR la -l
 
 Basic use : 
 ```bash 
-cd
+$ cd
 ```
 cd to current users home directory 
 ```bash 
-cd ~/
+$ cd ~/
 ```
 cd to move one directory up 
 ```bash 
-cd ..
+$ cd ..
 ```
 Change directory to root directory : 
 ```bash 
-cd /
+$ cd /
 ```
 Change directory using absolute paths 
 
 ```bash 
-cd /path/to/some/folder/from/root
+$ cd /path/to/some/folder/from/root
 ```
 Change directory using relative paths
 ```bash 
-cd ./path/to/some/folder/from/pwd 
+$ cd ./path/to/some/folder/from/pwd 
 ```
 Installing FZF 
 ```bash 
-git clone https:github.com/junegunn/fzf.git ~/.fzf
-cd ~/.fzf 
-./isntall 
+$ git clone https:github.com/junegunn/fzf.git ~/.fzf
+$ cd ~/.fzf 
+$ ./isntall 
 ```
 
 ### mkdir
 basic use : 
 ```bash 
-mkdir <folder name> 
+$ mkdir <folder name> 
 ```
 Creating multiple folder
 ```bash 
-mkdir dir_1 dir_2 
+$ mkdir dir_1 dir_2 
 ```
 Creating directories withing directories 
 ```bash
-mkdir -p dir_1/sub_dir_1
+$ mkdir -p dir_1/sub_dir_1
 ```
 
-## touch and permissions : Module 2 
+## 2 - touch and permissions 
 
 #### Touch 
 
@@ -191,26 +191,26 @@ So what exactly is the touch command? If we ask the man pages, we get "changes f
 
 These time stamps should have been observed in the previous module in the command `ls -a -l`. Even though touch is to modify time stamps it is rarely used so. 
 
-basic use : 
+Basic use : 
 changes time stamp is file exists, else creates new file 
 ```bash 
-touch <file_name>
+$ touch <file_name>
 ```
 what if you don't want it creating new files? 
 ```bash 
-touch -c <file_name>
+$ touch -c <file_name>
 ```
 what if you want to only change the access time stamp? 
 ```bash 
-touch -a <file_name> 
+$ touch -a <file_name> 
 ```
 and if you want to modify only modification time stamp 
 ```bash 
-touch -m <file_name>
+$ touch -m <file_name>
 ```
 Soooo, how do u see those time stamps?
 ```bash 
-stat <file_name> 
+$ stat <file_name> 
 ```
 
 #### Permissions 
@@ -258,7 +258,7 @@ we use : `chmod`
 #### chmod 
 Basic usage : 
 ```bash 
-sudo chmod 770 /absolute/path/to/some/folder/or/file 
+$ sudo chmod 770 /absolute/path/to/some/folder/or/file 
 ```
 We can also use relative path, no restrictions.
 
@@ -268,7 +268,7 @@ We can also change the owner of the file using `chown`, which I wont be covering
 There is quite a bit more to the linux permissions system, but that all for now. Onto the next module.
 
 
-## Pipes and Redirection  
+## 3 - pipes and Redirection  
   
 * A normal logic of any computer program is a set of instructions which manipulates given **inputs** to give a specific **output** and give any **errors** if any  
   
@@ -338,7 +338,7 @@ uwuwuwuwuwuwuw
 ```    
 
 
-## Jobs : Module 4
+## 4 - Jobs 
 
 ### What is Job control?
 
@@ -352,27 +352,27 @@ requirements.
 ### Jobs Commands:
 Basic usage : 
 ```bash 
-jobs
+$ jobs
 ```
 To display the process ID or jobs for the job whose name begins with “p,”Alternatively, we can use **jobs %p** !!
 ```bash 
-jobs -p %p 
+$ jobs -p %p 
 ```
  Information about each job 
 ```bash 
-jobs -l
+$ jobs -l
 ```
 Display jobs with PID's only 
 ```bash 
-jobs -p
+$ jobs -p
 ```
 Currently running jobs
 ```bash 
-jobs -r
+$ jobs -r
 ```
 Jobs that have stopped 
 ```bash 
-jobs -s
+$ jobs -s
 type -a jobs OR command -V jobs
 ```
 
@@ -381,91 +381,177 @@ last notification?**
 
 ```bash 
 # Start new job
-sleep 100 &
+$ sleep 100 &
 # Show jobs that have stopped or exited since last notified.
-jobs -n**
+$ jobs -n**
+```
+## 5 - fg, bg, ps & kill 
+
+##### *Why do we need fg and bg processes ?*
+
+### bg
+- `help bg`  - Introduction to bg
+- `bg [ job_spec ]` - Create a Simple Job and run command
+- **[ job_spec ]** - Explain different types of job_spec with examples
+
+Current Job
+```bash
+$ bg %+
+```
+Previous Job
+```bash
+$ bg %-
+```
+Job Number
+```bash
+$ bg %1
+```
+Job Initiation Command (Starts with)
+```bash 
+$ bg %s
+```
+Job Initiation Command (Contains)
+```bash
+$ bg %?s 
 ```
 
-## grep,wget,zip,unzip,tar : Module 6
+### fg
+- `help fg` - Introduction to fg
+- `fg [ job_spec]` - Create a Simple Job and run command
+- **[ job_spec ]** - Explain different types of job_spec with examples
+
+Current Job
+```bash
+$ fg %+
+```
+Previous Job
+```bash 
+$ fg %-
+```
+Job Number
+```bash 
+$ fg %1
+```
+Job Initiation Command (Starts with)
+```bash 
+$ fg %s
+```
+Job Initiation Command (Contains)
+```bash 
+$ fg %?s 
+```
+
+##### *Jobs? Processes? - Differentiate*
+
+### ps
+- Introduction
+- `ps [ options ]` - Run command & Explain various fields
+	- **PID** - Process ID
+	- **TTY** - Terminal Type 
+	- **TIME** - Process run time on CPU
+	- **CMD** - Command name which initiated the process
+- `ps --help a` - Summarize all options.
+
+### kill
+- `help kill` - Introduction
+- `kill pid` - Run command after creating a process/job
+- Explain various options observed in help kill.
+
+List of Kill Signals
+```bash
+$ kill -l
+```
+Specify a signal name to be sent to kill a process
+```bash
+$ kill -s <pid>
+```
+specify a signal number to be sent to kill a process 
+```bash
+$ kill -n <pid>
+```
+
+
+
+## 6 - grep,wget,zip,unzip,tar 
 
 ### grep
 basic
 ```bash 
-cat <file> | grep <something>
+$ cat <file> | grep <something>
 ```
 number of instances
 ```bash 
-cat <file> | grep -c <something>
+$ cat <file> | grep -c <something>
 ```
 case intensive
 ```bash 
-cat <file> | grep -i <something>
+$ cat <file> | grep -i <something>
 ```
 ### wget/curl
 wget basic
 ```bash 
-wget <website-name>
+$ wget <website-name>
 ```
 recursive download
 ```bash 
-wget --recursive <website-name>
+$ wget --recursive <website-name>
 ```
 Store a file
 ```bash 
-wget <image-url> >> <image-name>
+$ wget <image-url> >> <image-name>
 ```
 ### tar, zip , unzip
 #### tar
 
 Create tar Archive File in Linux
 ```bash 
-tar -cvf <tar-file>.tar <tar-dir>
+$ tar -cvf <tar-file>.tar <tar-dir>
 ```
 Create gzip Archive File in Linux
 ```bash 
-tar cvzf <gzip-file>.tar.gz <gzip-dir>
+$ tar cvzf <gzip-file>.tar.gz <gzip-dir>
 ```
 Untar tar files in Current Directory
 ```bash 
-tar -xvf <tar-file>.tar
+$ tar -xvf <tar-file>.tar
 ```
 Unzip gzip files in Current Directory
 ```bash 
-tar -xvf <gzip-file>.tar.gz
+$ tar -xvf <gzip-file>.tar.gz
 ```
 #### zip
 Basic
 ```bash 
-zip <myfile>.zip <filename>.txt
+$ zip <myfile>.zip <filename>.txt
 ```
 Remove the file from archive
 ```bash 
-zip –d <filename>.zip <file>.txt
+$ zip –d <filename>.zip <file>.txt
 ```
 Update the file from archive
 ```bash 
-zip –u <filename>.zip <new-file>.txt
+$ zip –u <filename>.zip <new-file>.txt
 ```
 Delete orginal files after zipping
 ```bash 
-zip –m <filename>.zip <file>.txt
+$ zip –m <filename>.zip <file>.txt
 ```
 
 #### unzip
 
 Basic
 ```bash 
-unzip <file>.zip
+$ unzip <file>.zip
 ```
 Unzip to a different directory
 ```bash 
-unzip <filename>.zip -d </path/to/directory>
+$ unzip <filename>.zip -d </path/to/directory>
 ```
 Use password to unzip
 ```bash 
-unzip -P <password> <filename>.zip
+$ unzip -P <password> <filename>.zip
 ```
 Exclude some files
 ```bash 
-unzip <filename>.zip -x <file1-to-exclude> <file2-to-exclude>
+$ unzip <filename>.zip -x <file1-to-exclude> <file2-to-exclude>
 ```

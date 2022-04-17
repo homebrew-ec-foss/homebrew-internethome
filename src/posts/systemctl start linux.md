@@ -91,7 +91,9 @@ And the screen should be empty, save for out friendly neighbourhood prompt `$`!
 
 ## 1 - `ls`, `cd`, `mkdir`
 
+
 ### pwd 
+
 
 Basic PWD : prints current working directory 
 
@@ -469,8 +471,6 @@ specify a signal number to be sent to kill a process
 ```bash
 $ kill -n <pid>
 ```
-
-
 
 ## 6 - grep,wget,zip,unzip,tar 
 

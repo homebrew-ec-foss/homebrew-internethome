@@ -11,6 +11,8 @@
   --text-6xl: 5rem;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Roboto:wght@300&display=swap');
+
 body {
   font-size: var(--text-lg);
   line-height: 1.54;
@@ -21,7 +23,8 @@ body {
   font-variant-ligatures: contextual;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
-  font-family:"IBM Plex Sans", 'Alegreya', sans-serif;
+  font-family: 'IBM Plex Sans', 'Roboto', sans-serif;
+  /* font-family:"IBM Plex Sans", 'Alegreya', sans-serif; */
 }
 
 h1,

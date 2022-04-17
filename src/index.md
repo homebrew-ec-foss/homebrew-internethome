@@ -1,6 +1,6 @@
 ---
 layout: home
-title: 'Eleventy Duo'
+title: 'Homebrew | hackerspace PESUECC'
 ---
 
 # Homebrew FOSS by HackerSpace PESUECC

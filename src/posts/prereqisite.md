@@ -6,9 +6,9 @@ description: Prerequisite and dependencies for the 11ty Workshop
 permalink: posts/{{ title | slug }}/index.html
 author_name: Saksham Alok
 ---  
-# Prerequisites
 
-The Dependencies of these courses are mentioned below 
+
+The Dependencies of the workshop are mentioned below 
 
 
 

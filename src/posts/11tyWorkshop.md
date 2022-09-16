@@ -110,3 +110,8 @@ If you want to speed up your build times a bit you can add the generated images 
 The UX of this template is based on the popular Chirpy template, just with a different tech stack. If you prefer to run Jekyll and Bootstrap, checkout [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) here. It's great.
 
 Also big thanks to the the authors of the [11ty High Performance Blog](https://github.com/google/eleventy-high-performance-blog).
+
+## Some Extra Resources
+
+- [Readme Generator](https://rahuldkjain.github.io/gh-profile-readme-generator/)
+- [Grid generator](https://cssgrid-generator.netlify.app/)

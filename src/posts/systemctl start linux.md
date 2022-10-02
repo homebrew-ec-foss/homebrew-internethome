@@ -164,11 +164,11 @@ Change directory using relative paths
 ```bash 
 $ cd ./path/to/some/folder/from/pwd 
 ```
-Installing FZF 
-```bash 
-$ git clone https:github.com/junegunn/fzf.git ~/.fzf
+Installing FZF
+```bash
+$ git clone https://github.com/junegunn/fzf.git ~/.fzf
 $ cd ~/.fzf 
-$ ./isntall 
+$ ./install 
 ```
 
 ### mkdir

@@ -1,5 +1,5 @@
 ---
-tags: inner_members 
+tags: members 
 name: Mukund Deepak 
 github: https://github.com/mukunddeepak
 email: mailto:filler

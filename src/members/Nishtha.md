@@ -1,5 +1,5 @@
 ---
-tags: members
+tags: outer_members
 name: Nishtha P
 github: https://github.com/nishtha981
 email: mailto:nishthap981@gmail.com

@@ -1,5 +1,5 @@
 ---
-tags: outer_members
+tags: members
 name: Vishwa Mehta
 github: https://github.com/Vishwa-Mehta
 email: mailto:vishwamehta2002@gmail.com

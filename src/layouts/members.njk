@@ -2,9 +2,9 @@
 layout : base
 ---
 
-<h2>Members</h2>
+<h2>Inner Members</h2>
 <ol>
-    {%- for member in collections.members -%}
+    {%- for member in collections.inner_members -%}
     <li><p class="member_name">{{ member.data.name }}</p></li>
     <p class="p_contacts">Contacts :</p>
     <ul class="member_contacts_heading">
@@ -15,3 +15,15 @@ layout : base
     {%- endfor -%}
 </ol>
 
+<h2>Outer Members</h2>
+<ol>
+    {%- for member in collections.outer_members -%}
+    <li><p class="member_name">{{ member.data.name }}</p></li>
+    <p class="p_contacts">Contacts :</p>
+    <ul class="member_contacts_heading">
+        <li class="member_contacts"><a href="{{ member.data.github }}">GitHub</a></li>
+        <li class="member_contacts"><a href="{{ member.data.email }}">Email</a></li>
+        <li class="member_contacts"><a href="{{ member.data.instagram }}">Instagram</a></li>
+    </ul>
+    {%- endfor -%}
+</ol>

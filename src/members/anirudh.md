@@ -1,5 +1,5 @@
 ---
-tags: members 
+tags: inner_members 
 name: Anirudh Rowjee
 github: https://github.com/anirudhRowjee
 email: mailto:ani.rowjee@gmail.com

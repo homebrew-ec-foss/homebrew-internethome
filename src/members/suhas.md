@@ -1,5 +1,5 @@
 ---
-tags: inner_members 
+tags: members 
 name: Suhas KV
 github: https://github.com/suhaskv1
 email: mailto:suhaskv0111@gmail.com

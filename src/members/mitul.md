@@ -1,5 +1,5 @@
 ---
-tags: outer_members 
+tags: members 
 name: Mitul Joby
 github: https://github.com/Mitul-Joby
 email: mailto:mitul.joby@gmail.com

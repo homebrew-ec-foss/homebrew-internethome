@@ -42,13 +42,19 @@ _Uh, not very descriptive, is it?_ I found myself confused when I started with L
 
 ![ubuntu desktop](https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_555,h_311/https://ubuntu.com/wp-content/uploads/42e9/desktop_busy.png)
 
-The moment you talk about Linux, there is always a mention of Ubuntu. It's almost as if Ubuntu IS Linux and based on how it's blindly recommended to beginners, I wouldn't blame you to think Ubuntu is Linux. However, we do not recommend it to beginners. Yes. We do not recommend it. Why? Because Ubuntu has recently made compulsory this thing called `snaps`. `snaps` are a containerized way to install packages. Since there are so many different distributions, it is difficult to package apps differently for all the different distros. `snaps` are a one-size-fits-all solution to this but since snap applications run in a similar way to running a virtual machine on your computer, it is VERY VERY VERY slow 🐌. And trust me when I say slow, a beefy specced-up computer can also take about 5-7 seconds to start up firefox or chrome. When this thing happens across all apps on your system, your system just starts feeling so slow and sluggish that you just want to throw your computer out the window.
+The moment you talk about Linux, there is always a mention of Ubuntu.
+
+> For people who do not know what Ubuntu is, it is a linux distro that is recommended to linux beginners blindly. Ubuntu used to be a really great beginners distrubution and honestly, it was my first distro too. Unfortunately, it isn't anymore and the reasons are explained below 
+
+It's almost as if Ubuntu IS Linux and based on how it's blindly recommended to beginners, I wouldn't blame you to think Ubuntu is Linux. However, we do not recommend it to beginners. Yes. We do not recommend it. Why? Because Ubuntu has recently made compulsory this thing called `snaps`. `snaps` are a containerized way to install packages. Since there are so many different distributions, it is difficult to package apps differently for all the different distros. `snaps` are a one-size-fits-all solution to this but since snap applications run in a similar way to running a virtual machine on your computer, it is VERY VERY VERY slow 🐌. And trust me when I say slow, a beefy specced-up computer can also take about 5-7 seconds to start up firefox or chrome. When this thing happens across all apps on your system, your system just starts feeling so slow and sluggish that you just want to throw your computer out the window.
 
 However, if you ignore snaps, Ubuntu is a good option for people who are not a lot familiar with Linux and are just starting. I say this because there is really good documentation available online for Ubuntu. What this means is that if you run into any kind of problem, it's easy to just Google it and someone or the other would have had the same problem as you (99% of the time). For the remaining 1%, you can always post on the `forums` or stack overflow.
 
 Link to Ubuntu Forums: <a href = "https://ubuntuforums.org" target="_blank">Ubuntu Forums</a> and <a href = "https://askubuntu.com" target = "_blank">Ask Ubuntu</a>
 
 >`Forums` are like communities of people using the same software. It's a common platform for all of these people to talk and ask questions. Think of it similar to a discord server but it's a website on its own and it's a bit more organised.
+
+![pros and cons ubuntu](https://i.imgur.com/q0i1WtJ.png)
 
 ### Linux Mint
 ![linux mint desktop](https://www.linuxmint.com/pictures/screenshots/vanessa/thumb_cinnamon.png)
@@ -63,6 +69,7 @@ Linux Mint also offers a lighter desktop environment, and what this means is tha
 >A `Desktop Environment` is a piece of software that defined how your GUI feels. It consists of icons, cursor themes, windows, toolbars, docks, wallpapers, desktop widgets, etc. It consists of a window manager and all the GUI components. Examples include GNOME, KDE, LXDE, etc. Some advanced Linux users might choose to go for only a <a href = "https://en.wikipedia.org/wiki/Tiling_window_manager" target = "_blank">tiling window manager</a> for increased productivity but that is a whole different topic. 
 
 It also uses the same software repository as Ubuntu. So, every app that was packaged for Ubuntu, can be installed on Linux Mint without any problems. This means that you do not have to worry about the availability of software to install. 
+![Pros and cons linux mint](https://i.imgur.com/pOghY7B.png)
 
 ### Zorin OS
 
@@ -81,6 +88,8 @@ Overall, Zorin OS is stable as a rock: has very few bugs, has an amazing <a href
 >`dual booting` is when you have BOTH Linux and windows on your system. At a given instance, only one of these can be running though. These two operating systems reside on 2 different parts of your drive(hard drive or SSD). It is important to be careful while partitioning your drive for this kind of set-up as it's very easy to mess something up and leave your system in a bricked state. Zorin OS provides an option in its installer to easily partition your drive for windows and Linux and takes care of the rest for you.
 
 You can check out Zorin OS and download the ISO file <a href = "https://zorin.com/os/" target = "_blank">here</a>
+
+![pros and cons zorin](https://i.imgur.com/yLqfJKC.png)
 
 ### Fedora
 
@@ -104,6 +113,8 @@ These commands use the `apt` and `apt-get` package managers to install packages 
 
 Fedora is a modern Linux distribution, so it mostly works well on modern computers. Fedora comes with the RPM Fusion repository, which is a community-maintained repository of applications for Fedora. It makes a huge amount of apps available to install to you, even if they are not in the official repositories of Fedora. Fedora is recommended as a second distro after you get a taste of what Linux is and how it works through the other distros. There are also different <a href = "https://spins.fedoraproject.org" target = "_blank">spins</a> of Fedora available that give you different Desktop environments. I recommend the KDE Plasma Desktop for high customizability and the default Gnome Desktop if you want something that looks nice out of the box.
 
+![pros and cons fedora](https://i.imgur.com/OR6I9px.png)
+
 
 ### Pop!\_OS
 ![Pop!\_OS Desktop](https://149366088.v2.pressablecdn.com/wp-content/uploads/2022/04/pop-os-new-bits.jpg)
@@ -114,9 +125,13 @@ So what makes Pop!\_OS great for beginners? like Zorin OS, it comes with exclusi
 
 A great thing about the Pop Desktop is that it brings in `Tiling Features` by default. Tiling is a type of window manager behaviour. What most people are used to would be a Floating Window Manager. Whenever you open a window, it will just float around on the screen and it's your responsibility to move it around where you want, resize it and keep it organised. A tiling window manager takes over this job for you. It arranges all the windows in a beautiful way across your screen such that the most amount of screen real estate is used. It tiles the windows in the best way automatically and it is more keyboard-centric. This helps in productivity, especially for a programmer as you wouldn't have to constantly lift your hands off of the keyboard to the mouse to arrange windows. 
 
+![pros and cons pop!\_os](https://i.imgur.com/ELFrj1k.png)
+
 ### Elementary OS
 ![Elementary OS Desktop](https://www.debugpoint.com/wp-content/uploads/2021/08/elementary-OS-6-ODIN-Desktop.jpeg)
 The elementary OS is the most famous for its design and looks. It is the best distro for people who are migrating from Mac OS. The UI is heavily inspired by Mac OS. At its core, it is also Ubuntu based but it is powered by the Long Term Support (LTS) Editions - So you are guaranteed security updates and bug fixes for 5 years. It uses the Pantheon desktop environment(which has a very sophisticated, polished appearance). It also has a beautiful App Center for downloading the applications you need. Overall, it's one of the best distros to go to if you don't adapt to UI changes very well and are coming from MacOS. Otherwise, I'd suggest the other distros.
+
+![pros and cons elementary os](https://i.imgur.com/0SGtfQB.png)
 
 ## What Do We Recommend?
 Our recommendation goes in this order:
@@ -125,7 +140,6 @@ Our recommendation goes in this order:
 3. `Pop!_OS` - A rock stable distro with a well-designed COSMIC Desktop
 4. `Fedora` - For intermediate users looking for a change
 5. `Elementary OS` - For Mac users who don't have time for UI tweaks
-
 
 ## The other distros
 

@@ -36,6 +36,17 @@ But what if you took a little extra time to arrange it in the right position? Wo
 That’s what data structures are about. It makes the data more organised for the purpose and makes future operations on it easier and faster, provided the data is inserted in the right order (i.e., using the appropriate data structure)   
 It is very important to choose the right structure based on the need and application. We should consider which operation is done the most and choose a structure which can optimise that operation.   
 
+## Big O Notation   
+To compare the efficiency of different data structures we use something known as the Big O Notation.   
+> Big O Notation is widely used to measure the efficiency of an algorithm in terms of its time and space requirements.   
+`Time complexity` is the computation time taken for the code to execute as the input size increases.   
+`Space complexity` is the amount of memory used for its execution.   
+- Linear complexity O(n): means that for an input of size 'n' we have the code performing 'n' instructions.   
+- Quadratic complexity O(n<sup>2</sup>): means that for an input of size 'n' the code performs 'n<sup>2</sup>' instructions.   
+- Constant complexity O(1): means that for an input of size 'n' the code performs only a constant number of instructions irrespective of the size of input. This gets very efficient when the size is very large.   
+
+Now that we are clear with complexities, let's go ahead with some statistics.   
+
 ## Let's take a simple example:
 ->You want to search for some of your favourite books in your large collection of books(example of insert once, search multiple times)
 
@@ -53,16 +64,25 @@ You have now reduced the time complexity to `O(log2n)` [logarithmic time complex
 
 Here is where the matter of which operation is performed the most comes into play, in this example sorting would be done once but we are doing search operation multiple times, in the long run Binary search proves to be more efficient than linear search.
 
-### Approach 3:Using **Hashmaps** (the most efficient for unique data)   
+### Approach 3:Using **Hashmap or Hashset** (the most efficient for unique data)   
 Now hashmaps is a data structure that can be used for unique data or data with unique keys.    
 If your library racks had a number for each position and you were able to find a unique value(called hash value) for each book using some function(called hash function) then you can place it in that position. Now when you want to search for your book all you have to do is find the hash value from the hash function and go to that position and take your book.   
 We have now found a way to search the book in constant time independant of your total number of books.   
 This is called constant time complexity, denoted by `O(1)`.   
 
+Hashset is similar to hashmap except the fact that hashmap always points to an unique key(has key-value pairs) but hashset can have same hashcode(stored as object, no key-value pairs) for two elements leading to collisions.This is why hashmaps are faster than hashsets.   
+<br/>
+<br/>
+Time taken for 10<sup>6</sup> search queries in a dataset of 10<sup>4</sup> unique elements   
+
+Click on output to view code   
+[![Sample statistic output](https://user-images.githubusercontent.com/60323193/211066418-e0dd0d10-ecea-4ed1-9b06-8537eb5e4496.jpg)](https://user-images.githubusercontent.com/60323193/211067255-d7d674c2-eb23-4135-a91e-94726ff53bb2.jpg)
+
+
 Now that we have understood the need for Data Structures let's dive into the various types of data structures!   
 
 ### Data Structures are mainly of two types:   
-->**Linear**(Eg: list,stack,queue,hashmap(sets and dictionary in python))   
+->**Linear**(Eg: list,stack,queue,hashmap(dictionary in python),hashset(sets in python))   
 > In this type, the elements may be placed randomly or sequentially in the computer memory based on the implementation, but the access is always sequential.   
 
 ->**Non-Linear**(Eg: Tree,Graph)   

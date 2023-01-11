@@ -58,8 +58,8 @@ You had arranged all yours books in a random order in your racks. Now you will h
 
 ### Approach 2: Using **Binary Search Tree** (or binary search on sorted list
 
-Say you had arranged the books in alphabetical order. You can check the middle book first, if it comes after the name of your favourite book then search the first half, or else search the second half(known as `divide and conquer` method).   
-You have now reduced the time complexity to `O(log2n)` [logarithmic time complexity]
+Say you had arranged the books in alphabetical order. You can check the middle book first, if it comes after the name of your favourite book then search the first half, or else search the second half(known as `decrease and conquer` method).   
+You have now reduced the time complexity to `O(log n)` [logarithmic time complexity]
 > Now if you are familiar with time complexities you may question how is this efficient if it is not sorted cause major sorting techniques take a time of O(n log<sub>2</sub>n) and then an additional O(log<sub>2</sub>n) for binary search while searching linearly would take only O(n)   
 
 Here is where the matter of which operation is performed the most comes into play, in this example sorting would be done once but we are doing search operation multiple times, in the long run Binary search proves to be more efficient than linear search.
@@ -70,7 +70,7 @@ If your library racks had a number for each position and you were able to find a
 We have now found a way to search the book in constant time independant of your total number of books.   
 This is called constant time complexity, denoted by `O(1)`.   
 
-Hashset is similar to hashmap except the fact that hashmap always points to an unique key(has key-value pairs) but hashset can have same hashcode(stored as object, no key-value pairs) for two elements leading to collisions.This is why hashmaps are faster than hashsets.   
+Hashset is similar to hashmap except the fact that hashmap always points to a unique key(has key-value pairs) but hashset can have same hashcode(stored as object, no key-value pairs) for two elements leading to collisions.This is why hashmaps are faster than hashsets.   
 <br/>
 <br/>
 Time taken for 10<sup>6</sup> search queries in a dataset of 10<sup>4</sup> unique elements   
@@ -100,7 +100,7 @@ It is mostly used to implement other data structures and it offers very limited 
 A list can be implemented by two ways:   
 1. **Array**: the storage is sequential in the memory.
 2. **Linked list**: the storage in memory can be random, this can be achieved by linking the current to next with a pointer(this leads to additional memory requirement).   
-> Linked list are of various types like singly linked list, doubly linked list, circular singly linked list, etc, which are not going to be discussed in detail in this post.
+> Linked list are of various types like singly linked list, doubly linked list, circular singly linked list, etc, **which are not going to be discussed in detail in this post**.
 
 Time complexity of every structure depends on the implementation of the structure.
 #### Time complexity of lists:   
@@ -182,7 +182,7 @@ It is a tree structure which can be used for sorting (heap sort) and priority im
 
 - **B Trees**:
 It is a balanced tree which makes the execution speed to retrieve information from the disc faster by increasing the number of children.   
-> A balanced binary tree reduces the time complexity of search to O(log2n), similarly a balanced tree with 'm' child nodes can do the search in O(logmn). This forms the basis of B Trees.   
+> A balanced binary tree reduces the time complexity of search to O(log<sub>2</sub>n), similarly a balanced tree with 'm' child nodes can do the search in O(log<sub>m</sub>n). This forms the basis of B Trees.   
 
 ![B tree image](https://static.javatpoint.com/ds/images/b-tree.png)   
 

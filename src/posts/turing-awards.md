@@ -5,7 +5,7 @@ tags: [Turing Awards, media]
 description: Want to add the Oscar equivalent of Computer Science to your vision board and hopefully, to your portfolio one day? Read on to know all about it.
 author_name : Harini Anand
 ---
-Turing Awards - ACM 
+
 Have you ever wondered what the World Wide Web and Fortran have in common? Other than being pioneering innovations, they happen to stem from the cerebrums of tinkering individuals who also have the Turing Award in common. The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in computer science and is colloquially known as or often referred to as the "Nobel Prize of Computing". 
  
 The award is named after Alan Turing, who was a British mathematician and is often credited as being the key founder of theoretical computer science and artificial intelligence. The first recipient, in 1966, was Alan Perlis, of Carnegie Mellon University. The first female recipient was Frances E. Allen of IBM in 2006. The latest recipient, in 2021, is Jack Dongarra, of the University of Tennessee.

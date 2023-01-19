@@ -45,6 +45,8 @@ To compare the efficiency of different data structures we use something known as
 - Quadratic complexity O(n<sup>2</sup>): means that for an input of size 'n' the code performs 'n<sup>2</sup>' instructions.   
 - Constant complexity O(1): means that for an input of size 'n' the code performs only a constant number of instructions irrespective of the size of input. This gets very efficient when the size is very large.   
 
+_All the complexity tables discussed further are the average case complexities as worst case are the upper bound and efficiency of a structure cannot be appreciated and compared using worst case._
+
 Now that we are clear with complexities, let's go ahead with some statistics.   
 
 ## Let's take a simple example:
@@ -107,8 +109,9 @@ Time complexity of every structure depends on the implementation of the structur
 | Operation | Array implementation | Linked list implementation |
 |:---------:|:--------------------:|:--------------------------:|
 |Search     |O(n)                  |O(n)                        |
-|Insert     |O(1)                  |O(n)                        |
-|Delete     |O(1)                  |O(n)                        |   
+|Insert     |O(n)                  |O(1)                        |
+|Delete     |O(n)                  |O(1)                        |   
+|Access     |O(1)                  |O(n)                        |   
 
 Space complexity: `O(n)`
 > Space required to implement list using linked list is more precisely O(2n) due to additional pointers but it is approximated to be O(n).   
@@ -156,6 +159,16 @@ A structure which can be used to move the most recent search to the top thus mak
 - **BST**:   
 A binary tree in which the root's value is greater than each left subtree and lesser than each right subtree makes a binary search tree.Inserting is time comsuming but search complexity is logarithmic so it is used for scenarios with few insertions and multiple searches.   
 ![Binary tree vs Binary search tree](https://cdn.educba.com/academy/wp-content/uploads/2021/05/Binary-Tree-vs-Binary-Search-Tree.jpg)   
+#### Time complexity of BST:   
+| Operation | Average Time Complexity |
+|:---------:|:-----------------------:|
+|Search     |O(log<sub>2</sub>n)      |
+|Insert     |O(log<sub>2</sub>n)      |
+|Delete     |O(log<sub>2</sub>n)      |
+|Access     |O(log<sub>2</sub>n)      |   
+
+Space complexity: `O(n)`   
+<br/>
 - **Trie Tree**:   
 Trie tree (also known as prefix tree or digital tree) is a type of [k-ary](https://en.wikipedia.org/wiki/M-ary_tree) search tree which can be used for searching keys.   
 Using BST to search for a word of length M in a set of N keys then time time complexity would be `O(M*log N)`[for a well balanced BST], but using Trie we can bring it down to `O(M)`.   
@@ -193,6 +206,15 @@ This structure can be used to get the fastest search result cause it can search 
 > Collision occurs when two or more elements have the same hash value. Collision handling is done by linear probing, quadratic probing, double hashing, separate chaining or rehashing.   
 Rehashing is done when the space in the map is not enough. To maintain an optimal hashmap the load factor(load factor = number of elements/total size of hashmap) is set to 0.75 which ensures minimum collisions.   
 
+#### Time complexity of Hash Table:   
+| Operation | Average Time Complexity |
+|:---------:|:-----------------------:|
+|Search     |O(1)                     |
+|Insert     |O(1)                     |
+|Delete     |O(1)                     |
+|Access     |N/A                      |   
+
+Space complexity: `O(n)`   
 
 ### Graph   
 A graph is a set of nodes(vertices) connected by edges. A graph can be cyclic or acyclic, directed or undirected, weighted or unweighted, connected or not connected.   

@@ -10,6 +10,11 @@ author_link: https://github.com/anuragrao04
 # Introduction
 I'm sure you'd have talked to a bot at least once. Be it on discord, telegram, to a bank, or any other business for that matter. You'd be learning how to build these bots from this workshop
 
+# Prerequisites
+1. A Python 3 installation
+2. An Internet Connection
+3. A Telegram account and the Telegram app on laptop and/or phone.
+
 # Installation
 We'd be building this bot with python. We need to `pip install` a module to work with the `Telegram API` 
 Just run this on a terminal/ command prompt:
@@ -32,6 +37,7 @@ If you have trouble running this or if you are getting any errors, feel free to 
 An API, or Application Programming Interface, is like a waiter in a restaurant. Just as a waiter takes your order and brings you food from the kitchen, an API allows one software program to "talk to" another software program and retrieve information from it.
 
 For example, imagine you want to get the weather forecast for the week ahead. You open a weather app on your phone and it shows you the forecast. The app didn't come up with the forecast on its own - it used an API to request the forecast from a weather service. The API acts as a middleman, making it easy for the app to get the information it needs.
+![telegram api image](https://i.imgur.com/kaTDjeT.png)
 
 # API Keys and Tokens
 An API key and an API token are like keys or passwords that you use to access a building or a website. Just as you need a key to open the door to your house or a password to log into your email account, you need an API key or token to access a software program or service through an API.

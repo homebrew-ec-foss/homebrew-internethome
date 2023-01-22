@@ -81,7 +81,7 @@ filters
 )
 
 application = Application.builder().token(<YOUR API TOKEN HERE>).build()
-
+print("Successfully connected to Telegram API")
 async def start(update: Update, context: CallbackContext):
     await update.message.reply_text("Hello! I am a bot that is going to mimic you :)")
 
@@ -155,7 +155,7 @@ filters
 )
 
 application = Application.builder().token(<YOUR API TOKEN HERE>).build()
-
+print("Successfully connected to Telegram API")
 async def start(update: Update, context: CallbackContext):
     await update.message.reply_text("Hello! I am a bot that is going to mimic you :)")
 

@@ -236,7 +236,7 @@ ConversationHandler,
 filters
 )
 
-application = Application.builder().token("5882499182:AAGjtXn2gQiJ_o0_BwEgSe1n1f6Ybvm9SJI").build()
+application = Application.builder().token("YOUR API KEY HERE").build()
 print("Successfully connected to Telegram API")
 async def start(update: Update, context: CallbackContext):
     await update.message.reply_text("Hello! I am a bot that is going to mimic you :)")

@@ -80,7 +80,7 @@ MessageHandler,
 filters
 )
 
-application = Application.builder().token(<YOUR API TOKEN HERE>).build()
+application = Application.builder().token("YOUR API TOKEN HERE").build()
 print("Successfully connected to Telegram API")
 async def start(update: Update, context: CallbackContext):
     await update.message.reply_text("Hello! I am a bot that is going to mimic you :)")
@@ -154,7 +154,7 @@ MessageHandler,
 filters
 )
 
-application = Application.builder().token(<YOUR API TOKEN HERE>).build()
+application = Application.builder().token("YOUR API TOKEN HERE").build()
 print("Successfully connected to Telegram API")
 async def start(update: Update, context: CallbackContext):
     await update.message.reply_text("Hello! I am a bot that is going to mimic you :)")
@@ -175,3 +175,113 @@ application.run_polling()
 You can explore more of what is possible with the Telegram Bots with examples found [here](https://github.com/python-telegram-bot/python-telegram-bot/tree/master/examples)
 
 I hope you had a good, non-chaotic, and worthwhile time going through this workshop. See ya at the next one!
+
+
+# Edit: Extra Things Done In The Workshop
+We used a MessageHandler to take in a variable - The User's Name. So every message that was sent was assumed to be the name. Ideally, this is not right and you'd rather implement this using the ConversationHandler - which was beyond the scope of the workshop, But I will include the code for it for the passionate ones among you :) 
+The code that we wrote during the workshop was like so:
+
+```python
+from telegram import Update
+from telegram.ext import (
+Application,
+CallbackContext,
+CommandHandler,
+MessageHandler,
+filters
+)
+
+application = Application.builder().token("YOUR API KEY HERE").build()
+print("Successfully connected to Telegram API")
+async def start(update: Update, context: CallbackContext):
+    await update.message.reply_text("Hello! I am a bot that is going to mimic you :)")
+
+
+async def takeName(update: Update, context: CallbackContext):
+    incoming_text = update.message.text
+    context.user_data["name"] = incoming_text
+    await update.message.reply_text("Your name stored is "+incoming_text)
+
+async def tellMyName(update: Update, context: CallbackContext):
+    name = context.user_data["name"]
+    await update.message.reply_text(name)
+
+
+
+application.add_handler(CommandHandler('start', start))
+application.add_handler(MessageHandler(filters=filters.TEXT & ~filters.COMMAND, callback=takeName))
+application.add_handler(CommandHandler('tellMyName', tellMyName))
+application.run_polling()
+```
+Explanation:
+
+1. `async def takeName(update: Update, context: CallbackContext)`: This line defines a new asynchronous function named takeName which takes in two arguments update and context.
+2. `incoming_text = update.message.text`: This line assigns the text of the incoming message to the variable incoming_text.
+3. `context.user_data["name"] = incoming_text`: This line stores the value of incoming_text in the name key of the user_data dictionary in the context object. This allows the data to persist across different function calls.
+4. `await update.message.reply_text("Your name stored is "+incoming_text)`: This line sends a message to the user with the text "Your name stored is " followed by the value of the incoming_text variable, which is the name the user provided.
+In the other function of tellMyName:
+5. `name = context.user_data["name"]`: This line retrieves the value stored in the name key of the user_data dictionary in the context object.
+6. `await update.message.reply_text(name)`: This line sends a message to the user with the text of the value of the name variable, which is the name the user provided in the takeName function.
+7. Finally, we add these two function to the `application` object as command and message handlers. For the filters, we added a new filter that was `~filters.COMMAND`. This adds a filter that does not allow commands to go through.
+
+Now for the same functionality but using a `ConversationHandler`:
+```python
+from telegram import Update
+from telegram.ext import (
+Application,
+CallbackContext,
+CommandHandler,
+MessageHandler,
+ConversationHandler,
+filters
+)
+
+application = Application.builder().token("5882499182:AAGjtXn2gQiJ_o0_BwEgSe1n1f6Ybvm9SJI").build()
+print("Successfully connected to Telegram API")
+async def start(update: Update, context: CallbackContext):
+    await update.message.reply_text("Hello! I am a bot that is going to mimic you :)")
+
+
+async def tellMyName(update: Update, context: CallbackContext):
+    name = context.user_data.get("name", "not given")
+    await update.message.reply_text(name)
+
+nameState = 0
+
+
+async def askName(update: Update, context: CallbackContext):
+    await update.message.reply_text("Tell me your name")
+    return nameState
+
+async def storeName(update: Update, context: CallbackContext):
+    incoming_text = update.message.text
+    context.user_data["name"] = incoming_text
+    await update.message.reply_text(f"Your name {incoming_text} has been stored")
+    return ConversationHandler.END
+
+async def cancel(update: Update, context: CallbackContext):
+    await update.message.reply_text("Okay! Cancelled")
+    return ConversationHandler.END
+    
+
+
+
+conv_handler = ConversationHandler(
+    entry_points=[CommandHandler("askName", askName)],
+    states={
+        nameState: [MessageHandler(filters.TEXT and ~filters.COMMAND, storeName)]
+    },
+    fallbacks=[CommandHandler("cancel", cancel)]
+)
+
+application.add_handler(conv_handler)
+application.add_handler(CommandHandler('start', start))
+application.add_handler(CommandHandler('tellMyName', tellMyName))
+application.run_polling()
+```
+Here's how that works:
+![program output](https://i.imgur.com/ez2EKCX.png)
+
+Now for the explanation of how this program works, I'd suggest you to go through the documentation for python-telegram-bot. A huge part of being a programmer is reading and making good documentation. [here](https://docs.python-telegram-bot.org/en/stable/telegram.ext.conversationhandler.html) is the documentation for the `ConversationHandler` on python-telegram-bot.
+
+Thanks for reading through :)

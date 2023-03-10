@@ -5,9 +5,9 @@ tags: [python, complier]
 description: Follow along article to Complie-3
 permalink: posts/{{ title | slug }}/index.html
 author_name: Sripad 
-
-author_link: https://github.com/
+author_link: "https://github.com/"
 ---
+
 # Intro
 - Everyone knows what the CPU is. It does all the computational work in your computer by executing "instructions".
 - As programmers, it is our job to provide the CPU with these instructions. How can we do this?
@@ -43,7 +43,7 @@ author_link: https://github.com/
 
 # Let's write some assembly code!
 - Let's start off with a simple hello world program!
-```gas
+```
 .global main
 
 .text
@@ -181,14 +181,14 @@ for line in in_file:
 We have a dictionary now, but we haven't produced any assembly.
 
 We're going to use this dictionary to add our variables to the data segment. If you recall, the hello world string was created like so:
-```gas
+```
 hello: .string "Hello, World!\n"
 ```
 
 We use a label to give our variable a name. Then we say that we want to create a string. And finally we give the string data that the variable will hold.
 
 We'll be using a very similar syntax to create the variables declared in our programming language:
-```gas
+```
 x: .quad 42
 ```
 
@@ -236,7 +236,7 @@ In this example, creating the main function is the same. Calling printf will als
 This time, we have two arguments. The first argument is percent-d and the second argument is the number we want to print.
 
 To do this in assembly we have to do almost the same thing as the hello world example.
-```gas
+```
 lea percent_d(%rip), %rdi
 mov x(%rip), %rsi
 call printf
@@ -250,7 +250,7 @@ We move percent_d into rdi as the first argument.\
 Likewise, we are moving x to rsi because according to the convention the second argument does into the rsi register.
 
 Like our hello string, we'll create the `percent_d` string.
-```gas
+```
 percent_d: .string "%d\n"
 ```
 
@@ -381,7 +381,7 @@ for var in variables:
 
 Running this code on our input will give us the correct assembly.
 
-```gas
+```
 .global main
 
 .text
@@ -440,7 +440,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 Before we can add this feature to our language, let's see how we'd do this in C.
-```C
+```c
 #include <stdio.h>
 
 int main() {

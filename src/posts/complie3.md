@@ -5,6 +5,7 @@ tags: [python, complier]
 description: Follow along article to Complie-3
 permalink: posts/{{ title | slug }}/index.html
 author_name: Sripad 
+
 author_link: https://github.com/
 ---
 # Intro

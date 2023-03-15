@@ -2,7 +2,7 @@
 tags: members 
 name: Suraj B M
 github: https://github.com/SilicoFlare
-email: mailto:silicoflare@gmail.com
+email: mailto:suraj.b.m555@gmail.com
 instagram: https://www.instagram.com/suraj.b.m
 ---
 

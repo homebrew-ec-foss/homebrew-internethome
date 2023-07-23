@@ -4,3 +4,4 @@ npm-debug.*
 .DS_Store
 public
 package.json
+yarn.lock

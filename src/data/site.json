@@ -43,7 +43,13 @@
       "text": "Members",
       "url": "/members",
       "external": false
+    },
+    {
+      "text": "History",
+      "url": "/posts/history",
+      "external": false
     }
+
   ],
   "socialLinks": [
     {

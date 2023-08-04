@@ -1,10 +1,10 @@
 {
   "name": "Homebrew | Hackerspace PESUECC",
-  "description": "Homebrew is the destination FOSS community in PESU Univertsity created and managed by Hackerspace PESUECC",
-  "url": "https://eleventyduo.netlify.app",
+  "description": "Homebrew is the destination FOSS community in PESU University created and managed by Hackerspace PESUECC",
+  "url": "https://homebrew.hsp-ec.xyz",
   "author": {
-    "name": "Author Name",
-    "email": "author@site.com",
+    "name": "Hackerspace PESUECC",
+    "email": "hackerspace.ecc@pes.edu",
     "twitterHandle": "author_handle"
   },
   "defaultSocialImage": "/images/nav-logo.png",

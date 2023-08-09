@@ -6,7 +6,6 @@ description: Read on to know the declaration of our collective goals and aspirat
 author_name: Harini Anand
 ---
 
-# HSP Manifesto 2023
 
 
 The humble tradition of writing down a manifesto for Hackerspace ECC was started by our ex-core team lead, exactly a year ago. As Maya Angelou once said **"Traditions are not chains that bind us, but wings that lift us”**, it is only right to keep this practice alive that in turn, kept us going as we steadily grew in size, ambition, and impact. The manifesto is a declaration of our collective goals and aspirations for HSP. It helps us be more transparent, remember what we are working towards, and keeps us accountable, together as a club fostering community-powered development.

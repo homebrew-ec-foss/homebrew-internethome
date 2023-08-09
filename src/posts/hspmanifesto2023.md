@@ -3,7 +3,7 @@ title: HSP Manifesto 2023
 date: '2023-08-09'
 tags: [manifesto, media]
 description: Read on to know the declaration of our collective goals and aspirations for HSP in the year 2023. 
-Author Name: Harini Anand
+author_name: Harini Anand
 ---
 
 # HSP 2023 Manifesto

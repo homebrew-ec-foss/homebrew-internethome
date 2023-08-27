@@ -1,5 +1,5 @@
 ---
-tags: Members
+tags: members
 name: Aditya Hegde
 github: https://github.com/bwaklog
 email: mailto:adityahegde.clg@gmail.com

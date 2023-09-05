@@ -25,7 +25,7 @@ The event garnered robust support from esteemed sponsors, notably PESU Venture L
 
 Spanning from **October 24th to 28th, 2021**, this exceptional competition commenced with an engaging online preliminary round, proceeding to grand finale conducted offline.
 
-# [Homebrew FOSS by HackerSpace PESUECC](https://sharp-wright-d62960.netlify.app/)
+# [Homebrew FOSS by HackerSpace PESUECC](https://homebrew.hsp-ec.xyz/)
 
 April 2022
 

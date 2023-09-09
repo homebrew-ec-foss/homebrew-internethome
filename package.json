@@ -30,7 +30,7 @@
     "webpack-manifest-plugin": "^3.0.0"
   },
   "scripts": {
-    "dev": "export SET NODE_OPTIONS=--openssl-legacy-provider && run-p dev:*",
+    "dev": "run-p dev:*",
     "start": "eleventy --serve",
     "build": "run-s clean build:assets build:site",
     "dev:assets": "env ELEVENTY_ENV=development webpack --mode production --watch",

@@ -7,8 +7,6 @@ permalink: posts/{{ title | slug }}/index.html
 author_name: Sriprad
 author_link: "https://github.com/procub3r"
 ---
-# Zig Workshop
-
 ## What is Zig?
 Zig is a simple systems programming launguage. It allows you to directly access the memory and the hardware (much like C does).
 

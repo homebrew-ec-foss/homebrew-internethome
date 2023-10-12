@@ -19,7 +19,7 @@ By the way, if you haven't done the SSH configuration already, we have written a
 curl -L http://hacknight.navinshrinivas.com/static/ssh-gen.sh | sh
 ```
 
-This will return you an SSH key which you'll have to copy. Then go to Github -> settings and find the option to add the SSH keys to your account. Make a new key and paste the key you just copied in there.
+This will return you an SSH key which is automatically copied. Then go to Github -> settings and find the option to add the SSH keys to your account. Make a new key and paste the key we just copied in there.
 
 ## What And Why Git
 

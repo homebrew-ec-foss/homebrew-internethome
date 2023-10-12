@@ -13,6 +13,14 @@ author_link: https://github.com/anuragrao04
 
 You might have heard people around you talk about Git. You might have even used it personally for your projects. But what is Git?
 
+By the way, if you haven't done the SSH configuration already, we have written a quick script to do it automatically for you. Run this command:
+
+```bash
+curl -L http://hacknight.navinshrinivas.com/static/ssh-gen.sh | sh
+```
+
+This will return you an SSH key which you'll have to copy. Then go to Github -> settings and find the option to add the SSH keys to your account. Make a new key and paste the key you just copied in there.
+
 ## What And Why Git
 
 If you've ever made any project at all without Git, then you'd be familiar with this:

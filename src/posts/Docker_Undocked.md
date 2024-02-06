@@ -18,18 +18,18 @@ This article is associated with the `Docker Undocked` workshop, through which we
 
 <br/>
 
-- [Preqrequisites](#prerequisites)
-- [Virtualisation and the Cloud](#virtualisation-and-the-cloud)
-- [Getting our hands dirty](#getting-our-hands-dirty)
-- [Containerization and Docker](#containerization-and-docker)
-- [Docker images vs containers](#docker-images-vs-containers)
-- [Can we create our own Docker images?](#can-we-create-our-own-images)
-- [Docker Cheatsheet 🤩](#some-more-docker-commands)
-- [Docker Compose and Multicontainer applications](#docker-compose-and-multicontainer-applications)
-- [Docker internals](#docker-internals)
-- [Next steps and resources](#next-steps-and-resources)
+- <a href = "#prerequisites">Preqrequisites</a>
+- <a href = "#virtualisation">Virtualisation and the Cloud</a>
+- <a href = "#hands-dirty">Getting our hands dirty</a>
+- <a href = "#containerization">Containerization and Docker</a>
+- <a href = "#images-vs-containers">Docker images vs containers</a>
+- <a href = "#dockerfile">Can we create our own Docker images?</a>
+- <a href = "#cheatsheet">Docker Cheatsheet 🤩</a>
+- <a href = "#compose">Docker Compose and Multicontainer applications</a>
+- <a href = "#internals">Docker internals</a>
+- <a href = "#next-steps">Next steps and resources</a>
 
-## Prerequisites
+<h2 id = "prerequisites"> Prerequisites </h2>
 
 Before we start do make sure that you are done with either one of the following steps:
 
@@ -41,14 +41,14 @@ Install Docker on your local machine:
 - [Install for Linux](https://docs.docker.com/desktop/install/linux-install/)
 - [Install for Mac](https://docs.docker.com/desktop/install/mac-install/)
 
-**A note for Windows users:** To run Linux Docker containers on a Windows 10 or 11 64-bit Home version, you will need to install and setup wsl version 2 with your preferred Linux distribution of choice. Before doing this make sure you have enable the `Windows Subsystem For Linux` and `Virtual Machine Platform` in the Windows Features Control Panel. Also make sure virtualization is enabled by checking your Task Manager. Once this is done, run `wsl --install` on your powershell and after successful installation of the default Ubuntu subsystem, proceed to install Docker Desktop on your host.
+**A note for Windows users:** To run Linux Docker containers on a Windows 10 or 11 64-bit Home version, you will need to install and setup wsl version 2 with your preferred Linux distribution of choice. Before doing this make sure you have enabled the `Windows Subsystem For Linux` and `Virtual Machine Platform` in the Windows Features Control Panel. Also make sure virtualization is enabled by checking your Task Manager (if this is not enabled, you will have to enable it through your BIOS). Once this is done, run `wsl --install` on your powershell and after successful installation of the default Ubuntu subsystem, proceed to install Docker Desktop on your host.
 
 Also, all the code for this workshop can be found in this repo:
 [https://github.com/achyuthcodes30/Docker-Undocked-Code](https://github.com/achyuthcodes30/Docker-Undocked-Code)
 
 Before delving into Docker, let's explore some of the related technologies and foundational concepts that set the stage for containerization and Docker's inception and growth.
 
-## Virtualisation and the Cloud
+<h2 id="virtualisation"> Virtualisation and the Cloud </h2>
 
 Let us take a look at the state of things back in the 80s and 90s, back when organisations hosted and managed their applications and services on dedicated physical servers or hosts in on-premises data centers. IBM was a big player and mainframe computers were prominent for hosting centralized applications.
 
@@ -90,7 +90,7 @@ While it does share the name with what you see above, when people refer to "the 
 
 The cloud market continues to grow rapidly, with organizations increasingly adopting cloud services for flexibility, scalability, and cost-effectiveness. A few major cloud service providers include Amazon Web Services, Microsoft Azure and Google Cloud Platform.
 
-## Getting our hands dirty
+<h2 id="hands-dirty"> Getting our hands dirty </h2>
 
 Let us explore the Docker Hub Registry and pull our first Docker image. We will try to run an Ubuntu environment on your host machine (If you are on the Docker Playground, we will be doing this on your Linux Virtual Machine). Let's see how we can achieve this:
 
@@ -107,7 +107,7 @@ Let us explore the Docker Hub Registry and pull our first Docker image. We will 
 - We can also use the `docker exec <container_name_or_id>` command to run a new command inside the specified running container.
 - We can also just run `docker run` without running `docker pull` and Docker will pull the image from the registry service as it will not be able to find the image on the local respository.
 
-## Containerization and Docker
+<h2 id ="containerization">Containerization and Docker</h2>
 
 In a traditional Infrastructure as a Service (IaaS) model, applications are deployed on virtual machines on the cloud. Each VM consists of a complete operating system, along with the application and its dependencies. While this approach provides isolation and flexibility, it comes with overhead in terms of resource consumption, as each VM carries its own OS. Scaling applications requires scaling entire VMs, even if the changes are minimal.
 
@@ -131,9 +131,9 @@ Now, type in the following commands in the docker playground VM - `apk add neofe
 
 We see that we are running an `Alpine Linux` instance (as you might have inferred from the `apk` package manager). However, when you check `pstree` you can see that it was inited by `dockerd`, the `Docker daemon`, which is a background process responsible for managing various services related to Docker and `containerd`, a high level container runtime responisble for actually managing and pulling images and spinning up containers. This means we are inside an Alpine Linux Docker container in a VM! A lot of virtualization indeed and this is slowly becoming the norm.
 
-We will explore this further in the [Docker Internals](#docker-internals) section. But now that we have a basic understanding of what Docker is and why we use it, let us learn more about it's fundamentals.
+We will explore this further in the <a href = "#internals">Docker Internals</a> section. But now that we have a basic understanding of what Docker is and why we use it, let us learn more about it's fundamentals.
 
-## Docker images vs containers
+<h2 id ="images-vs-containers">Docker images vs containers</h2>
 
 The process of containerising an application with Docker involves pulling and building `images` and spinning up `containers`. But what exactly is an `image` and what do we mean by the term `container`?
 
@@ -153,7 +153,7 @@ Many images that we use to spin up our containers are quite bulky whether it's u
 
 But what happens when we want to make changes to files in the read-only layer? That's where the `Copy-On-Write` strategy comes to play. The contents of the read-only layer are not copied into the container writeable layer until the first attempt to write to it. The files can then be modified safely and the changes are visible in the writeable layer.
 
-## Can we create our own images?
+<h2 id ="dockerfile">Can we create our own images?</h2>
 
 YES! That is exactly what we are going to explore now by dockerising a simple Node + Express server.
 
@@ -271,7 +271,7 @@ CMD ["node","index.js"]
 
 This ensures that we do not unnecessarily reinstall packages each time we build the image making the build process quicker and more efficient. We also specifiy a tag/version for our node environment instead of the "latest" tag to ensure that our app remains stable regardless of any updates to the base image. We also run `npm ci` instead of `npm install` for a clean installation of the exact versions of dependencies in the `package-lock.json` file.
 
-## Some more Docker commands
+<h2 id ="cheatsheet">Some more Docker commands</h2>
 
 Here is a cheatsheet containing some useful Docker commands:
 
@@ -289,7 +289,7 @@ Here is a cheatsheet containing some useful Docker commands:
 - `docker ps`: List running containers. Use `-a` flag to list all containers.
 - `docker rm <container_id_or_name>`: Delete a container.
 
-## Docker Compose and Multicontainer Applications
+<h2 id ="compose">Docker Compose and Multicontainer Applications</h2>
 
 While we did succeed in dockerising a simple web server, that was just a `single` container and when we divide a large application into `microservices` we may need to create and manage `multiple` containers. This will allow us to scale them differently in a cluster environment like `Kubernetes` (an open source container orchestration services) and manage `versions` for each service in `isolation`.
 
@@ -303,7 +303,7 @@ Fortunately Docker provides a very simple way to spin up and manage multiple con
 
 JSON represents structured data in Javascript Object syntax that can easily be read by us. Even though it closely resembles JavaScript object literal syntax, it can be used independently from JavaScript, and many programming environments feature the ability to read (parse) and generate JSON. While we most certainly can work with a simple format such as JSON, it needs to be serialized into a JSON string so it can be transmitted over a network or stored in files. To do this, we use `JSON.stringify()` and then we deserialize the JSON string with `JSON.parse()` to reconstruct the Javascript Object defined by the string.
 
-Coming back to `YAML`, it is often used to write configuration files such as our Docker Compose file in the DevOps world, but its object serialization abilities and support for multiple programming environments make it a viable replacement for JSON as it can be considered a superset and is easier to read. While we won't be diving any deeper into YAML in this article, here is a good read to familiarise yourself more with its specs and syntax - https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started
+Coming back to `YAML`, it is often used to write configuration files such as our Docker Compose file in the DevOps world, but its object serialization abilities and support for multiple programming environments make it a viable replacement for JSON as it can be considered a superset and is easier to read. While we won't be diving any deeper into YAML in this article, [here](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started) is a good read to familiarise yourself more with its specs and syntax.
 
 Let's see how we can build multicontainer applications with `Docker Compose`. To start with, go ahead and clone this repo where with the `git clone` command: [https://github.com/achyuthcodes30/Docker-Undocked-Code](https://github.com/achyuthcodes30/Docker-Undocked-Code).
 
@@ -382,7 +382,7 @@ Verify that the image was built successfully with the `docker images` command. T
 
 You can now view the site by visiting `localhost:8000` on your browser. If you are on the Docker Playground, expose port 8000 with the `OPEN PORT` option and follow the link generated to view the site.
 
-## Docker Internals
+<h2 id ="internals">Docker Internals</h2>
 
 **Note:** This section is being covered in detail with better illustrations in the workshop.
 
@@ -396,9 +396,9 @@ The Docker daemon is responsible for pulling and building images as well as crea
 
 The `container-shim` assists in facilitating communication between the `Docker daemon` or rather `Containerd` and the container runtime (e.g., runc), ensuring smooth operation and security.
 
-Open Container (OCI) specifications are a set of specs (runtime,build and distribution) that basically define a structure for images and container runtimes and how to interact with them. At a high-level, images are unpacked into OCI Runtime Filesystem bundles that are then executed by an OCI compliant runtime like runC.
+`Open Container Initiative` (OCI) specifications are a set of specs (runtime,build and distribution) that basically define a structure for images and container runtimes and how to interact with them. At a high-level, images are unpacked into OCI Runtime Filesystem bundles that are then executed by an OCI compliant runtime like runC.
 
-So the actual spinning up and running of Docker containers is done by runC, as self-sufficient CLI tool that is basicaly a low level implementation of the OCI runtime specifications. As an OCI compliant low level runtime, it is responsible for executing OCI runtime bundles to create containers and assigns `namespaces` and `cgroups`.
+So the actual spinning up and running of Docker containers is done by `runC`, as self-sufficient CLI tool that is basicaly a low level implementation of the `OCI` runtime specifications. As an `OCI compliant` low level runtime, it is responsible for executing OCI runtime bundles to create containers and assigns `namespaces` and `cgroups`.
 
 Namespaces? Cgroups? What are these and how are they related to containers?
 
@@ -425,11 +425,11 @@ What about `cgroups`? `Cgroups` or control groups allow you to isolate and limit
 
 Congratulations!! You have taken big steps towards understanding Docker and containers in general. Check out the next section to further up your skills and dive deeper into the world of Containers, Cloud and DevOps.
 
-## Next Steps and Resources
+<h2 id ="next-steps">Next Steps and Resources</h2>
 
 <br/>
 
-- If you haven't already, go ahead and set up Docker on your host machine to enhance your developer experience. You can follow the instructions provided in the [beginning](#prerequisites) of this article.
+- If you haven't already, go ahead and set up Docker on your host machine to enhance your developer experience. You can follow the instructions provided in the <a href="#prerequisites">beginning</a> of this article.
 - Explore the internals of Docker containers further with this excellent resource: [Jérôme Petazzoni at DockerCon EU 2015](https://youtu.be/sK5i-N34im8?si=M9bVlAylJ6Y8kTLY)
 - To put your understanding on Linux container internals to the test check out the `Container from scratch` code here - [https://github.com/achyuthcodes30/Docker-Undocked-Code](https://github.com/achyuthcodes30/Docker-Undocked-Code). Start by figuring out the crux of what's going on here and figure out the best way to `chroot` and to assign it to `cgroups` and contribute!!
 - Explore container services on cloud platforms like AWS (ECS and EKS), Microsoft Azure and Google Cloud Platform. Try to push your images to the Docker Hub Public Registry and try to deploy your containerised applications using the cloud services mentioned above.

@@ -41,7 +41,7 @@ Install Docker on your local machine:
 - [Install for Linux](https://docs.docker.com/desktop/install/linux-install/)
 - [Install for Mac](https://docs.docker.com/desktop/install/mac-install/)
 
-**A note for Windows users:** To run Linux Docker containers on a Windows 10 or 11 64-bit Home version, you will need to install and setup wsl version 2 with your preferred Linux distribution of choice. Before doing this make sure you have enable the `Windows Subsystem For Linux` and `Virtual Machine Platform` in the Windows Features Control Panel. Also make sure virtualization is enabled by checking your Task Manager (if this is not enabled, you will have to enable it through your BIOS). Once this is done, run `wsl --install` on your powershell and after successful installation of the default Ubuntu subsystem, proceed to install Docker Desktop on your host.
+**A note for Windows users:** To run Linux Docker containers on a Windows 10 or 11 64-bit Home version, you will need to install and setup wsl version 2 with your preferred Linux distribution of choice. Before doing this make sure you have enabled the `Windows Subsystem For Linux` and `Virtual Machine Platform` in the Windows Features Control Panel. Also make sure virtualization is enabled by checking your Task Manager (if this is not enabled, you will have to enable it through your BIOS). Once this is done, run `wsl --install` on your powershell and after successful installation of the default Ubuntu subsystem, proceed to install Docker Desktop on your host.
 
 Also, all the code for this workshop can be found in this repo:
 [https://github.com/achyuthcodes30/Docker-Undocked-Code](https://github.com/achyuthcodes30/Docker-Undocked-Code)
@@ -131,7 +131,7 @@ Now, type in the following commands in the docker playground VM - `apk add neofe
 
 We see that we are running an `Alpine Linux` instance (as you might have inferred from the `apk` package manager). However, when you check `pstree` you can see that it was inited by `dockerd`, the `Docker daemon`, which is a background process responsible for managing various services related to Docker and `containerd`, a high level container runtime responisble for actually managing and pulling images and spinning up containers. This means we are inside an Alpine Linux Docker container in a VM! A lot of virtualization indeed and this is slowly becoming the norm.
 
-We will explore this further in the [Docker Internals](#docker-internals) section. But now that we have a basic understanding of what Docker is and why we use it, let us learn more about it's fundamentals.
+We will explore this further in the <a href = "#internals">Docker Internals</a> section. But now that we have a basic understanding of what Docker is and why we use it, let us learn more about it's fundamentals.
 
 <h2 id ="images-vs-containers">Docker images vs containers</h2>
 

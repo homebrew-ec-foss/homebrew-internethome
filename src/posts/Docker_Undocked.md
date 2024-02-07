@@ -4,7 +4,7 @@ date: "2024-02-09"
 tags: [docker, dockercompose, dockerinternals]
 description: " An in depth article explaining how Docker works and to help you start dockerising your applications "
 permalink: posts/{{ title | slug }}/index.html
-author_name: Achyuth Yogesh Sosale
+author_name: Achyuth Yogesh Sosale & Siddharth Tewari
 author_link: "https://github.com/achyuthcodes30"
 ---
 

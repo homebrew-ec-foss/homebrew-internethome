@@ -4,7 +4,7 @@ date: "2023-03-10"
 tags: [python, complier]
 description: Follow along article to Complie-3
 permalink: posts/{{ title | slug }}/index.html
-author_name: Sripad 
+author_name: Sanket Padhi & Sriprad Potukuchi
 author_link: "https://github.com/"
 ---
 

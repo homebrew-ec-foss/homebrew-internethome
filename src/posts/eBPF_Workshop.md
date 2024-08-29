@@ -25,7 +25,7 @@ An alternative option is to use the cloud virtual machines provided by Isovalent
 Setting up an Ubuntu Server Virtual Machine(VM) using Oracle VirtualBox on Windows or Linux:
 
 1. Download and install VirtualBox ([https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)) by choosing the appropriate platform.
-2. Download the Ubuntu Server 24.04 LTS disk image ([https://ubuntu.com/download/server](https://ubuntu.com/download/server)).
+2. Download the Ubuntu Server 24.04 LTS disk image ([Link to the ISO](https://releases.ubuntu.com/24.04/ubuntu-24.04-live-server-amd64.iso)).
 3. Open VirtualBox and select the `New` option. Set a name for the VM and the path to the ISO downloaded in the previous step. Select the `Skip Unattended Installation` option and click `Next`.
 4. Choose the memory and number of processors for the VM and select `Next` . A minimum of 3GB RAM and 2 CPUs are recommended.
 5. Select the `Virtual Hard Disk Now` option, specify the amount of disk space required, select the `Pre-allocate Full Size` option and click `Next`. A minimum of 10GB is recommended.

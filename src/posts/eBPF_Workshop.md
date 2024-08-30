@@ -1,5 +1,5 @@
 ---
-title: eBPF Workshop
+title: Buzzing with eBPF 🐝
 date: "2024-09-04"
 tags: [eBPF, kernel]
 description: "eBPF is a technology to dynamically program the kernel for efficient networking, observability, tracing, and security"

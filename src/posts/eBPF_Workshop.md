@@ -61,7 +61,7 @@ Setting up an x86-64 Ubuntu Server Virtual Machine(VM) using Lima([https://lima-
 
    ```bash
    limactl start <name_of_the_vm_without_angular_brackets>
-   limactl attach <name>
+   limactl shell <name>
    cd
    ```
 

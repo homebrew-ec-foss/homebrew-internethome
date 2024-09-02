@@ -501,7 +501,9 @@ int count_syscalls(void *ctx) {
       *count += 1;
       bpf_map_update_elem(&syscall_count_map, &pid, count, BPF_ANY);
   } else {
-      bpf_map_update_elem(&syscall_count_map, &pid, &initial_count, BPF_ANY);
+      __u64 *initial_count;
+      *initial_count = 1;
+      bpf_map_update_elem(&syscall_count_map, &pid, initial_count, BPF_ANY);
   }
 
 return 0;

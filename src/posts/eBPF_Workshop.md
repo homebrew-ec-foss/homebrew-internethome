@@ -119,7 +119,7 @@ sudo apt install libz-dev libelf-dev libcap-dev binutils-dev
 git clone --recurse-submodules https://github.com/libbpf/bpftool.git
 cd bpftool/src
 sudo make install
-export PATH="$PATH:/tmp/lima/bpftool/src"
+export PATH="$PATH:$(pwd)"
 
 cd ../..
 ```
@@ -343,13 +343,13 @@ clang -target bpf -I/usr/include/$(uname -m)-linux-gnu -g -O2 -c hello_kern.bpf.
 
 Here, we assume that the eBPF program file has been named `hello_kern.bpf.c` and the output object file to be generated will be called `hello_kern.bpf.o`.
 
-The next step is to load the bpf object into the kernel and attach it to the `sys_execve kprobe`. This can be done by making use of `bpftool`, which will save us the hassle of manually writing C code to load and attach the eBPF code to the kernel.
+The next step is to load the bpf object into the kernel and attach it to the `sys_enter raw_tracepoint`. This can be done by making use of `bpftool`, which will save us the hassle of manually writing C code to load and attach the eBPF code to the kernel.
 
 ```bash
 sudo bpftool prog load hello_kern.bpf.o /sys/fs/bpf/prog autoattach
 ```
 
-Believe it or not, your eBPF program is now running in the kernel! However, you might be wondering why there is no Hello World being printed. Since the eBPF code is running in the kernel, it isn’t directly printed to the terminal. Instead, the messages are logged to trace pipes in the kernel which can be viewed with the following command:
+Believe it or not, your eBPF program is now running in the kernel, and runs everytime any system call is made by any application on your system! However, you might be wondering why there is no Hello World being printed. Since the eBPF code is running in the kernel, it isn’t directly printed to the terminal. Instead, the messages are logged to trace pipes in the kernel which can be viewed with the following command:
 
 ```bash
 sudo cat /sys/kernel/debug/tracing/trace_pipe
@@ -376,24 +376,18 @@ llvm-objdump -S hello_kern.o
 This produces the following output:
 
 ```c
-hello_kern.o:	file format elf64-bpf
+hello_kern.bpf.o:	file format elf64-bpf
 
-Disassembly of section tracepoint/syscalls/sys_enter_execve:
+Disassembly of section raw_tracepoint/sys_enter:
 
-0000000000000000 <hello>:
-;   bpf_printk("Hello World %d", counter);
-       0:	18 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00	r6 = 0x0 ll
-       2:	61 63 00 00 00 00 00 00	r3 = *(u32 *)(r6 + 0x0)
-       3:	18 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00	r1 = 0x0 ll
-       5:	b7 02 00 00 0f 00 00 00	r2 = 0xf
-       6:	85 00 00 00 06 00 00 00	call 0x6
-;   counter++;
-       7:	61 61 00 00 00 00 00 00	r1 = *(u32 *)(r6 + 0x0)
-       8:	07 01 00 00 01 00 00 00	r1 += 0x1
-       9:	63 16 00 00 00 00 00 00	*(u32 *)(r6 + 0x0) = r1
+0000000000000000 <helloworld>:
+;   bpf_printk("Hello World!\n"); 
+       0:	18 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00	r1 = 0x0 ll
+       2:	b7 02 00 00 0e 00 00 00	r2 = 0xe
+       3:	85 00 00 00 06 00 00 00	call 0x6
 ;   return 0;
-      10:	b7 00 00 00 00 00 00 00	r0 = 0x0
-      11:	95 00 00 00 00 00 00 00	exit
+       4:	b7 00 00 00 00 00 00 00	r0 = 0x0
+       5:	95 00 00 00 00 00 00 00	exit
 ```
 
 - The first line tells us that this is an eBPF program.
@@ -515,23 +509,13 @@ int count_syscalls(void *ctx) {
 char LICENSE[] SEC("license") = "Dual BSD/GPL";
 ```
 
-Next, we compile the program using the same command as listed above. Ensure that you change the name of the file in the command.
-
-```c
-clang -target bpf -I/usr/include/$(uname -m)-linux-gnu -g -O2 -c syscall_counter.bpf.c -o syscall_counter.bpf.o
-```
-
-Make sure to remove the previously attached eBPF program:
+Next, we need to compile and attach the program, to do this we can use the same commands we used for the 'Hello World' program (the '''clang''' and '''bpftool load''' commands). Just Make sure to remove the previously attached eBPF program:
 
 ```bash
 sudo rm /sys/fs/bpf/prog
 ```
 
-Then, follow the same steps to attach the program as before:
-
-```bash
-sudo bpftool prog load syscall_counter.bpf.o /sys/fs/bpf/prog autoattach
-```
+Alternatively you can use the makefile provided in the github repository that will automatically do this compilation, by running the command '''make'''
 
 We can check whether the program has been successfully loaded and attached by using the command:
 

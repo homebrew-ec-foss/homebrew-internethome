@@ -370,7 +370,7 @@ That's a lot to messages being printed to the console, lets press `Ctrl + C` to 
 Now that we’ve written our first eBPF program, let’s take a step back and get our hands a little dirtier. We can check out the actual eBPF byte code and register instructions using `llvm-objdump`.
 
 ```bash
-llvm-objdump -S hello_kern.o
+llvm-objdump -S hello_kern.bpf.o
 ```
 
 This produces the following output:
@@ -391,7 +391,7 @@ Disassembly of section raw_tracepoint/sys_enter:
 ```
 
 - The first line tells us that this is an eBPF program.
-- The subsequent lines tell us how each line of the ‘hello’ function in the program is translated to eBPF instructions and what they actually do on the virtual eBPF registers.
+- The subsequent lines tell us how each line of the ‘helloworld’ function in the program is translated to eBPF instructions and what they actually do on the virtual eBPF registers.
 - These are the instructions being executed on the BPF virtual machine.
 
 We can also check out the native instructions converted to assembly by the JIT compiler:
@@ -401,7 +401,7 @@ sudo bpftool prog dump jited name helloworld
 ```
 
 ```c
-int hello(void * ctx):
+int helloworld(void * ctx):
 bpf_prog_ad7f62a5e7675635_hello:
 ; bpf_printk("Hello World!\n");
    0:	nopl	(%rax,%rax)
@@ -449,7 +449,7 @@ Now for the main counting program:
 
 ```c
 SEC("raw_tracepoint/sys_enter")
-int track_write_syscalls(struct sys_enter_args *ctx) {
+int count_syscalls(void *ctx) {
     /* Helper function to get the current PID, also gets the current gid, hence
      we do a bit shift 32 bits to the right */
     __u64 pid = bpf_get_current_pid_tgid() >> 32;
@@ -462,9 +462,8 @@ int track_write_syscalls(struct sys_enter_args *ctx) {
       bpf_map_update_elem(&syscall_count_map, &pid, count, BPF_ANY);
   } else {
 	    // Otherwise initialise it to zero
-      __u64 *initial_count;
-      *initial_count = 1;
-      bpf_map_update_elem(&syscall_count_map, &pid, initial_count, BPF_ANY);
+      __u64 initial_count = 1;
+      bpf_map_update_elem(&syscall_count_map, &pid, &initial_count, BPF_ANY);
   }
 
 	return 0;
@@ -476,7 +475,7 @@ Here, we’re using a couple of helper functions to lookup and update values in 
 The complete program can be found below:
 
 ```c
-//syscall_counter.bpf.c
+//syscall_counter_kern.bpf.c
 
 #include <linux/bpf.h>
 #include <bpf/bpf_helpers.h>
@@ -509,13 +508,13 @@ int count_syscalls(void *ctx) {
 char LICENSE[] SEC("license") = "Dual BSD/GPL";
 ```
 
-Next, we need to compile and attach the program, to do this we can use the same commands we used for the 'Hello World' program (the '''clang''' and '''bpftool load''' commands). Just Make sure to remove the previously attached eBPF program:
+Next, we need to compile and attach the program, to do this we can use the same commands we used for the 'Hello World' program (the ```clang``` and ```bpftool load``` commands). Just Make sure to remove the previously attached eBPF program:
 
 ```bash
 sudo rm /sys/fs/bpf/prog
 ```
 
-Alternatively you can use the makefile provided in the github repository that will automatically do this compilation, by running the command '''make'''
+Alternatively you can use the makefile provided in the github repository that will automatically do this compilation, by running the command ```sudo make```
 
 We can check whether the program has been successfully loaded and attached by using the command:
 

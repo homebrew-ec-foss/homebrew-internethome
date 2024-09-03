@@ -119,6 +119,7 @@ sudo apt install libz-dev libelf-dev libcap-dev binutils-dev
 git clone --recurse-submodules https://github.com/libbpf/bpftool.git
 cd bpftool/src
 sudo make install
+export PATH="$PATH:/tmp/lima/bpftool/src"
 
 cd ../..
 ```
@@ -152,9 +153,9 @@ You may now type in the active buffer. To save and exit, press `Control` and `X`
 
 # Introduction
 
-Before we begin, we’d like to mention that this article is an introduction to the world of eBPF. It is imperative that you explore eBPF and its associated topics on your own. If you’re curious about anything mentioned here, just search about it to learn more. A great start would be to check out all the links to the research papers, websites and books linked in this article. Happy learning!
+Before we begin, we’d like to mention that this article is an introduction to the world of eBPF. It is imperative that you explore eBPF and its associated topics on your own. If you’re curious about anything mentioned here, just search about it to learn more. A great starting point would be all the links to the research papers, websites and books linked in this article. Happy learning!
 
-**eBPF** stands for **_extended_** Berkeley Packet Filter. Since the name implies that it is an extension of the Berkeley Packet Filter (BPF), it only makes sense that we understand what BPF is first. To do that, let’s,
+**eBPF** stands for the **_extended_** Berkeley Packet Filter. Since the name implies that it is an extension of the Berkeley Packet Filter (BPF), it only makes sense that we understand what BPF is first. To do that, let’s,
 
 ### Rewind back to 1992
 
@@ -166,11 +167,11 @@ The userspace packet filtering applications needed to make system calls to the k
 
 ![Userspace packet filtering](https://imgur.com/j6pg93W.png)
 
-1. Packet Filtering was very slow due to packets being copied to user space and packet filtering applications having to use system calls to perform actions on the packet
-2. Limited flexibility with respect to setting filters, very little customisation was possible
+1. Filtering was very slow due to packets being copied to user space. Filtering applications had to issue system calls to perform actions on the packet.
+2. Limited flexibility with respect to setting filters, providing very little customisation.
 3. Many CPU instructions were required to filter even a single packet.
 
-Note: Packet filters for UNIX systems that used the STREAMS and NIT frameworks provided by the UNIX kernel worked like this.
+Note: Packet filters for UNIX systems that used the STREAMS and NIT frameworks provided by the UNIX kernel functioned like this.
 
 ---
 
@@ -178,7 +179,7 @@ Note: Packet filters for UNIX systems that used the STREAMS and NIT frameworks p
 
 ![The userspace and kernel](https://imgur.com/I8KIyiQ.png)
 
-A computer usually comprises of application software (such as games, browsers) and the hardware on which they run. The hardware and application software do not directly interact with each other. Instead, the software running in the `userspace` utilises system resources by interacting with the kernel, an intermediate layer between applications and hardware, which acts on its behalf. The applications interact with the kernel via the `system call` interface to perform operations such as reading memory, writing to disk or sending data over a network. This means the kernel of a system has direct access to the hardware making any code run there much faster than code run in user space, This also makes the kernel a vantage point to monitor or modify application functionality, since any action an application performs must go through the kernel.
+A computer usually comprises of application software (such as games, browsers) and the hardware on which they run. The hardware and application software do not directly interact with each other. Instead, the software running in the `userspace` utilises system resources by interacting with the kernel, an intermediate layer between applications and hardware, which acts on its behalf. The applications interact with the kernel via the `system call` interface to perform operations such as reading memory, writing to disk or sending data over a network. This means the kernel of a system has direct access to the hardware, making any program running in the kernel much faster than code run in user space. This also makes the kernel a vantage point to monitor or modify application functionality, since most actions an application performs must go through the kernel.
 
 ---
 
@@ -186,7 +187,7 @@ A computer usually comprises of application software (such as games, browsers) a
 
 BPF was a novel approach to filter packets **completely in the kernel**!
 
-Steven McCanne and Van Jacobson at the Lawrence Berkeley Laboratory came up with the BSD Packet filter. It was first introduced to Linux in 1997, in kernel version 2.1.75, as the Berkeley Packet Filter (BPF).
+Steven McCanne and Van Jacobson at the Lawrence Berkeley Laboratory came up with the BSD Packet filter in 1993. It was introduced to Linux in 1997, in kernel version 2.1.75, as the Berkeley Packet Filter (BPF).
 BPF was the first to implement a register-based filter evaluator(VM) in the kernel. The BPF virtual machine emulates a register-based CPU and has 10 registers, each with a specific role!
 
 The BPF virtual machine has a 32-bit instruction set similar to assembly which allows for defining complex filters easily and with immense flexibility. For instance, these are the BPF instructions to filter out any packets not using the Internet Protocol(IP):
@@ -198,24 +199,23 @@ L1:     ret     #TRUE
 L2:     ret     #0
 ```
 
-These instructions run in the BPF virtual machine and can be efficiently converted to native machine code, sandboxed from the kernel. BPF showed huge improvements in speed over existing solutions and provided greater flexibility to write custom instructions for filtering.
+These instructions run in the BPF virtual machine and can be efficiently converted to native machine code, sandboxed from the kernel. BPF showed huge improvements in speed over existing solutions and provided greater flexibility to write custom programs for filtering.
 
 - It filtered packets in the kernel, thereby eliminating the overhead of context switching as well as copying the packet across the userspace and kernel.
 - It ran instructions in a register-based virtual machine (which was around 20 times faster than packet filtering solutions like CSPF, which was a stack-based VM packet filter)
 
-This led to the widespread adoption of BPF, in famous tools like `tcpdump`, used by Wireshark). The original BPF paper ([https://www.tcpdump.org/papers/bpf-usenix93.pdf](https://www.tcpdump.org/papers/bpf-usenix93.pdf)) is a great read to learn more about the thought process behind designing BPF. It mentions existing solutions such as STREAMS NIT packet filters and another VM based packet filter called CSPF, and how BPF was far more efficient approach to filtering.
+This led to the widespread adoption of BPF, in famous tools like `tcpdump`). The original BPF paper ([https://www.tcpdump.org/papers/bpf-usenix93.pdf](https://www.tcpdump.org/papers/bpf-usenix93.pdf)) is a great read to learn more about the thought process behind designing BPF. It mentions existing solutions such as STREAMS NIT packet filters and another stack-based VM packet filter called CSPF, and how BPF was a far more efficient approach to filtering.
 
 ---
 
 ## eBPF
 
-eBPF stands for `Extended Berkeley Packet Filter`. While the name might imply that it is just a faster and more efficient extension to BPF, it is slightly misleading, since eBPF can do so much more!
-Imagine taking the BPF virtual machine, it’s instruction set and running BPF instructions anywhere in the kernel! The possibilities are truly endless.
+eBPF stands for `extended Berkeley Packet Filter`. While the name might imply that it is just a faster and more efficient extension to BPF, it is slightly misleading, since eBPF can do so much more! Imagine taking the BPF virtual machine, it’s instruction set and running BPF programs anywhere in the kernel! The possibilities are truly endless.
 eBPF does exactly that. It takes the core features of BPF, but extends BPF to beyond just packet filtering. eBPF programs can be attached to various kernel hooks, probes in kernel functions, and tracepoints in the kernel.
 
 **_eBPF programs can be executed almost anywhere in the kernel!_**
 
-Think of eBPF as a mini computer running anywhere in the kernel, executing and user code at lightning fast speeds.
+You can think of eBPF as a mini computer running anywhere in the kernel, executing user code at lightning fast speeds.
 
 ![eBPF programs in the kernel](https://imgur.com/ZOtVQP1.png)
 
@@ -223,11 +223,15 @@ Think of eBPF as a mini computer running anywhere in the kernel, executing and u
 
 ### Hooks
 
-As the name suggests, kernel `hooks` are used to hook programs to some part of the kernel. eBPF is event-based and the program is executed whenever an event occurs.
+As the name suggests, kernel `hooks` are used to hook programs to some part of the kernel. eBPF is event-based and a program is executed whenever an event occurs.
 
-There are various types of eBPF hooks, ranging from networking-specific hooks like `socket_filter` and `xdp`, to more general hooks that can be used to attach to any kernel function, like `kprobes` and even `tracepoints`, which are marked locations in the kernel code. Some of these hooks, like `kprobes` and `tracepoints`, have existed far before BPF (You can learn more about them here: [https://docs.kernel.org/trace/](https://docs.kernel.org/trace/tracepoints.html))
+There are various types of eBPF hooks, ranging from networking-specific hooks like `socket_filter` and `xdp`, to more general hooks that can be used to attach to any kernel function, like `kprobes` and even `tracepoints`, which are marked locations in the kernel code. Some of these hooks, like `kprobes` and `tracepoints`, have existed well before BPF (You can learn more about them here: [https://docs.kernel.org/trace/](https://docs.kernel.org/trace/tracepoints.html))
 
-You can find the full list of eBPF program types by running the command `sudo bpftool feature list_builtins prog_types`
+You can find the full list of eBPF program types by running the command
+
+```bash
+sudo bpftool feature list_builtins prog_types
+```
 
 ---
 
@@ -256,9 +260,9 @@ In the previous sections, you might have been left wondering why the eBPF virtua
 
 ## Modifying the Kernel Source
 
-Modifying the kernel source code is a highly challenging task. The Linux kernel has more than 30 million lines of code written over several years by thousands of contributors. Even if someone successfully edited the source to add their own functionality, there are other hurdles. Linux being a community project, all changes have to be approved by the community and specifically, Linux Torvalds. On an average, only about a third of all kernel patches are accepted, after which it is released in the next kernel version(which may take a while).
+Modifying the kernel source code is a highly challenging task. The Linux kernel has more than 30 million lines of code written over several years by thousands of contributors. Even if someone successfully edited the source to add their own functionality, there are other hurdles. Linux being a community project, all changes have to be approved by the community and specifically, Linus Torvalds. On an average, only about a third of all kernel patches are accepted, after which it is released in the next kernel version (which may take a while).
 
-Even after jumping through all these hoops, there is no guarantee that users will be able to utilise the merged feature. Several distributions use an older version of the kernel and wait for newer versions to be thoroughly tested before releasing it to users.
+Even after jumping through all these hoops, there is no guarantee that users will be able to utilise the merged feature. Several distributions use an older version of the kernel and wait for newer versions to be thoroughly tested before releasing it.
 
 ![Comic on modifying the kernel](https://imgur.com/6qBAKCs.png)
 
@@ -266,7 +270,7 @@ Even after jumping through all these hoops, there is no guarantee that users wil
 
 ## Loadable Kernel Modules
 
-The kernel also provides for a modular approach to extend functionality by writing LKMs that can be loaded and unloaded. While modules do not require modifying the kernel source directly, they have other disadvantages:
+The kernel also provides for a modular approach to extend functionality by writing LKMs that can be loaded and unloaded when required. While modules do not require modifying the kernel source directly, they have their disadvantages:
 
 1. Writing LKMs still requires significant experience with kernel programming.
 2. Since any code running in the kernel is privileged, a module crash would bring the entire kernel to a halt.
@@ -280,12 +284,12 @@ eBPF provides a better alternative to program the kernel by solving the problems
 
 ### Security
 
-- The eBPF verifier ensures that the program is safe to run. It does this by starting from the first instruction and descending down all possible paths, while observing the state change of the registers and the stack. It also checks for unreachable instruction such as code after infinite loops. You can learn more about the verification process here: [https://docs.kernel.org/bpf/verifier.html](https://docs.kernel.org/bpf/verifier.html).
+- The eBPF verifier ensures that the program is safe to run. It does this by starting from the first instruction and descending down all possible paths, while observing the state change of the registers and the stack. It also checks for unreachable instructions such as code after infinite loops. You can learn more about the verification process here: [https://docs.kernel.org/bpf/verifier.html](https://docs.kernel.org/bpf/verifier.html).
 - eBPF code is run in a virtual machine with memory constraints, allowing for sandboxed execution of programs in the kernel.
 
 ### Dynamic loading
 
-- eBPF programs can be dynamically loaded and unloaded from the kernel. It can trace current as well as older processes as soon as it attached to the appropriate hook. This is the reason behind eBPF's growing popularity in cloud-native environments, as it provides instant visibility of all process in containers as well as the host once it is loaded and attached.
+- eBPF programs can be dynamically loaded and unloaded from the kernel. It can trace current as well as older processes as soon as it attached to the appropriate hook. This is the reason behind eBPF's growing popularity in cloud-native environments, as it provides instant visibility of all processes in containers as well as the host, once it is loaded and attached.
 
 ### Ease of use and Community
 
@@ -304,7 +308,7 @@ eBPF can be used for a variety of purposes, with the website listing case-studie
 
 ### eBPF’s Hello World!
 
-Let’s get our hands dirty and write a simple eBPF Hello World program of sorts. We’ll write a program that will print out `Hello World!` every time any application makes a system call.
+Let’s get our hands dirty and write a simple eBPF Hello World program of sorts. We’ll write a program that will print out `Hello World` every time any application makes a system call.
 
 ```c
 //hello_kern.bpf.c
@@ -314,21 +318,21 @@ Let’s get our hands dirty and write a simple eBPF Hello World program of sorts
 
 SEC("raw_tracepoint/sys_enter")
 int helloworld(void *ctx) {
-	bpf_printk("Hello World!\\n");
+	bpf_printk("Hello World!\n");
 	return 0;
 }
 
 char LICENSE[] SEC("license") = "Dual BSD/GPL";
 ```
 
-Note: It is completely optional to add the `.bpf` file extension to the filename. It is usually added to make it easier to tell if a file is a `bpf` file or not and can be omitted, with just the `.c` file extension.
+Note: It is completely optional to add `.bpf` to the file extension. It is usually included to easily identify `bpf` files and can be omitted, with just the `.c` extension.
 
 Let’s understand this Hello World Program!
 
 - First, we include the header files related to BPF from the Linux Kernel and headers from `libbpf`, the eBPF programming library we installed earlier.
-- Next is the SEC macro defined by `libbpf`, which is used to define sections in the eBPF byte code after the C code is compiled. Here we pass the name of the hook we are using, so that it creates a section of that name in the final byte to make it easier to load and attach the program. In this case we are using a `tracepoint`, a predefined hook that allows you to hook directly into many kernel functions. This means that our code will be executed whenever any system call related function is called in the kernel!
+- Next is the SEC macro defined by `libbpf`, which is used to define sections in the eBPF byte code after the C program is compiled. Here we pass the name of the hook we are using, so that it creates a section of that name to make it easier to load and attach the program. In this case we are using a `tracepoint`, a predefined hook that allows you to hook directly into many kernel functions. This means that our code will be executed whenever any system call related function is invoked in the kernel!
 - Any function put in it’s own section by using the SEC macro is considered a BPF program. This means that it is possible to write multiple BPF programs that attach to different places in the kernel in the same C file!
-- `bpf_printk` is a helper function that will print out Hello World messages.
+- `bpf_printk` is a helper function that will log Hello World messages.
 - Finally, we have the program license. Every eBPF program must specify the license it is using. It is preferred to use a `GPL` license since certain helper functions are declared as GPL. If an EBPF program with a non-GPL license utilises these functions, the verifier will not accept the program.
 
 Now onto the next step - compiling the C program into BPF byte code. To do this, run the following command:
@@ -363,7 +367,7 @@ That's a lot to messages being printed to the console, lets press `Ctrl + C` to 
 
 ### Let’s investigate a little deeper
 
-Now that we’ve written our first eBPF program, let’s take a step back and get our hands a little dirtier. We can check out the actual eBPF byte code and register instructions using `llvm-objdump` with the following command:
+Now that we’ve written our first eBPF program, let’s take a step back and get our hands a little dirtier. We can check out the actual eBPF byte code and register instructions using `llvm-objdump`.
 
 ```bash
 llvm-objdump -S hello_kern.o
@@ -396,7 +400,7 @@ Disassembly of section tracepoint/syscalls/sys_enter_execve:
 - The subsequent lines tell us how each line of the ‘hello’ function in the program is translated to eBPF instructions and what they actually do on the virtual eBPF registers.
 - These are the instructions being executed on the BPF virtual machine.
 
-We can also check out the native instructions converted to assembly by the JIT compiler, by using the command
+We can also check out the native instructions converted to assembly by the JIT compiler:
 
 ```bash
 sudo bpftool prog dump jited name helloworld
@@ -430,11 +434,11 @@ Pretty cool!
 
 Right now, we're only printing “Hello World” each time a system call is made. Let’s say we want to keep track of the number of system calls an application makes on your system.
 
-In order to do this, we’re going to make use of eBPF maps. Maps are one of the core new features introduced by eBPF as well as many other data structures like buffers. These data structures allow for data storage, communication among eBPF programs as well as between eBPF programs and userspace applications.
+In order to do this, we’re going to make use of eBPF maps, a core new feature introduced by eBPF. These data structures allow for data storage and communication among eBPF programs as well as between eBPF programs and userspace applications.
 
 ![eBPF Maps](https://imgur.com/KNCC4uk.png)
 
-We can define an eBPF map to keep track of the number of system calls made by each PID (Process ID)
+We can define an eBPF map to keep track of the number of system calls made by each process using its PID (Process ID)
 
 ```c
 struct {
@@ -445,7 +449,7 @@ struct {
 } syscall_count_map SEC(".maps");
 ```
 
-This defines a bpf map of type ‘HASH’ that allows us to store key value pairs, where the keys are of 32 bit integers (which will store the respective pid) and values are the number of syscalls made by the particular process. Once again, we’re using the `SEC` macro to add a map section in the object file.
+This defines a bpf map of type ‘HASH’ that allows us to store key value pairs, where the keys are of 32 bit integers (which will store the respective PIDs) and values are the number of syscalls made by the particular process. Once again, we’re using the `SEC` macro to add a map section to the object file.
 
 Now for the main counting program:
 
@@ -501,12 +505,11 @@ int count_syscalls(void *ctx) {
       *count += 1;
       bpf_map_update_elem(&syscall_count_map, &pid, count, BPF_ANY);
   } else {
-      __u64 *initial_count;
-      *initial_count = 1;
-      bpf_map_update_elem(&syscall_count_map, &pid, initial_count, BPF_ANY);
+      __u64 initial_count = 1;
+      bpf_map_update_elem(&syscall_count_map, &pid, &initial_count, BPF_ANY);
   }
 
-return 0;
+	return 0;
 }
 
 char LICENSE[] SEC("license") = "Dual BSD/GPL";
@@ -515,7 +518,7 @@ char LICENSE[] SEC("license") = "Dual BSD/GPL";
 Next, we compile the program using the same command as listed above. Ensure that you change the name of the file in the command.
 
 ```c
-clang -target bpf -I/usr/include/$(uname -m)-linux-gnu -g -O2 -c syscall_counter_kern.bpf.c -o syscall_counter_kern.bpf.o
+clang -target bpf -I/usr/include/$(uname -m)-linux-gnu -g -O2 -c syscall_counter.bpf.c -o syscall_counter.bpf.o
 ```
 
 Make sure to remove the previously attached eBPF program:
@@ -545,17 +548,17 @@ You should see something like this:
 	btf_id 123
 ```
 
-Here, the first ‘72’ is the program id. It lists two maps associated with this BPF program. In this example, the IDs of the maps are ‘22’ and ‘24’ respectively, which might differ on your systems. Use the map IDs to checkout the maps with the below command:
+Here, the first ‘72’ is the program id. It lists two maps associated with this program. In this example, the IDs of the maps are ‘22’ and ‘24’ respectively, which might differ on your systems. Use the map IDs to checkout the maps with the below command:
 
 ```bash
 sudo bpftool map dump id 22
 ```
 
-Great! Now we can see how the BPF program was able to trace how many syscalls a process made, with each pid beig listed with the corresponding number of syscalls it made.
+Great! Now we can see how the BPF program was able to trace the number of syscalls a process made, with each pid being listed with the corresponding number of syscalls it made.
 
 ### eBPF in Production: Observability
 
-eBPF is being used to trace all sorts of activity on linux systems and server across the world right now, from keeping track of application health, tracing outliers in system calls made by processes, to observing memory, CPU and power usage.
+eBPF is being used to trace all sorts of activity on linux systems and servers across the world right now, from keeping track of application health, tracing outliers in system calls made by processes, to observing memory, CPU and power usage.
 
 - [Kepler](https://github.com/sustainable-computing-io/kepler) tracks performance and power consumption using eBPF in conjunction with machine learning in cloud native environments.
 - [Coroot](https://coroot.com/) provides application health insights via eBPF.
@@ -608,7 +611,7 @@ int trace_net(struct xdp_md *ctx) {
     return XDP_PASS;
 
   // bpf_ntohs converts the network packet's byte order type to
-  // the host byte order type
+  // the host's byte order type
   if (bpf_ntohs(eth_hdr->h_proto) == ETH_P_IP) {
 
     // This check to verify that the IP header is contained within the
@@ -641,7 +644,7 @@ char LICENSE[] SEC("license") = "Dual BSD/GPL";
 
 ```
 
-XDP programs start with the `xdp` section. Similar to the previous syscall-tracer, the program has access to an `xdp_md` context struct that holds information about each individual packet received at the network interface.
+XDP programs start with the `xdp` section. Similar to the previous syscall tracer, the program has access to an `xdp_md` context struct that holds information about each individual packet received at the network interface.
 
 ```c
 struct xdp_md {
@@ -668,7 +671,7 @@ __attribute__((packed));
 
 Before the header data is accessed, we must include checks to ensure that we do not access memory outside of the packet. In the absence of this check, the program will not be accepted by the eBPF verifier.
 
-The `bpf_ntohs()` function converts the network packet's byte order type (usually Big-Endian) to the host byte order type(usually Little-Endian). If the packet is an Internet Protocol packet, we then parse the IP headers and perform a similar memory-access check to prevent reading data outside of the packet.
+The `bpf_ntohs()` function converts the network packet's byte order type (usually Big-Endian) to the host's byte order type (usually Little-Endian). If the packet is an Internet Protocol packet, we then parse the IP headers and perform a similar memory-access check to prevent reading data outside of the packet.
 
 The IP header struct defined by the kernel has the following fields:
 
@@ -699,6 +702,50 @@ __struct_group(/* no tag */, addrs, /* no attrs */,
 
 We make use of the `saddr`(source address), `daddr` (destination address) and `protocol` (such as `TCP` and `UDP`) fields in this program and print them. Notice that we make use of `%pI4`, which is a format specifier used to print IPv4 addresses. Finally, we return `XDP_PASS`, indicating that the packet must be passed to the kernel as usual.
 
+To load and attach this program, we shall use the commands from the following `Makefile`. Save the following file with the name `Makefile` in the same directory as the program. Run `sudo make` to compile, load and attach this program to the network interface.
+
+```c
+TARGET = net
+INTERFACE  = eth0
+ARCH = $(shell uname -m | sed 's/x86_64/x86/' | sed 's/aarch64/arm64/')
+
+BPF_OBJ = ${TARGET:=.bpf.o}
+
+all: $(TARGET) $(BPF_OBJ)
+.PHONY: all
+.PHONY: $(TARGET)
+
+$(TARGET): $(BPF_OBJ)
+	bpftool net detach xdp dev $(INTERFACE)
+	rm -f /sys/fs/bpf/$(TARGET)
+	bpftool prog load $(BPF_OBJ) /sys/fs/bpf/$(TARGET)
+	bpftool net attach xdp pinned /sys/fs/bpf/$(TARGET) dev $(INTERFACE)
+
+$(BPF_OBJ): %.o: %.c vmlinux.h
+	clang \
+	    -target bpf \
+	    -D __BPF_TRACING__ \
+		-I/usr/include/$(shell uname -m)-linux-gnu \
+	    -Wall \
+	    -O2 -o $@ -c $<
+
+vmlinux.h:
+	bpftool btf dump file /sys/kernel/btf/vmlinux format c > vmlinux.h
+
+clean:
+	- bpftool net detach xdp dev $(INTERFACE)
+	- rm -f /sys/fs/bpf/$(TARGET)
+	- rm $(BPF_OBJ)
+```
+
+The program logs all messages to the kernel trace pipe, which can be viewed using:
+
+```bash
+sudo cat /sys/kernel/debug/tracing/trace_pipe
+```
+
+Hurray! We see the packets and their metadata being displayed in the trace logs. To detach and unload the program from the interface, run `sudo make clean`.
+
 ### eBPF in Production: Networking
 
 eBPF is widely used by organisations to build efficient and versatile networking systems.
@@ -711,7 +758,7 @@ eBPF is widely used by organisations to build efficient and versatile networking
 
 # Conclusion
 
-We hope you had a fun time learning about eBPF! However the learning does not stop here. We have several post-workshop activities listed in the [Github repository](https://github.com/homebrew-ec-foss/eBPF-workshop) as well as additional resources such as books, papers and labs. We highly recommend that you explore and dive in deeper. Feel free to reach out to any of us with regards to any queries or thoughts you might want to share.
+We hope you had a fun time learning about eBPF! However the learning does not stop here. We have several post-workshop activities listed in the [Github repository](https://github.com/homebrew-ec-foss/eBPF-workshop) as well as additional resources such as books, papers and labs. We highly recommend that you explore and dive in deeper. Feel free to reach out with any queries or thoughts you might want to share.
 
 Happy hacking!
 

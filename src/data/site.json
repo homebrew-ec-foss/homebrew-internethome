@@ -1,6 +1,6 @@
 {
-  "name": "Homebrew | Hackerspace PESUECC",
-  "description": "Homebrew is the destination FOSS community in PESU University created and managed by Hackerspace PESUECC",
+  "name": "Homebrew | HSP PESUECC",
+  "description": "Homebrew is the destination FOSS community in PESU University created and managed by HSP PESUECC",
   "url": "https://homebrew.hsp-ec.xyz",
   "author": {
     "name": "Hackerspace PESUECC",
@@ -49,7 +49,6 @@
       "url": "/posts/history",
       "external": false
     }
-
   ],
   "socialLinks": [
     {
@@ -63,8 +62,8 @@
       "external": true
     },
     {
-      "text": "Twitter",
-      "url": "https://twitter.com/",
+      "text": "X",
+      "url": "https://x.com/hsp_ecc",
       "external": true
     }
   ],

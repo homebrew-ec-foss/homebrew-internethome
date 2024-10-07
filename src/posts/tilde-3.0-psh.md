@@ -1,6 +1,16 @@
+---
+title: Tilde 3.0 psh
+date: "2024-10-08"
+tags: [tilde-3.0, summer, mentoring]
+description: "This project is a custom implementation of a shell written in C. It aims to achieve all the features of a POSIX-compliant shell. It is part of the TILDE 3.0 mentorship program where 5 students worked on this project under the mentorship of 3 mentors."
+permalink: posts/{{ title | slug }}/index.html
+author_name: Team PSH 
+author_link: "https://github.com/homebrew-ec-foss/psh"
+---
+
 # $ psh: a fancy POSIX-like shell
 
-_Authors : [KK](https://github.com/Pro696969), [Adi](https://github.com/adityatr64), [Alayna](https://github.com/AlaynaMonteiro), [Sumithra](https://github.com/2sumithrasuresh), [Siddhartha](https://github.com/ninsid711)_
+_Authors: [KK](https://github.com/Pro696969), [Adi](https://github.com/adityatr64), [Alayna](https://github.com/AlaynaMonteiro), [Sumithra](https://github.com/2sumithrasuresh), [Siddhartha](https://github.com/ninsid711)_
 
 ## Contents: 
 

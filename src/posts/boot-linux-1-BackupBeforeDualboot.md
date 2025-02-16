@@ -3,7 +3,7 @@ title: /boot/linux - Backing Things Up Before Getting Started
 date: '2025-02-15'
 tags: [beginners, linux, windows]
 description: A bunch of links to help you back up your data before trying out Linux!
-author_name: Andey Hemanth, Mebin Thattil, Vinaayak Dasika
+author_name: Andey Hemanth, Mebin Thattil, Vinaayak G Dasika
 ---
 
 In case you are planning to dual-boot your Windows installation with Linux, an

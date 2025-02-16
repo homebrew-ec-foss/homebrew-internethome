@@ -49,3 +49,5 @@ Copy your ISO that you downloaded into this drive, without creating any folder a
 Do not delete or attempt to fix the drive whenever you connect it while on Windows, and therefore avoid the following message whenever it shows up:-
 
 ![message to avoid (There is a problem with this drive.)](https://i.imgur.com/oZk6qWJ.png)
+
+ref: [linkstash](/posts/boot-linux-0-linkstash)

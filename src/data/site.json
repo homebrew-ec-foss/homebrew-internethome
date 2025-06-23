@@ -11,13 +11,8 @@
   "headerLinks": [
     {
       "text": "Home",
-      "url": "/",
-      "external": false
-    },
-    {
-      "text": "Join Us!",
-      "url": "/getstarted",
-      "external": false
+      "url": "https://hsp-ec.xyz",
+      "external": true
     },
     {
       "text": "Blog",
@@ -26,27 +21,27 @@
     },
     {
       "text": "Events",
-      "url": "/events",
-      "external": false
+      "url": "https://hsp-ec.xyz/announcements/",
+      "external": true
+    },
+    {
+      "text": "About",
+      "url": "https://hsp-ec.xyz/about",
+      "external": true
+    },
+    {
+      "text": "History",
+      "url": "https://hsp-ec.xyz/history",
+      "external": true
+    },
+    {
+      "text": "Members",
+      "url": "https://hsp-ec.xyz/collections/members",
+      "external": true
     },
     {
       "text": "Code of Conduct",
       "url": "/conduct",
-      "external": false
-    },
-    {
-      "text": "About",
-      "url": "/about",
-      "external": false
-    },
-    {
-      "text": "Members",
-      "url": "/members",
-      "external": false
-    },
-    {
-      "text": "History",
-      "url": "/posts/history",
       "external": false
     }
   ],

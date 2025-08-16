@@ -1,7 +1,5 @@
-node_modules
-npm-debug.*
 *.log
 .DS_Store
+node_modules
+npm-debug.*
 public
-package.json
-yarn.lock

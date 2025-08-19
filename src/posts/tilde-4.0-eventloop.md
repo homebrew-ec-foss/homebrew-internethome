@@ -6,6 +6,8 @@ description: "Blog writeup for the Eventloop event management project"
 permalink: posts/{{ title | slug }}/index.html
 author_name: Team Eventloop
 author_link: "https://github.com/homebrew-ec-foss/eventloop"
+github: https://github.com/lalithbseervi
+linkedin: https://linkedin.com/in/lalithbseervi
 ---
 
 
@@ -48,13 +50,21 @@ There were two major unrealised drawbacks/limitations with this setup to note:
 
 
 ## Week 1: Implementation Phase (July 13 - 19)
-Over the course of this week, I learnt how to rewrite the Go-backend into the ExpressJS counterparts. I had implemented Google OAuth login.
+Over the course of this week, I learnt how to rewrite the Go-backend into the ExpressJS counterparts. I had implemented Google OAuth login, and here's how it works:
 
+![OAuth flow](../images/oAuthFlow.png)
+_Sign-up/Sign-in flow_
 
-![code snippet, verifyToken](../images/verifyToken.png)
+1. The user sends a request to sign-up.
+2. Google prompts the user to select a mail ID, validates the details, and returns a credential response.
+3. The frontend receives the credential response and obtains the JWT token from it.
+4. This JWT token is sent to the backend.
+5. Backend will use a Google Client to verify this JWT token's validity, and if valid, it will return the details (name, email). Further, the backend will run queries in order to get the remaining fields that is seen by the user (such as role).
 
+If the token was successfully verified, then the login function calls a function called  `getAuthUser` which queries the database for records having the `name` and/or `email`. However, one limitation was that there could be duplicate names. We'll see later how this was overcome.
 
-If the token was successfully verified, then the login function calls the `getAuthUser` function which queries the db for user records having the `name` and/or `email`. However, one limitation was that there could be duplicate names. We'll see later how this was overcome.
+![code snippet, verifyToken](../images/verifyToken.png)      
+_Token verification logic_
 
 
 We had also decided to move to Supabase DBaaS, since it was not possible to work with file-based sqlite3 db in production (Vercel Serverless has no persistence). Then, we ended the week with a feature to automatically create records for new sign-ups.
@@ -112,6 +122,8 @@ We have planned much more -- which you'll see in the coming weeks. We are going 
 ## References
 - [Previous iteration of Eventloop backend](https://github.com/homebrew-ec-foss/eventloop/tree/main)
 - [Previous iteration of Eventloop frontend](https://github.com/homebrew-ec-foss/eventloop-frontend/tree/main)
+- [Current iteration of Eventloop backend](https://github.com/event-xyz/event-xyz/tree/feat/lalith)
+- [Current iteration of Eventloop frontend](https://github.com/event-xyz/eventloop-fe)
 - [Learning Golang](https://go.dev/tour/welcome/1)
 - [Getting started with Capella's Go SDK](https://docs.couchbase.com/go-sdk/current/hello-world/start-using-sdk.html)
 - [Golang Documentation](https://gin-gonic.com/en/docs/quickstart/)

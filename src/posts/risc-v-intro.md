@@ -2,7 +2,7 @@
 title: "RISC-V: The Linux of Hardware"
 date: "2025-09-07"
 tags: [tech, RISC-V] 
-description: "An article to get bootstrapped into learning things and building youself as a developer"
+description: "Explore RISC-V, the open hardware movement making processor design accessible to students, developers, and researchers alike."
 permalink: posts/{{ title | slug }}/index.html
 author_name: M Pranav 
 author_link: "https://github.com/pranav0x0112"
@@ -36,13 +36,13 @@ The openness of RISC-V has created ecosystems much like Linux did — thriving c
 
 Hardware design often feels like wizardry happening in corporate or research labs. But RISC-V opens the doors for everyone. Curious about how a processor works internally? You can:
 
-1. Browse and study real RISC-V cores on GitHub: from tiny educational cores to ones capable of running Linux.
-
-2. Simulate a RISC-V CPU using open-source tools like [QEMU](https://en.wikipedia.org/wiki/QEMU).
+- Browse and study real RISC-V cores on GitHub: from tiny educational cores to ones capable of running Linux.
+- Simulate a RISC-V CPU using open-source tools like [QEMU](https://en.wikipedia.org/wiki/QEMU).
 
 ![Ripes Simulation](https://i.postimg.cc/Vk4z3jmS/animation.gif)
 
-> **Peek inside a RISC-V CPU: one instruction at a time, courtesy of** [**Ripes**](https://github.com/mortbopet/Ripes)**.** You’re not stuck just reading theory; you can **play with the real thing**.
+> **Peek inside a RISC-V CPU: one instruction at a time, courtesy of [Ripes](https://github.com/mortbopet/Ripes).**  
+> Ripes is a visual simulator for computer architecture, with an integrated assembly code editor, built for the RISC-V instruction set architecture. You’re not stuck just reading theory; you can play with the real thing.
 
 ### **3. Structured guidance → Mentorship and learning programs**
 

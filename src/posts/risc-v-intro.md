@@ -1,6 +1,6 @@
 ---
 title: "RISC-V: The Linux of Hardware"
-date: "2025-09-06"
+date: "2025-09-07"
 tags: [tech, RISC-V] 
 description: "An article to get bootstrapped into learning things and building youself as a developer"
 permalink: posts/{{ title | slug }}/index.html
@@ -14,7 +14,7 @@ author_link: "https://github.com/pranav0x0112"
 
 Most of us discover [FOSS](https://homebrew.hsp-ec.xyz/posts/the-world-of-open-source!/) through software: cool Linux distros, editors, frameworks and many other tools that make our life easier. But beneath all that is a world not many of us think about: the microchips that run our code. All this while, this world was locked away behind billion-dollar corporations and closed [Instruction Set Architectures](https://en.wikipedia.org/wiki/Instruction_set_architecture).
 
-Say hello to [RISC-V (Reduced Instruction Set Computer)](https://en.wikipedia.org/wiki/RISC-V) — an open source Instruction Set Architecture(ISA) that’s doing to hardware what Linux did to operating systems. This blog is a quick introduction to what RISC-V is, why it matters, and how it fits perfectly into the FOSS spirit.
+Say hello to [RISC-V (Reduced Instruction Set Computer)](https://en.wikipedia.org/wiki/RISC-V) — an open source Instruction Set Architecture (ISA) that’s doing to hardware what Linux did to operating systems. This blog is a quick introduction to what RISC-V is, why it matters, and how it fits perfectly into the FOSS spirit.
 
 ## So What’s an ISA anyway?
 

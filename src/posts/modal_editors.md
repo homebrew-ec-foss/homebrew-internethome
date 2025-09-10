@@ -51,8 +51,14 @@ As you learn more about computers, you'll notice that all TUI programs are confi
 
 ## Starting
 Now that you've got neovim on your system, let's start my opening neovim's configuration file inside neovim itself!
+On Linux and MacOS:
 ```bash
 nvim --cmd "call mkdir(stdpath('config'), 'p')" --cmd "exe 'edit '.stdpath('config').'/init.vim'"
+```
+
+On Windows:
+```bash
+nvim --cmd "call mkdir(stdpath('config'), 'p')" --cmd "exe 'edit '.stdpath('config').'\init.vim'"
 ```
 
 After all that we've finally arrived at the topic of today's workshop, modal editing.

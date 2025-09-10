@@ -5,7 +5,7 @@ tags: [tilde-3.0, summer, mentoring, rust, systems, loadbalancer]
 description: "Blog writeup for the Bal.rs load balancer project"
 permalink: posts/{{ title | slug }}/index.html
 author_name: Team Bal.rs
-author_link: "https://github.com/homebrew-ec-foss/ModelForge"
+author_link: "https://github.com/homebrew-ec-foss/bal.rs"
 ---
 
 # Building a simple Load Balancer in Rust

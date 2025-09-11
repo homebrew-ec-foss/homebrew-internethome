@@ -222,6 +222,6 @@ As you'll move through college and start taking on bigger projects the default n
 
 The main benefits of using a TUI editor is that you're in your terminal the entire time and can leverage a lot of the Terminal's and the Shell's capabilities. I highly recommend going through [missing semester](https://missing.csail.mit.edu/) its an excellent series of lectures introducing the terminal, the shell and even vim!
 
-Also checkout [VimCasts](vimcasts.org) a series of videos by Drew Neil on various vim tricks and vim plugins
+Also checkout [VimCasts](http://vimcasts.org/) a series of videos by Drew Neil on various vim tricks and vim plugins
 
 Join the [Discord]() where our community members will share more resources and also feel free to ask questions!

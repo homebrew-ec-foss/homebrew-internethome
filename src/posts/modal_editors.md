@@ -224,4 +224,5 @@ The main benefits of using a TUI editor is that you're in your terminal the enti
 
 Also checkout [VimCasts](http://vimcasts.org/) a series of videos by Drew Neil on various vim tricks and vim plugins
 
-Join the [Discord]() where our community members will share more resources and also feel free to ask questions!
+Join the [Discord](https://hsp-ec.xyz/discord) where our community members will share more resources and also feel free to ask questions!
+

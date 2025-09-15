@@ -1,16 +1,13 @@
 ---
-title: Tilde 4.0 Prob.lm
-date: 2025-08-24
-tags:
-  - summer
-  - mentoring
-  - LLMs
-  - RAG
+title: "Tilde 4.0 Prob.lm"
+date: "2025-08-24"
+tags: [tilde-4.0, summer, mentoring, LLMs, RAG]
 description: Blog writeup for the Prob.lm, a RAG project
 permalink: posts/{{ title | slug }}/index.html
-author_name: Team Prob.lm
-author_link: https://github.com/homebrew-ec-foss/prob.lm
+author_name: "Team Prob.lm"
+author_link: "https://github.com/homebrew-ec-foss/prob.lm"
 ---
+
 # Prob.lm: Building a study assistant using RAG
 
 _Authors: [Anshul Banda](https://github.com/AnshulBanda), [Atharv Sawarkar](https://github.com/kazabiteboltiz), [Shashank A](https://github.com/ShadowMarty), [S S Adhithya Sriram](https://github.com/SS-AdhithyaSriram), [Ayushi Mittal](https://github.com/mittal-ayushi)_
@@ -30,9 +27,7 @@ By leveraging [Retrieval-Augmented Generation (RAG)](https://aws.amazon.com/what
 ### Prerequisites
 
 - [**Python: 3.8+ (3.10 or later recommended)**](https://www.python.org/downloads/)
-
 - [**Ollama: Required for local LLM support**](https://ollama.com/search)
-
 - [**Git: For cloning the repository**](https://git-scm.com/downloads)
 ### Running Prob.lm Locally
 
@@ -76,7 +71,10 @@ After breaking your documents into chunks, `prob.lm` needs to index them for fas
 First, each text chunk is passed through the `all-mpnet-base-v2` model to create a numerical vector called an **embedding**. This vector represents the chunk's semantic meaning. All of these embeddings are then stored locally in a **ChromaDB vector store**.
 
 This specialized database allows for lightning-fast **similarity searches**. When you ask a question, it's also converted into a vector, and ChromaDB instantly finds the most relevant text chunks from your documents to construct an answer.
+
 <img src="https://i.postimg.cc/NfJVnj03/Embeddings-and-Vector-DB.png" alt="Embeddings and Vector DB" width="700">
+
+
 Embeddings: 
 ```sh
 # Turns text into numerical vectors (embeddings)
@@ -96,7 +94,6 @@ To find the most accurate information for your query, `prob.lm` uses a powerful 
 First, a **hybrid search** combines two methods simultaneously:
 
 - **Vector Search**: To understand the query's meaning and find conceptually similar text.
-    
 - **BM25 Search**: To find text with the exact keywords from your query.
     
 
@@ -148,9 +145,7 @@ Finally, your question and the expanded context are sent to a local LLM (like `l
 ### Challenges and Learnings
 
 - **Optimizing Chunking:** We found that a recursive chunking approach provided the best balance of context and specificity for academic documents.
-
 - **Efficient Local LLM Integration:** Integrating local Ollama models required careful configuration to balance performance and resource usage, highlighting the trade-offs compared to cloud APIs.
-
 - **Improving Retrieval:** Implementing hybrid search and reranking significantly improved the relevance of retrieved documents compared to using vector search alone.
 
 ## Next Steps
@@ -158,11 +153,8 @@ Finally, your question and the expanded context are sent to a local LLM (like `l
 We have ambitious plans for Prob.lm, including:
 
 - **Improved UI:** Moving from a CLI to a more intuitive graphical user interface (GUI).
-
 - **Hardware Acceleration:** Allowing users to leverage GPUs for faster processing.
-
 - **Advanced Document Support:** Implementing OCR to extract text from images and tables within documents.
-
 - **Agentic RAG:** Exploring more advanced agent-based systems that can perform complex, multi-step reasoning to answer questions.
 
 ## Experiences
@@ -177,14 +169,11 @@ We have ambitious plans for Prob.lm, including:
 > 
 >*"I collaborated on a study guide designed to work locally without internet access, contributing to feature brainstorming, documentation, and backend research. Through this project, I was introduced to machine learning libraries, backend development, full-stack integration, and Git/GitHub. More importantly, I learned how much successful collaboration relies on communication and sustained effort. The experience highlighted areas to grow my full-stack skills, but instead of discouraging me, it motivated step-by-step improvement. Working alongside skilled teammates reshaped how I learn, emphasizing perseverance, teamwork, and continuous growth."* - [**S S Adhithya Sriram**](https://github.com/SS-AdhithyaSriram)
 >
->Over 4 weeks at TILDE, I collaborated with the Prob.lm team to build a RAG-based study assistant. My main focus was the embedding and chunking pipeline, preparing data for efficient retrieval and integration with the model. Through research, teamwork, and valuable mentor guidance, I gained both technical and collaborative skills. I’m grateful for the experience, and proud that we delivered a functional CLI app I look forward to using for exam prep. - [**Atharv Sawarkar**](https://github.com/kazabiteboltiz)
+>*"Over 4 weeks at TILDE, I collaborated with the Prob.lm team to build a RAG-based study assistant. My main focus was the embedding and chunking pipeline, preparing data for efficient retrieval and integration with the model. Through research, teamwork, and valuable mentor guidance, I gained both technical and collaborative skills. I’m grateful for the experience, and proud that we delivered a functional CLI app I look forward to using for exam prep."*- [**Atharv Sawarkar**](https://github.com/kazabiteboltiz)
 
 ## Resources
 
 - **Project Repository:** https://github.com/homebrew-ec-foss/prob.lm
-
 - **LangChain:** The core framework used to build our RAG pipeline.
-
 - **Ollama:** For running large language models locally.
-
 - **ChromaDB:** Our local vector store for embeddings.

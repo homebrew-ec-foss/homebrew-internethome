@@ -1,6 +1,6 @@
 ---
 title: "Tilde 4.0 Prob.lm"
-date: "2025-08-24"
+date: "2025-09-15"
 tags: [tilde-4.0, summer, mentoring, LLMs, RAG]
 description: Blog writeup for the Prob.lm, a RAG project
 permalink: posts/{{ title | slug }}/index.html
@@ -18,7 +18,7 @@ Imagine you’re a student or researcher needing an AI assistant to help with yo
 
 What’s the solution? Enter Prob.lm - a privacy-focused, lightweight AI assistant that runs entirely offline on your local device.
 
-<img src="https://i.postimg.cc/hPP6MdK8/flowchart.png" alt="Flowchart" width="700"> 
+![Flowchart](https://i.postimg.cc/hPP6MdK8/flowchart.png) 
 
 By leveraging [Retrieval-Augmented Generation (RAG)](https://aws.amazon.com/what-is/retrieval-augmented-generation/) with a powerful [language model](https://www.cloudflare.com/learning/ai/what-is-large-language-model/), Prob.lm fetches trusted information during use, providing precise, relevant, and academically reliable answers without compromising your privacy or depending on the cloud.
 
@@ -44,7 +44,7 @@ To do this, we used a `RecursiveCharacterTextSplitter`. Instead of blindly chopp
 Why is this so important? **Context is everything**. By keeping related content together, the AI gets a much better understanding of your material, allowing it to provide more accurate and relevant answers to your questions later on.
 
 
-<img src="https://i.postimg.cc/1RKbpH15/Chunking.png" alt="Chunking" width="700">
+![Chunking](https://i.postimg.cc/1RKbpH15/Chunking.png)
 
 ``` sh
 def _load_and_split_docs(file_paths, status):
@@ -72,7 +72,7 @@ First, each text chunk is passed through the `all-mpnet-base-v2` model to create
 
 This specialized database allows for lightning-fast **similarity searches**. When you ask a question, it's also converted into a vector, and ChromaDB instantly finds the most relevant text chunks from your documents to construct an answer.
 
-<img src="https://i.postimg.cc/NfJVnj03/Embeddings-and-Vector-DB.png" alt="Embeddings and Vector DB" width="700">
+![Embeddings and Vector DB](https://i.postimg.cc/NfJVnj03/Embeddings-and-Vector-DB.png)
 
 
 Embeddings: 

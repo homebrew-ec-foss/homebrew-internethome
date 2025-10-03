@@ -97,7 +97,7 @@ CPU has following components which will help it function:
 
 -> OPCODE is a fancy term for Operation Codes (and that are instructions). We are using 33 Opcodes for Chip-8, all instructions are 2 bytes long and are stored most-significant-byte first. Opcode consists of four letters, usually MSB letter being a hex number which can be used to identify the Instruction. 
 
--> Example of an OPCODE -> 1NNN where 1 is a hex number and NNN can be a number or a letter. 1NNN is used to jump address, interpreter sets the Program counter to address NNN. Where first byte 1N is stored at address 0x200 and the other byte at NN and then combined to form a instruction inside the cpu, executing stage will use first letter of the opcode to find the execution sequence.
+-> Example of an OPCODE - 1NNN where 1 is a hex number and NNN can be a number or a letter. 1NNN is used to jump address, interpreter sets the Program counter to address NNN. Where first byte 1N is stored at address 0x200 and the other byte at NN and then combined to form a instruction inside the cpu, executing stage will use first letter of the opcode to find the execution sequence.
 
 
 ![OPCODE 1NNN](https://mebin.shop/keval/tilde_00smth.png)
@@ -134,7 +134,7 @@ CPU has following components which will help it function:
 
 -> This is an incredible concept as it  not only draws pixels onto the screen, but it also provides a collision detection mechanism. This feature is fundamental for programming classic games like Pong or Space Invaders, where detecting if two objects have collided is a major part of the gaming logic.
 
--> All graphics in CHIP-8 are rendered using spires. A sprite can be defined as a small graphical image or pattern that could be up to a maximum of 15 bytes.
+-> All graphics in CHIP-8 are rendered using sprites. A sprite can be defined as a small graphical image or pattern that could be up to a maximum of 15 bytes.
 
 -> In order to understand what this boundary condition implies, we must first understand that in CHIP-8, a sprite is always 8 pixels wide, corresponding perfectly to a single byte. This width is fixed. What varies is the number of rows, this corresponds to the height of the sprite which is limited to 15 bytes.
 

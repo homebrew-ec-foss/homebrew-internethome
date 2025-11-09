@@ -32,7 +32,7 @@ CHIP-8 is an instruction set, running on a virtual machine. Its best feature is 
 Inspired by this idea, our team worked on a project to create a CHIP-8 emulator using verilog. 
 
 Our project uses Verilog, a hardware description language (HDL), to implement the CHIP-8 instruction set. 
-![Full System](https://mebin.shop/keval/tilde_1.png)
+![Full System](https://cdn.mebin.in/keval/tilde_1.png)
 <p style="text-align: center; margin-top: 0;"><em>CHIP-8 Architecture</em></p>
 
 Coding in Verilog is like building blocks. Each block is referred to as a module and all these modules are coordinated using a top module as described in the figure:
@@ -100,7 +100,7 @@ CPU has following components which will help it function:
 -> Example of an OPCODE - 1NNN where 1 is a hex number and NNN can be a number or a letter. 1NNN is used to jump address, interpreter sets the Program counter to address NNN. Where first byte 1N is stored at address 0x200 and the other byte at NN and then combined to form a instruction inside the cpu, executing stage will use first letter of the opcode to find the execution sequence.
 
 
-![OPCODE 1NNN](https://mebin.shop/keval/tilde_00smth.png)
+![OPCODE 1NNN](https://cdn.mebin.in/keval/tilde_00smth.png)
 <p style="text-align: center; margin-top: 0;"><em>Instruction 1NNN</em></p>
 
 -> In memory, the first byte of each instruction (2 letters) should be located at an even address. If a program includes sprite data, it should be padded so any instructions following it will be properly situated in RAM
@@ -127,7 +127,7 @@ CPU has following components which will help it function:
 
 -> The working of the display is implemented by the use of  the XOR gate. Looking at the truth table of the XOR gate, the truth table explains every possible value a pixel can take :
 
-![OPCODE 1NNN](https://mebin.shop/keval/tilde_2.png)
+![OPCODE 1NNN](https://cdn.mebin.in/keval/tilde_2.png)
 <p style="text-align: center; margin-top: 0;"><em>Display Pixel Logic</em></p>
 
 -> The state of collision is when a pixel which is ON is once again given an ON signal. In this case, the pixel is erased, i.e, it turns OFF 
@@ -140,7 +140,7 @@ CPU has following components which will help it function:
 
 -> To better understand this, let us look at an example of a sprite for the letter ‘A’:
 
-![OPCODE 1NNN](https://mebin.shop/keval/tilde_3.png)
+![OPCODE 1NNN](https://cdn.mebin.in/keval/tilde_3.png)
 
 <p style="text-align: center; margin-top: 0;"><em>Letter A</em></p>
 
@@ -176,13 +176,13 @@ By executing this single command, the emulator can render complex characters and
 
 → After connecting CPU, Memory and Display to TOP module, we verified display module. To do that we initialized Memory with sprite data from a .mem file. We checked the functionality and CPU successfully fetched the sprite data and passed to display module.
 
-![OPCODE 1NNN](https://mebin.shop/keval/tilde_4.png)
+![OPCODE 1NNN](https://cdn.mebin.in/keval/tilde_4.png)
 
 <p style="text-align: center; margin-top: 0;"><em>Data flowing from CPU to Display module</em></p>
 
 Here we are verifying that data is flowing from the cpu to display module 
 
-![OPCODE 1NNN](https://mebin.shop/keval/tilde_5.png)
+![OPCODE 1NNN](https://cdn.mebin.in/keval/tilde_5.png)
 
 <p style="text-align: center; margin-top: 0;"><em>Sprite data stored in game.mem</em></p>
 

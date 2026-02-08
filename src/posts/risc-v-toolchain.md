@@ -96,25 +96,25 @@ Now that you have the tools, what do you build? Here's where pre-existing RISC-V
 
 ---
 
-### **5. TinyTapeout: Your Shot at Real Silicon**
+### **5. Tiny Tapeout: Your Shot at Real Silicon**
 
-Remember all those tools we just talked about? [TinyTapeout](https://tinytapeout.com/) is where you actually use them to manufacture real chips.
+Remember all those tools we just talked about? [Tiny Tapeout](https://tinytapeout.com/) is where you actually use them to manufacture real chips.
 
-TinyTapeout is a platform that makes chip fabrication accessible. Instead of paying hundreds of thousands of dollars for a solo manufacturing run, multiple designs get combined into one "shuttle" and share the cost. For around $100-150, you can get your design fabricated in actual silicon using processes like IHP SG13G2 or SkyWater 130nm. No company backing, no research lab required, just you, your design, and a submission deadline.
+Tiny Tapeout is a platform that makes chip fabrication accessible. Instead of paying hundreds of thousands of dollars for a solo manufacturing run, multiple designs get combined into one "shuttle" and share the cost. For around $100-150, you can get your design fabricated in actual silicon using processes like IHP SG13G2 or SkyWater 130nm. No company backing, no research lab required, just you, your design, and a submission deadline.
 
-I first heard about TinyTapeout while working on a [System-on-Chip (SoC) project](https://www.prawns.dev/blogs/what-is-a-soc) with some friends. The idea that students could tape out real chips felt almost too good to be true. My first real dive was through a [crowd-sourced competition](https://tinytapeout.com/competitions/risc-v-peripheral/) where participants contributed peripherals for a RISC-V SoC. That got me hooked, read about my submission [here](https://www.prawns.dev/blogs/tiny-tone)!
+I first heard about Tiny Tapeout while working on a [System-on-Chip (SoC) project](https://www.prawns.dev/blogs/what-is-a-soc) with some friends. The idea that students could tape out real chips felt almost too good to be true. My first real dive was through a [crowd-sourced competition](https://tinytapeout.com/competitions/risc-v-peripheral/) where participants contributed peripherals for a RISC-V SoC. That got me hooked, read about my submission [here](https://www.prawns.dev/blogs/tiny-tone)!
 
 After that, I decided to go all in and do a dedicated tapeout of my own: [Herald](https://github.com/pranav0x0112/Herald), a co-processor that handles CORDIC (coordinate rotation) and MAC (multiply-accumulate) operations. The workflow? Design in Verilog, simulate it, synthesize with Yosys, place & route with OpenROAD, verify timing, submit your GDSII file, and wait for the shuttle to tape out.
 
-Sounds smooth, right? It wasn't. Errors after errors timing violations, things that worked in simulation but failed in hardware checks. But here's the thing: the TinyTapeout community is incredibly active. Ask a question on Discord (even if you think it's silly), and someone will help. The barriers aren't technical anymore, they're just learning curves, and the community helps you climb them.
+Sounds smooth, right? It wasn't. Errors after errors timing violations, things that worked in simulation but failed in hardware checks. But here's the thing: the Tiny Tapeout community is incredibly active. Ask a question on Discord (even if you think it's silly), and someone will help. The barriers aren't technical anymore, they're just learning curves, and the community helps you climb them.
 
 ![full-gds.png](https://i.postimg.cc/Zn6jLFgy/full-gds.png)
 
-> Real TinyTapeout shuttle layout (Shuttle - IHP26A) showing multiple designs(including mine) combined into one manufacturing run. Each colorful section is someone's chip: students, hobbyists, researchers all sharing the same silicon :)
+> Real Tiny Tapeout shuttle layout (Shuttle - IHP26A) showing multiple designs(including mine) combined into one manufacturing run. Each colorful section is someone's chip: students, hobbyists, researchers all sharing the same silicon :)
 
-What makes TinyTapeout special isn't just that it's affordable. It's that you're using the **exact same tools and flows** that industry uses. You're not playing with toy simulators or fake environments. You're designing real chips, following real constraints, and getting real manufactured silicon at the end. That's the ultimate validation.
+What makes Tiny Tapeout special isn't just that it's affordable. It's that you're using the **exact same tools and flows** that industry uses. You're not playing with toy simulators or fake environments. You're designing real chips, following real constraints, and getting real manufactured silicon at the end. That's the ultimate validation.
 
-If you've been following along with the tools in this post—Verilator, Yosys, OpenROAD then TinyTapeout is where you put them all together. It's the final level of the training arc: from simulating logic gates to holding a physical chip with your design etched into it.
+If you've been following along with the tools in this post—Verilator, Yosys, OpenROAD then Tiny Tapeout is where you put them all together. It's the final level of the training arc: from simulating logic gates to holding a physical chip with your design etched into it.
 
 ---
 

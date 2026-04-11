@@ -20,7 +20,7 @@ When most people think "chip design," they imagine locked-down corporate tools w
 
 **The FOSS hardware ecosystem has grown up.**
 
-Just like Linux gave us `gcc`, `vim`, and `git`, the hardware world now has [Yosys](https://yosyshq.net/yosys/), [Verilator](https://www.veripool.org/verilator/), and [OpenROAD](https://theopenroadproject.org/). Students, hobbyists, and even startups are designing real chips with these tools: chips that actually get manufactured and work.
+Just like the Unix and GNU ecosystem gave us tools like `gcc`, `vim`, and later `git`, the hardware world now has [Yosys](https://yosyshq.net/yosys/), [Verilator](https://www.veripool.org/verilator/), and [OpenROAD](https://theopenroadproject.org/). Students, hobbyists, and even startups are designing real chips with these tools: chips that actually get manufactured and work.
 
 The barrier to entry isn't money anymore. It's just knowing where to look.
 

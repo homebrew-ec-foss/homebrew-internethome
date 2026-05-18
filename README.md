@@ -8,12 +8,12 @@ this repo and setup the preview.
 
 - Clone this repository with `git clone https://github.com/homebrew-ec-foss/homebrew-internethome.git`,
 - Navigate to the newly created repository on your machine.
-- Install dependencies with `yarn install`
-- Serve the site locally with `yarn dev`
-- Use `yarn build` to build a production version of the site.
+- Install dependencies with `bun install`
+- Serve the site locally with `bun dev`
+- Use `bun run build` to build a production version of the site.
 - You can now access the website locally by going to `http://localhost:8080` on your browser.
 
-Note: Requires nodejs (node 16 to be specific) to be installed.
+Note: Requires Bun (bun 1.3.1 or later) to be installed.
 
 
 ## What is Homebrew?

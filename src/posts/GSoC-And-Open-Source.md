@@ -38,7 +38,7 @@ GSoC also pays reasonably well: you could earn anywhere from $750 to $6,000. The
 
 ## What can GSoC teach you?
 
-![GSoC Logo](https://mebin.shop/GSoC-Banner.png)
+![GSoC Logo](https://cdn.mebin.in/GSoC-Banner.png)
 
 Working on a personal project is vastly different from how code is written in a company or team setting.
 
@@ -58,12 +58,12 @@ Those were just some of my major learnings; there are many more I haven't covere
 
 ### My organization - SugarLabs
 
-![SugarLabs logo](https://mebin.shop/sugarlabs-banner.png)
+![SugarLabs logo](https://cdn.mebin.in/sugarlabs-banner.png)
 
 The organization I contributed to over the summer was [SugarLabs](https://www.sugarlabs.org). SugarLabs is a global non-profit with a mission close to my heart: improving accessible education for children globally through technology. SugarLabs is best known for its [Sugar learning platform](https://wiki.sugarlabs.org/go/Getting_Started). Sugar powers the [One Laptop Per Child (OLPC)](https://wiki.sugarlabs.org/go/Getting_Started) laptops. Sugar is essentially a desktop environment that sits on top of Linux and provides a set of activities that can run within it.
 
 *This is what the OLPC laptops looks like:*
-![OLPC Laptops](https://mebin.shop/olpc-laptop.jpg)
+![OLPC Laptops](https://cdn.mebin.in/olpc-laptop.jpg)
 
 The first time I heard about SugarLabs was while browsing the orgs page on GSoC xD. Prior to that, I had no idea SugarLabs existed.
 
@@ -111,10 +111,10 @@ TTS was easier to benchmark. After testing a few models we settled on [Kokoro](h
 To test these voices and collect mentor/community feedback, I created another Streamlit site to try different Kokoro voices and mixing options. We decided on about 5–6 default voices because each voice is roughly 0.5 MB and we wanted the activity to be lightweight. Additional voices could be downloaded from within the activity later via the Hugging Face Hub. I created a [Streamlit benchmarking app](https://newstreamlit-frontend.blackpond-9921706d.eastus.azurecontainerapps.io/) to test the different voices and create new ones.
 
 *Here's a screenshot of the UI for this benchmark:*
-![Streamlit UI for TTS benchmarking](https://mebin.shop/Kokoro-Streamlit-UI.png)
+![Streamlit UI for TTS benchmarking](https://cdn.mebin.in/Kokoro-Streamlit-UI.png)
 
 *Waveform combinations to create new voices*
-![Voice combinations](https://mebin.shop/voice-analysis.png)
+![Voice combinations](https://cdn.mebin.in/voice-analysis.png)
 
 #### LLM benchmarking
 

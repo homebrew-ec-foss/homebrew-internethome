@@ -34,6 +34,23 @@
                             "url": "https://wiki.polarhive.net/index.xml"
                         }
                     ]
+                },
+                {
+                    "name": "hemanthandey.dev",
+                    "url": "https://hemanthandey.dev",
+                    "title": "Hemanth's Internet Home",
+                    "favicon": "https://hemanthandey.dev/favicon.svg",
+                    "blog": [
+                        {
+                            "title": "Hemanth's Blog",
+                            "url": "https://hemanthandey.dev/blog/feed.xml"
+                        },
+                        {
+                            "title": "Hemanth's TIL",
+                            "url": "https://hemanthandey.dev/til/feed.xml"
+                        }
+                    ]
+
                 }
             ]
         }

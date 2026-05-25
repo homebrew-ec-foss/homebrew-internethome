@@ -62,6 +62,18 @@
                             "url": "https://adihegde.com/feed.xml"
                         }
                     ]
+                },
+                {
+                    "name": "anshulparuchuri.netlify.app",
+                    "url": "https://anshulparuchuri.netlify.app",
+                    "title": "Anshul's site",
+                    "favicon": "https://anshulparuchuri.netlify.app/static/images/favicon_dark.png",
+                    "blog": [
+                        {
+                            "title": "Anshul's TIL",
+                            "url": "https://anshulparuchuri.netlify.app/collections/til"
+                        }
+                    ]
                 }
             ]
         }

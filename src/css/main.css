@@ -9,6 +9,7 @@
 @import 'post.css';
 @import 'about.css';
 @import 'conduct.css';
+@import 'webring.css';
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
 
@@ -30,6 +31,6 @@
   margin-right: auto;
 }
 
-pre{
-    background : #0f1419;
+pre {
+  background: #0f1419;
 }

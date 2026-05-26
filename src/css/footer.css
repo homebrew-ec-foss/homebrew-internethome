@@ -18,8 +18,16 @@
   border-top: 1px solid rgba(230, 230, 230, 1);
 }
 
-.footer__content > * {
-  margin-top: 2rem;
+.footer__content>* {
+  margin-top: 0.5rem;
+}
+
+.footer-links-section {
+  margin-top: 0 !important;
+}
+
+.webring-section {
+  margin-top: 0 !important;
 }
 
 .footer__attribution {
@@ -33,4 +41,98 @@
 
 .footer li {
   margin-right: 2rem;
+}
+
+/* Webring Styles */
+.webring-section {
+  width: 100%;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(230, 230, 230, 1);
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+  border-radius: 0;
+  background-color: transparent;
+  margin-top: 2rem;
+}
+
+.webring-header {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.webring-header h3 {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: var(--accent, #FF914D);
+}
+
+.webring-header h3 a {
+  color: var(--color);
+  text-decoration: none;
+}
+
+.webring-header h3 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent, #FF914D);
+}
+
+.webring-nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.webring-link {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 2px solid var(--accent, #FF914D);
+  border-radius: 0;
+  text-decoration: none;
+  transition: none;
+  color: var(--color);
+  font-weight: 400;
+}
+
+.webring-link:hover {
+  background-color: var(--accent, #FF914D);
+  color: white;
+  border-color: var(--accent, #FF914D);
+}
+
+.webring-sites {
+  text-align: center;
+  display: none;
+}
+
+.webring-sites-label {
+  font-size: var(--text-base);
+  margin: 0 0 0.5rem 0;
+  font-weight: 400;
+  display: none;
+}
+
+.webring-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.webring-list li {
+  margin: 0;
+}
+
+.webring-list a {
+  color: var(--color);
+  text-decoration: none;
+}
+
+.webring-list a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent, #FF914D);
 }

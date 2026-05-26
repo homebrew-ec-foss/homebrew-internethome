@@ -1,0 +1,93 @@
+{
+    "ring": [
+        {
+            "sites": [
+                {
+                    "name": "homebrew",
+                    "url": "https://homebrew.hsp-ec.xyz",
+                    "title": "Homebrew FOSS",
+                    "blog": [
+                        {
+                            "title": "Homebrew Blog",
+                            "url": "https://homebrew.hsp-ec.xyz/feed.xml"
+                        }
+                    ]
+                },
+                {
+                    "name": "hsp",
+                    "url": "https://hsp-ec.xyz",
+                    "title": "HSP PESUECC",
+                    "blog": []
+                },
+                {
+                    "name": "polarhive.net",
+                    "url": "https://polarhive.net",
+                    "title": "Nathan's internet home",
+                    "favicon": "https://polarhive.net/assets/favicon.svg",
+                    "blog": [
+                        {
+                            "title": "Nathan's Blog",
+                            "url": "https://polarhive.net/blog/index.xml"
+                        },
+                        {
+                            "title": "Nathan's wiki",
+                            "url": "https://wiki.polarhive.net/index.xml"
+                        }
+                    ]
+                },
+                {
+                    "name": "hemanthandey.dev",
+                    "url": "https://hemanthandey.dev",
+                    "title": "Hemanth's Internet Home",
+                    "favicon": "https://hemanthandey.dev/favicon.svg",
+                    "blog": [
+                        {
+                            "title": "Hemanth's Blog",
+                            "url": "https://hemanthandey.dev/blog/feed.xml"
+                        },
+                        {
+                            "title": "Hemanth's TIL",
+                            "url": "https://hemanthandey.dev/til/feed.xml"
+                        }
+                    ]
+                },
+                {
+                    "name": "adihegde.com",
+                    "url": "https://adihegde.com",
+                    "title": "Aditya's webpage",
+                    "favicon": "https://adihegde.com/static/favicon.png",
+                    "blog": [
+                        {
+                            "title": "Aditya's Feed",
+                            "url": "https://adihegde.com/feed.xml"
+                        }
+                    ]
+                },
+                {
+                    "name": "anshulparuchuri.netlify.app",
+                    "url": "https://anshulparuchuri.netlify.app",
+                    "title": "Anshul's site",
+                    "favicon": "https://anshulparuchuri.netlify.app/static/images/favicon_dark.png",
+                    "blog": [
+                        {
+                            "title": "Anshul's TIL",
+                            "url": "https://anshulparuchuri.netlify.app/collections/til"
+                        }
+                    ]
+                },
+                {
+                    "name": "prawns.dev",
+                    "url": "https://prawns.dev",
+                    "title": "Pranav's internet home",
+                    "favicon": "https://prawns.dev/static/images/heart-favicon.svg",
+                    "blog": [
+                        {
+                            "title": "Pranav's Blog",
+                            "url": "https://prawns.dev/blogs"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

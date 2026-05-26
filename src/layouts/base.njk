@@ -92,6 +92,8 @@
       <footer class="container mx-auto">
         <div class="footer__content">
 
+          <!-- Social and Webring Section -->
+          <div class="footer-links-section">
             <div class="footer_flex">
             {% if site.socialLinks %}
               {% for item in site.socialLinks %}
@@ -121,15 +123,30 @@
                 </li>
               {% endfor %}
             {% endif %}
+            </div>
+          </div>
+
+          <!-- Homebrew Webring -->
+          <div class="webring-section">
+            <div class="webring-header">
+              <h3><a href="/webring">Homebrew Webring</a></h3>
+            </div>
+            <div class="webring-nav">
+              <a href="/ring/prev?site=https://homebrew.hsp-ec.xyz" class="webring-link">← Previous</a>
+              <a href="/ring/random?site=https://homebrew.hsp-ec.xyz" class="webring-link">🔀 Random</a>
+              <a href="/ring/next?site=https://homebrew.hsp-ec.xyz" class="webring-link">Next →</a>
+            </div>
+            <div class="webring-sites">
+              <p class="webring-sites-label">Sites in the ring:</p>
+              <ul class="webring-list">
+              {% for site_item in sites.ring %}
+                <li><a href="{{ site_item.url }}" target="_blank" rel="noopener noreferrer">{{ site_item.title }}</a></li>
+              {% endfor %}
+              </ul>
+            </div>
           </div>
 
           {% if site.showFooterAttribution %}
-            <p class="footer__attribution">
-          Created by
-      <a href="https://twitter.com/yinkakun" target="_blank" rel="noopener">Yinka,</a>
-       Powered by <a href="https://www.11ty.dev" target="_blank" rel="noopener">11ty,</a>
-        Checkout <a href="https://github.com/yinkakun/eleventy-duo" target="_blank" rel="noopener noreferrer">project's github repo </a>
-            </p>
           {% endif %}
 
         </div>

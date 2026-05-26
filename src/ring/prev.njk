@@ -1,0 +1,54 @@
+---
+permalink: /ring/prev/index.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homebrew Webring - Previous Site</title>
+</head>
+<body>
+    <script>
+        // Extract actual site list
+        const ringData = {{ sites.ring | dump | safe }};
+        const sites = ringData[0].sites;
+
+        // Get current site from query parameter
+        const currentUrl = decodeURIComponent(
+            new URLSearchParams(window.location.search).get('site') || ''
+        );
+
+        function getPrevSite() {
+            const currentIndex = sites.findIndex(
+                site => site.url === currentUrl
+            );
+
+            // If current site not found, return last site
+            if (currentIndex === -1) {
+                return sites[sites.length - 1];
+            }
+
+            // Return previous site with wraparound
+            return sites[
+                (currentIndex - 1 + sites.length) % sites.length
+            ];
+        }
+
+        const targetSite = getPrevSite();
+
+        if (targetSite && targetSite.url) {
+            window.location.href = targetSite.url;
+        } else {
+            console.error('Invalid target site:', targetSite);
+
+            document.body.innerHTML += `
+                <p>Could not determine previous site.</p>
+            `;
+        }
+    </script>
+
+    <p><a href="/">Back to Homebrew</a></p>
+</body>
+</html>

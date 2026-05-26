@@ -74,6 +74,18 @@
                             "url": "https://anshulparuchuri.netlify.app/collections/til"
                         }
                     ]
+                },
+                {
+                    "name": "prawns.dev",
+                    "url": "https://www.prawns.dev",
+                    "title": "Pranav's internet home",
+                    "favicon": "https://www.prawns.dev/static/images/heart-favicon.svg",
+                    "blog": [
+                        {
+                            "title": "Pranav's Blog",
+                            "url": "https://www.prawns.dev/blogs"
+                        }
+                    ]
                 }
             ]
         }

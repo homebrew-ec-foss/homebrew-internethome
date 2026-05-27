@@ -49,10 +49,10 @@ function normalizeHtml(html) {
 function hasWebringLinks(html, siteUrl) {
   const normalized = normalizeHtml(html);
 
-  // Check for both full domain URLs and relative paths
-  const prevRegex = /(?:homebrew\.hsp-ec\.xyz)?\/?ring\/prev/i;
-  const nextRegex = /(?:homebrew\.hsp-ec\.xyz)?\/?ring\/next/i;
-  const randomRegex = /(?:homebrew\.hsp-ec\.xyz)?\/?ring\/random/i;
+  // Match exact pattern: href="https://homebrew.hsp-ec.xyz/ring/prev?site=https://..."
+  const prevRegex = /href="https:\/\/homebrew\.hsp-ec\.xyz\/ring\/prev\?site=https:\/\/[^"]+"/i;
+  const nextRegex = /href="https:\/\/homebrew\.hsp-ec\.xyz\/ring\/next\?site=https:\/\/[^"]+"/i;
+  const randomRegex = /href="https:\/\/homebrew\.hsp-ec\.xyz\/ring\/random\?site=https:\/\/[^"]+"/i;
 
   const hasPrev = prevRegex.test(normalized);
   const hasNext = nextRegex.test(normalized);

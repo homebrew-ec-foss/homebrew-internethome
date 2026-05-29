@@ -6,6 +6,9 @@ const htmlmin = require("html-minifier");
 const fs = require("fs");
 const path = require("path");
 
+const markdownIt = require("markdown-it");
+const markdownItGithubAlerts = require("markdown-it-github-alerts");
+
 const isDev = process.env.ELEVENTY_ENV === "development";
 const isProd = process.env.ELEVENTY_ENV === "production";
 
@@ -30,7 +33,39 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  // setup mermaid markdown highlighter
+  const markdownLib = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  })
+    .use(markdownItGithubAlerts.default || markdownItGithubAlerts)
+    .use(function (md) {
+      const originalFence = md.renderer.rules.fence;
+
+      md.renderer.rules.fence = function (tokens, idx, options, env, slf) {
+        const token = tokens[idx];
+        const info = token.info ? token.info.trim() : "";
+        let title = "";
+
+        const titleMatch = info.match(/title="([^"]+)"/);
+
+        if (titleMatch) {
+          title = titleMatch[1];
+          token.info = info.replace(titleMatch[0], "").trim();
+        }
+
+        const renderedCode = originalFence(tokens, idx, options, env, slf);
+
+        if (title) {
+            return `<div class="code-wrapper">${renderedCode}<div class="code-title">${title}</div></div>`;
+        }
+
+        return renderedCode;
+      };
+    });
+  
+  eleventyConfig.setLibrary("md", markdownLib);
+
   const highlighter = eleventyConfig.markdownHighlighter;
   eleventyConfig.addMarkdownHighlighter((str, language) => {
     if (language === "mermaid") {

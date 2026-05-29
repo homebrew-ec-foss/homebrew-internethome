@@ -1,0 +1,46 @@
+name: validate webring
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/data/sites.json"
+      - ".github/workflows/validate-webring.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "src/data/sites.json"
+  workflow_dispatch:
+  # schedule:
+  #   # Run daily at 2 AM UTC to catch broken links
+  #   - cron: "0 2 * * *"
+
+jobs:
+  validate-webring:
+    runs-on: ubuntu-latest
+    name: check webring links
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6.0.2
+
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2.2.0
+
+      - name: crawl webring links
+        run: bun run scripts/validate-webring.js
+        timeout-minutes: 10
+
+      - name: comment on PR
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ Webring validation failed. Please ensure all webring links are properly set up in your site footer.'
+            })

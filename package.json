@@ -37,7 +37,8 @@
     "dev:site": "env ELEVENTY_ENV=development bunx eleventy --serve",
     "build:assets": "bunx webpack --mode production",
     "build:site": "env ELEVENTY_ENV=production bunx eleventy",
-    "clean": "rm -rf ./public"
+    "clean": "rm -rf ./public",
+    "validate-webring": "bun run scripts/validate-webring.js"
   },
   "dependencies": {
     "remove": "^0.1.5"

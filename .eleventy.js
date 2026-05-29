@@ -45,19 +45,19 @@ module.exports = function (eleventyConfig) {
       md.renderer.rules.fence = function (tokens, idx, options, env, slf) {
         const token = tokens[idx];
         const info = token.info ? token.info.trim() : "";
-        let title = "";
+        let caption = "";
 
-        const titleMatch = info.match(/title="([^"]+)"/);
+        const captionMatch = info.match(/caption="([^"]+)"/);
 
-        if (titleMatch) {
-          title = titleMatch[1];
-          token.info = info.replace(titleMatch[0], "").trim();
+        if (captionMatch) {
+          caption = captionMatch[1];
+          token.info = info.replace(captionMatch[0], "").trim();
         }
 
         const renderedCode = originalFence(tokens, idx, options, env, slf);
 
-        if (title) {
-            return `<div class="code-wrapper">${renderedCode}<div class="code-title">${title}</div></div>`;
+        if (caption) {
+            return `<div class="code-wrapper">${renderedCode}<div class="code-caption">${caption}</div></div>`;
         }
 
         return renderedCode;

@@ -86,6 +86,18 @@
                             "url": "https://prawns.dev/blogs"
                         }
                     ]
+                },
+                {
+                    "name": "prana-vvb.github.io",
+                    "url": "https://prana-vvb.github.io",
+                    "title": "Pranav's site",
+                    "favicon": "https://prana-vvb.github.io/static/images/favicon.svg",
+                    "blog": [
+                        {
+                            "title": "Blog | Pranav V Bhat",
+                            "url": "https://prana-vvb.github.io/collections/blog.html"
+                        }
+                    ]
                 }
             ]
         }

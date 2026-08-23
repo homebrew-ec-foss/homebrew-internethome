@@ -15,6 +15,61 @@ this repo and setup the preview.
 
 Note: Requires Bun (bun 1.3.1 or later) to be installed.
 
+## Markdown Features
+
+The website supports several extensions to standard Markdown for writing posts.
+
+### GitHub-style Alerts
+
+You can use GitHub-style alert syntax to highlight important information in your posts:
+
+```md
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent information that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+These are rendered as styled alert boxes in the generated website.
+
+### Code Block Captions
+
+Code blocks can also have captions by adding a `caption` attribute to the fenced code block:
+
+````md
+```c caption="Some C code"
+#include <stdio.h>
+
+int main() {
+    printf("Hello, Homebrew!\n");
+    return 0;
+}
+```
+````
+
+![](https://private-user-images.githubusercontent.com/149595245/640011038-c05caff1-fe40-4938-a264-51366f7091b7.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODc1MDU3NjAsIm5iZiI6MTc4NzUwNTQ2MCwicGF0aCI6Ii8xNDk1OTUyNDUvNjQwMDExMDM4LWMwNWNhZmYxLWZlNDAtNDkzOC1hMjY0LTUxMzY2ZjcwOTFiNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwODIzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgyM1QxNzE3NDBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jMGJhMTA0MmVmZWZhYWM4ODgwNWFhMzc1ZTgzMzlkNGNhZjdlZGYyOGIwNGY1NTZlZDg4MjUxYWQzMzY3MDhlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.simFhdk5MJz60Nai4-0VYnAcTfFdp4g_K7U4tSfrH0Q)
+
+The caption is displayed below the code block.
+
+This can be used with different programming languages, for example:
+
+````md
+```rust caption="A Rust example"
+fn main() {
+    println!("Hello, Homebrew!");
+}
+```
+````
 
 ## What is Homebrew?
 

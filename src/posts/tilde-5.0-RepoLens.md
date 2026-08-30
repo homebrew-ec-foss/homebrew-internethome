@@ -2,7 +2,7 @@
 title: "RepoLens"
 date: "2026-08-30"
 tags: [tilde-5.0, summer,RAG,LLMs]
-description: RepoLens turns any GitHub repository into an interactive, searchable knowledge graph you can query in natural language, with every answer cited back to the exact code it came from.
+description: Blogpost for RepoLens, a repository intelligence tool.
 permalink: posts/{{ title | slug }}/index.html
 author_name: "Team RepoLens"
 author_link: "https://github.com/homebrew-ec-foss/RepoLens"

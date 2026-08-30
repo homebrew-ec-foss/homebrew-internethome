@@ -36,10 +36,12 @@ Ziguana is a transpiler built in zig that can convert source code written in our
 
 Transpilers are tools that convert source code from one language to another language at a similar abstraction level. Ziguana is a transpiler built in zig that converts the source code written in our language to C
 
-When we write code, it eventually has to become something the machine can execute. There are two well-known paths there: compilation, where code is translated directly into machine binary (C, C++), and interpretation, where code is executed line-by-line by a runtime (Python).
-There's a third, lesser-known path: transpilation. A transpiler translates code from one high-level language (A) into another (B), then hands it off to language B's existing compiler toolchain. You get a new language without having to build a compiler backend from scratch.
-That's the idea behind Ziguana, a transpiler, written in Zig, that compiles our language down to C. Instead of writing our own code generator, optimizer, and platform backends, we inherit decades of C toolchain maturity for free, while still designing the language surface however we want.
-…
+When we write code, it eventually has to become something the machine can execute. There are two well-known paths there: compilation, where code is translated directly into machine binary (C, C++), and interpretation, where code is executed line-by-line during runtime (Python).
+There's a third, lesser-known path: transpilation. A transpiler translates code from one high-level language let's say (A) into another language (B), then hands it off to language B's existing compiler toolchain.
+
+You get a new language without having to build a compiler backend from scratch.
+That's the idea behind Ziguana, a transpiler written in Zig, that "Transpiles" our language down to C. Instead of writing our own code generator, optimizer, and platform backends, we inherit decades of C toolchain maturity for free, while still designing the language surface however we want.
+
 ### Why Zig?
 ![ZigLogo](https://github.com/planksconstant/homebrew-internethome/blob/main/src/images/Ziguana_Tilde5.0/zig-logo.png?raw=true)
 
@@ -67,7 +69,7 @@ sudo zig build install --prefix /usr/local
 
 
 ## Grammar rules of our language
-Our language is designed to be simple and approachable while still including some features that are unique. One of our design goals was to avoid indentation-based syntax, as seen in Python, while providing users with a programming experience inspired by C or Rust without their steep learning curve.
+Our language is designed to be simple and approachable while still including some features that are unique. One of our design goals was to avoid indentation-based syntax, as seen in Python, while providing users with a programming experience inspired by C and Rust without their steep learning curve.
 
 
 The [grammar of our language](https://github.com/homebrew-ec-foss/ziguana/blob/main/docs/ebnf.md?raw=true) is formally represented using EBNF (Extended Backus–Naur Form), which provides a precise and structured description of the syntax and grammar rules of the language.

@@ -75,7 +75,7 @@ This process is very similar to a website. You’re making an SSH app available 
 
 In **Week 1** we focused on learning Go from the ground up since that’s what we were building this entire thing with.
  
-**Week 2** we played around with the bubbletea library and got used to it by creating our own notes app TUI application.It had features like note saving and tabs to view multiple notes at once. This gave us a solid idea of how to work with the elm architecture and also how to implement UI components into our terminal app.
+**Week 2** we played around with the bubbletea library and got used to it by creating our own notes app TUI application. It had features like note saving and tabs to view multiple notes at once. This gave us a solid idea of how to work with the elm architecture and also how to implement UI components into our terminal app.
 
 **Week 3** our task was to actually create the chat app with its basic features. We created a wish server that ran on localhost, but the app could handle multiple users, each one being able to send messages and use slash commands like /help etc.
 

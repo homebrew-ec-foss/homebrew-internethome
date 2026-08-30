@@ -12,8 +12,9 @@ author_link: "https://github.com/homebrew-ec-foss/ziguana"
 # Ziguana
 
 
-Ziguana is a transpiler built in zig that can convert source code written in our language to C
+Ziguana is a transpiler written in **zig** that can convert source code written in our language to C
 
+[Ziguana repository](https://github.com/homebrew-ec-foss/ziguana)
 
 **Mentees**:
 - [Abhishek D](https://github.com/planksconstant)
@@ -40,7 +41,7 @@ When we write code, it eventually has to become something the machine can execut
 There's a third, lesser-known path: transpilation. A transpiler translates code from one high-level language let's say (A) into another language (B), then hands it off to language B's existing compiler toolchain.
 
 You get a new language without having to build a compiler backend from scratch.
-That's the idea behind Ziguana, a transpiler written in Zig, that "Transpiles" our language down to C. Instead of writing our own code generator, optimizer, and platform backends, we inherit decades of C toolchain maturity for free, while still designing the language surface however we want.
+That's the idea behind Ziguana, a transpiler written in **Zig**, that "Transpiles" our language down to C. Instead of writing our own code generator, optimizer, and platform backends, we inherit decades of C toolchain maturity for free, while still designing the language surface however we want.
 
 ### Why Zig?
 ![ZigLogo](https://github.com/planksconstant/homebrew-internethome/blob/main/src/images/Ziguana_Tilde5.0/zig-logo.png?raw=true)

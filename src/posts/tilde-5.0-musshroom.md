@@ -10,7 +10,7 @@ author_link: "https://github.com/homebrew-ec-foss/muSSHroom"
 
 # muSSHroom
 
-muSSHroom is a chat server directly accessible right in your terminal, with a connection that’s set up using SSH protocol. There's no client to install, no web app to open -  just enter the required `ssh` command and you’ll straight up enter a server with many other users along with you to chat with.
+muSSHroom is a chat server directly accessible right in your terminal, with a connection that’s set up using SSH protocol. There's no client to install, no web app to open - just enter the required `ssh` command and you’ll straight up enter a server with many other users along with you to chat with.
 
 
 **Mentees**:
@@ -29,7 +29,7 @@ muSSHroom is a chat server directly accessible right in your terminal, with a co
 
 SSH is normally something you use to do things like run commands on a shell in a remote machine securely with no interception (unlike the case of doing the same over the internet). It is just a protocol for opening an interactive session over an authenticated, encrypted channel.
 
-![1](https://i.postimg.cc/XvQYCNdD/Screenshot-2026-08-30-191909.png)
+![Diagram showing an explanation of an ssh connection](https://i.postimg.cc/XvQYCNdD/Screenshot-2026-08-30-191909.png)
 
 To make this connection, all you'd have to do is enter a command of the form `ssh user@serverhost` where `serverhost` is domain name or IP where the required server is hosted.
 
@@ -37,7 +37,7 @@ You can authenticate yourself to a server in two ways, either using a password o
 An SSH key pair has two parts - a public and a private key. 
 The private key remains on your local computer and the public one can be given to other resources, like the server you want to connect to, for verifying that those connections are from you. 
 
- Now imagine, could you use this secure encrypted channel to connect to a chat server?
+Now imagine, could you use this secure encrypted channel to connect to a chat server?
 The answer is muSSHroom :D
 
 ### Tech Stack
@@ -49,9 +49,9 @@ Since our app is interactive, we need a particular paradigm that helps us contin
 
 It works like a loop with unidirectional flow that keeps updating itself based on the event triggers it receives when the user does something. This is used mainly in functional programming and is what we use here.
 
-This architecture is implemented with three main parts : Model , View and Update 
+This architecture is implemented with three main parts: Model, View and Update 
 
-![2](https://i.postimg.cc/wB0jmxLG/Screenshot-2026-08-30-191915.png)
+![Diagram showing the basic elm structure](https://i.postimg.cc/wB0jmxLG/Screenshot-2026-08-30-191915.png)
 
 
 **Model** is something that stores the current state of your program. For example, in our chat app, every user’s session model contains information about the screen they are on, their user name, their user color etc. This consistently keeps changing via the Update Method.
@@ -73,11 +73,11 @@ This process is very similar to a website. You’re making an SSH app available 
 
 ### Timeline
 
- In **Week 1** we focused on learning go from the ground up since that’s what we were building this entire thing with.
+In **Week 1** we focused on learning Go from the ground up since that’s what we were building this entire thing with.
  
-**Week 2** we played around with the bubbletea library and got used to it by creating our own notes app TUI application, with features like note saving and tabs to view multiple notes at once. This gave us a solid idea of how to work with the elm architecture and also how to implement UI components into our terminal app.
+**Week 2** we played around with the bubbletea library and got used to it by creating our own notes app TUI application.It had features like note saving and tabs to view multiple notes at once. This gave us a solid idea of how to work with the elm architecture and also how to implement UI components into our terminal app.
 
-**Week 3** our task was to actually create the chat app with its basic features. We created a wish server that ran on localhost, but the app could handle multiple users, each one being able to send messages and use slash commands like /help etc
+**Week 3** our task was to actually create the chat app with its basic features. We created a wish server that ran on localhost, but the app could handle multiple users, each one being able to send messages and use slash commands like /help etc.
 
 **Week 4** we added chatrooms, users could then use /room command along with the names of the users they want in the room. This created a chatroom with a generic name with those users in it. We also added a tabs feature to be able to view all the rooms you’re in using a very similar logic to how we achieved tabs in our notes app from week 2.
 
@@ -86,7 +86,7 @@ And finally in **Week 5**, we added in features to make custom roomnames, delete
 
 ### The Architecture of MuSSHroom : How it works
 	
-![3](https://i.postimg.cc/5tn2C9LK/Screenshot-2026-08-30-152245.png)
+![a tldr overview of the architecture](https://i.postimg.cc/5tn2C9LK/Screenshot-2026-08-30-152245.png)
 
 It starts with a plain old SSH client — you running `ssh user@serverhost`. This hits the WISH middleware first, which verifies who you are before letting you into the app.
 
@@ -95,7 +95,7 @@ Once you're in, WISH spins up your own `tea.Program` — every connected user ge
 Type something or run a slash command, and that action hits `update()`. This is the function doing the real work — it talks to the Sessions map, the server's list of who's online and where their `*userSession` lives. Your `tea.Program` checks back into this same map too, like when resolving a `/room user1 user2 command.
 
 
-![4](https://i.postimg.cc/s2wghf7J/Screenshot-2026-08-30-100926.png)
+![diagram showing how "messaging" is processed](https://i.postimg.cc/s2wghf7J/Screenshot-2026-08-30-100926.png)
 
 User 1 sends a message, which hits their `bubbletea program UI`. That program iterates through the entire sessions slice — the same map holding every connected user — and broadcasts a `chatMsg` out to each of their programs.
 
@@ -122,5 +122,5 @@ We got a solid understanding of what the SSH protocol is — it was definitely s
 Most importantly we had a LOT of fun working with wish and bubbletea. This framework gives us so much freedom to create such beautiful interfaces for something that’s entirely on terminal, it was indeed very fun to explore.
 
 
-**That’s all from team MuSSHroom :D**
-We hope you find this project interesting because we definitely had fun building this. We're yet to properly host this for users to join as of now but I guarantee you it's a bunch of fun texting yourself from two different terminal tabs xD
+**That’s all from team muSSHroom :D**
+We hope you find this project interesting because we definitely had fun building this. We're yet to properly host this for users to join as of now, but it's already a lot of fun trying it out solo, just open two terminal tabs and text yourself xD

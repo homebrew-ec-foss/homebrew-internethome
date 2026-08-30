@@ -28,7 +28,8 @@ muSSHroom is a chat server directly accessible right in your terminal, with a co
 ### What's SSH? 
 
 SSH is normally something you use to do things like run commands on a shell in a remote machine securely with no interception (unlike the case of doing the same over the internet). It is just a protocol for opening an interactive session over an authenticated, encrypted channel.
-![Diagram showing your system connecting to a remote server via an SSH connection, using the secure shell protocol with no interruptions](https://i.postimg.cc/XvQYCNdD/Screenshot-2026-08-30-191909.png)
+
+![1](https://i.postimg.cc/XvQYCNdD/Screenshot-2026-08-30-191909.png)
 
 To make this connection, all you'd have to do is enter a command of the form `ssh user@serverhost` where `serverhost` is domain name or IP where the required server is hosted.
 
@@ -50,7 +51,8 @@ It works like a loop with unidirectional flow that keeps updating itself based o
 
 This architecture is implemented with three main parts : Model , View and Update 
 
-![Diagram of the Model-View-Update loop: Model (app state) updates the View (the actual UI), the user takes an action, which triggers an event that changes the Model](https://i.postimg.cc/wB0jmxLG/Screenshot-2026-08-30-191915.png)
+![2](https://i.postimg.cc/wB0jmxLG/Screenshot-2026-08-30-191915.png)
+
 
 **Model** is something that stores the current state of your program. For example, in our chat app, every user’s session model contains information about the screen they are on, their user name, their user color etc. This consistently keeps changing via the Update Method.
 
@@ -84,7 +86,8 @@ And finally in **Week 5**, we added in features to make custom roomnames, delete
 
 ### The Architecture of MuSSHroom : How it works
 	
-![muSSHroom architecture: SSH client through WISH middleware to tea.Program and the sessions map](https://i.postimg.cc/5tn2C9LK/Screenshot-2026-08-30-152245.png)
+![3](https://i.postimg.cc/5tn2C9LK/Screenshot-2026-08-30-152245.png)
+
 It starts with a plain old SSH client — you running `ssh user@serverhost`. This hits the WISH middleware first, which verifies who you are before letting you into the app.
 
 Once you're in, WISH spins up your own `tea.Program` — every connected user gets their own instance running independently. This is where our elm architecture loop lives: a Model holds your current state, rendered out into a View, i.e. what you're staring at in your terminal.
@@ -92,7 +95,8 @@ Once you're in, WISH spins up your own `tea.Program` — every connected user ge
 Type something or run a slash command, and that action hits `update()`. This is the function doing the real work — it talks to the Sessions map, the server's list of who's online and where their `*userSession` lives. Your `tea.Program` checks back into this same map too, like when resolving a `/room user1 user2 command.
 
 
-![muSSHroom broadcast: bubbletea program iterating the sessions slice to dispatch a chatMsg to every user](https://i.postimg.cc/s2wghf7J/Screenshot-2026-08-30-100926.png)
+![4](https://i.postimg.cc/s2wghf7J/Screenshot-2026-08-30-100926.png)
+
 User 1 sends a message, which hits their `bubbletea program UI`. That program iterates through the entire sessions slice — the same map holding every connected user — and broadcasts a `chatMsg` out to each of their programs.
 
 This is the actual broadcast step, and it's basically the same one loop we described earlier for `update()`, just sent globally instead of staying local to one user. System messages like users joining and leaving get sent through this exact same path, just tagged as a different message type instead of a chat one.

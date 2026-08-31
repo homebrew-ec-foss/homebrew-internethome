@@ -11,6 +11,16 @@ author_link: "https://github.com/homebrew-ec-foss/barrel-ly-learning"
 
 # Barrel-ly Learning: Teaching an Agent to Beat Donkey Kong
 
+
+**Mentor**:
+- [Lakshit Talreja](https://github.com/LakshitTalreja)
+
+**Mentees**:
+- [Mayur G M](https://github.com/based-watermelon)
+- [Pranavika V](https://github.com/pranavika-v)
+
+---
+
 Think back to the first time you booted up your favourite game.
 
 You quickly skim through the gameplay tutorial and start controlling your character. You're terrible at first. You watch a YouTuber or a friend play and have a few 'aha' moments. You get better.
@@ -31,9 +41,8 @@ Instead of traditional programming where almost every possible situation is hard
 
 Barrel-ly is our attempt to teach an agent to play a simplified version of the classic Donkey Kong game using a combination of two approaches:
 
--   **Learning from Demonstration, also known as Imitation Learning or Behaviour Cloning,** where the agent learns by observing human gameplay.
-
--   **Reinforcement Learning:** where the agent improves its behaviour through rewards and penalties from the game environment.
+- **Learning from Demonstration, also known as Imitation Learning or Behaviour Cloning,** where the agent learns by observing human gameplay.
+- **Reinforcement Learning:** where the agent improves its behaviour through rewards and penalties from the game environment.
 
 Our two stage approach draws inspiration from the paper: 
 
@@ -42,18 +51,17 @@ Our two stage approach draws inspiration from the paper:
 The authors combine two stages. First, they train a base game playing policy using human demonstrations. They then use an Actor-Critic reinforcement learning method to further improve the policy using feedback from the environment. The Actor learns which action to take in a given game state, while the Critic estimates the value of being in that state.
 
 Our project can be divided into four main stages:
-
 1. The game engine
 2. Feature extraction
 3. Learning from demonstration
-4. Reinforcement learning
+4. Reinforcement learning 
 
 ## Building the Game environment
 
+We set up a simplified platformer environment replicating that of DonkeyKong using Pygame.
+
 ![Game environment](https://i.ibb.co/sJRwZjsW/gameenv.png)
 
-
-We set up a simplified platformer environment replicating that of DonkeyKong using Pygame.
 
 Our version contains:
 -   1 fixed level with three lives
@@ -137,7 +145,7 @@ Once we have a prediction for a particular state, we use a `CrossEntropyLoss` fu
 
 After training, validating and testing with [90:6:4] episodes respectively, the Behaviour cloning model is able to achieve the following performance:
 
-[LfD Autoplay](../media/lfdautoplay.mp4)
+[LfD Autoplay](https://drive.google.com/file/d/1IPDHaJo3_qpbsW8bfZ0kSMOPiSkB2DLv/view?usp=sharing)
 
 ## Reinforcement Learning: Learning From Experience
 
@@ -259,6 +267,8 @@ That gives us the core feedback loop:
 
 What's interesting about stacking these two approaches is that they're solving completely different problems. Behaviour Cloning hands the agent a starting point so it doesn't have to stumble through every basic behaviour via random exploration. Reinforcement Learning then lets it go past those demonstrations - actually interacting with the environment, taking the hits and the wins, and adjusting based on its own experience.
 
+Here's a demonstration of the agent after RL:  [RL Autoplay](https://drive.google.com/file/d/1RIJAbGHBZMCr_2wN7V5voM6OZAkGV4Z4/view?usp=sharing)
+
 Put together, the full pipeline looks like this:
 
 ```
@@ -283,6 +293,8 @@ Actor and Critic are updated
 Repeat
 
 ```
+
+
 
 ## What We Learned
 

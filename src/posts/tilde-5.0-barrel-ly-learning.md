@@ -11,6 +11,7 @@ author_link: "https://github.com/homebrew-ec-foss/barrel-ly-learning"
 
 # Barrel-ly Learning: Teaching an Agent to Beat Donkey Kong
 
+Barrel-ly is a deep learning model to play Donkey Kong using imitation learning and actor-critic reinforcement learning
 
 **Mentor**:
 - [Lakshit Talreja](https://github.com/LakshitTalreja)
@@ -132,8 +133,7 @@ The final dataset consists of 100 games worth of state-action pairs from the hum
 
 The input layer takes 503 raw feature values and passes it to the hidden layers: two fully connected (Dense) layers with 256 and 128 neurons, using the ReLU (Rectified Linear Unit) function where each neuron calculates a weighted sum
 
-
-z = Σᵢ wᵢxᵢ + b
+**z = Σᵢ wᵢxᵢ + b**
 
 and passes it forward.
 
@@ -157,14 +157,14 @@ That's where Reinforcement Learning comes in.
 
 ### Starting With What the Agent Already Knows
 
-Instead of train the RL model completely from scratch, we use the waits learned from the BC model as a starting point.
-We used the trained BC model to initialise the Actor-Critic network.
+Instead of train the RL model completely from scratch, we use the waits learned from the Behaviour Cloning model as a starting point.
+We used the trained Behaviour Cloning model to initialise the Actor-Critic network.
 
-Hence the shared feature extractor used in the BC model is kept the same:
+Hence the shared feature extractor used in the Behaviour Cloning model is kept the same:
 
 ![Shared architecture](https://i.ibb.co/HD8JL9Pj/sharednetwork.png)
 
-The weights learned during Behaviour Cloning get copied straight into these layers, and the BC model's output layer becomes the starting point for the Actor.
+The weights learned during Behaviour Cloning get copied straight into these layers, and the Behaviour Cloning model's output layer becomes the starting point for the Actor.
 
 This means that when RL training begins, the agent already has some idea of how to play the game. It doesn't have to spend the first part of training randomly figuring out how to move, climb, or jump.
 
@@ -300,13 +300,13 @@ Repeat
 
 Barrel-ly Learning started with a fairly simple question: can we teach an agent to play a game by first showing it how humans play?
 
-Turns out, getting there involves a lot more than just training a neural network. Before we could even think about training, we had to build the entire system around it i.e, the game environment, movement and collisions, ladders and jumping, dynamic barrel behaviour, the state representation, the grid-based feature extraction, recording gameplay, converting it into state-action pairs, training the BC model, initialising the Actor-Critic model from that pretrained policy, designing the reward function, and implementing TD learning.
+Turns out, getting there involves a lot more than just training a neural network. Before we could even think about training, we had to build the entire system around it i.e, the game environment, movement and collisions, ladders and jumping, dynamic barrel behaviour, the state representation, the grid-based feature extraction, recording gameplay, converting it into state-action pairs, training the Behaviour Cloning model, initialising the Actor-Critic model from that pretrained policy, designing the reward function, and implementing TD learning.
 
-The biggest lesson was just how interconnected all of these pieces are. The model's only as good as the state representation. The BC model's only as good as the demonstrations it's trained on. And the RL stage lives or dies by the environment and reward structure underneath it.
+The biggest lesson was just how interconnected all of these pieces are. The model's only as good as the state representation. The Behaviour Cloning model's only as good as the demonstrations it's trained on. And the RL stage lives or dies by the environment and reward structure underneath it.
 
 ## What's Next?
 
-Barrel-ly Learning is still very much a work in progress. The BC model gives the agent a starting policy grounded in human gameplay, and the Actor-Critic system lets it keep improving from there through its own trial and error.
+Barrel-ly Learning is still very much a work in progress. The Behaviour Cloning model gives the agent a starting policy grounded in human gameplay, and the Actor-Critic system lets it keep improving from there through its own trial and error.
 
 Going forward, we want to play around with different reward structures, state representations, model architectures, and training strategies and we're curious to see just how much RL can actually improve on the original behaviour-cloned policy.
 

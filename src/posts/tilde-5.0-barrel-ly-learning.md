@@ -178,7 +178,7 @@ The Actor is the one deciding what to actualy do, it produces a score for all se
 
 ![Softmax](https://i.ibb.co/MxmqKk9x/softmax.png)
 
-The Critic just watches and judges. Instead of choosing an action, it estimates how good the current state is by producing a value, V(s).
+The Critic watches and judges, estimating how good the current state is by producing a value, V(s).
 
 Simply put: the Actor decides what to do, the Critic decides how that action has affected the state.
 
@@ -209,25 +209,12 @@ The agent's still looking at the same 503-dimensional state it used during Behav
 
 The reward function is basically how we tell the agent "good job" or "don't do that again." Positive events should push it towards useful behaviour, and negative ones should steer it away from failure.
 
-Event
-
-Reward
-
-Score increases
-
-+ score difference
-
-Lose a life
-
-−100
-
-Reach the princess
-
-+1000
-
-Lose all lives / Game Over
-
-−1000
+| Event                    | Reward            |
+| ------------------------ | ----------------- |
+| Score increases          | + score difference |
+| Lose a life              | −100              |
+| Reach the princess       | +1000             |
+| Lose all lives / Game Over | −1000           |
 
 The existing in-game scoring already rewards jumping over barrels, so the agent gets positive feedback for good gameplay on top of being penalised for losing lives or dying outright.
 

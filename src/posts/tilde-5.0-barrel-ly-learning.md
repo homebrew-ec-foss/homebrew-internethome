@@ -272,28 +272,7 @@ Here's a demonstration of the agent after RL:  [RL Autoplay](https://drive.googl
 
 Put together, the full pipeline looks like this:
 
-```
-Human plays the game
-        ↓
-State–Action pairs are recorded
-        ↓
-Behaviour Cloning model is trained
-        ↓
-Learned weights initialise the Actor-Critic model
-        ↓
-Agent begins playing independently
-        ↓
-Actor selects an action
-        ↓
-Environment produces reward and next state
-        ↓
-Critic calculates the TD error
-        ↓
-Actor and Critic are updated
-        ↓
-Repeat
-
-```
+![fullpipline](https://ibb.co/JXGV6Rm)
 
 
 

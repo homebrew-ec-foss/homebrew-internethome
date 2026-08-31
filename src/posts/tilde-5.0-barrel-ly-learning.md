@@ -9,9 +9,9 @@ author_link: "https://github.com/homebrew-ec-foss/barrel-ly-learning"
 ---
 
 
-# Barrel-ly Learning: Teaching an Agent to Beat Donkey Kong
+# Barrel-ly Learning: Teaching an Agent to Play Donkey Kong
 
-Barrel-ly is a deep learning model to play Donkey Kong using imitation learning and actor-critic reinforcement learning
+Barrel-ly is a deep learning agent that learns to play Donkey Kong by combining imitation learning with actor-critic reinforcement learning.
 
 **Mentor**:
 - [Lakshit Talreja](https://github.com/LakshitTalreja)
@@ -92,10 +92,12 @@ These are two 7×7 local vision grids centred around the agent.
 - From these grids we get a total of 98 (2*(7*7)) boolean inputs.
 
 **Agent Tracking Grid**
+
 A 20×20 agent tracking grid to represent the position of the agent in the game environment.
 Every frame this grid yields 400 data points providing global positional context.
 
 **Explicit features**
+
 These features allow the model to distinguish between states that look similar spatially but required different actions.
 -   Princess coordinates (x and y) for vision of the long term goal
 -   Agent direction
@@ -137,13 +139,13 @@ The input layer takes 503 raw feature values and passes it to the hidden layers:
 
 and passes it forward.
 
-ReLU is a simple and efficient activation function used to find non linear patterns from the inputs. Finally, the output makes a prediction for that particular state in the form of an action.
+`ReLU` is a simple and efficient activation function used to find non linear patterns from the inputs. Finally, the output makes a prediction for that particular state in the form of an action.
 
 **Backward Propagation:**
 
 Once we have a prediction for a particular state, we use a `CrossEntropyLoss` function to calculate the loss from the actual actio taken by the human. This loss is then used to adjust the weights of the actions using an optimizer. With each training iteration, the weights are improved.
 
-After training, validating and testing with [90:6:4] episodes respectively, the Behaviour cloning model is able to achieve the following performance:
+After training, validating and testing with `[90:6:4]` episodes respectively, the Behaviour cloning model is able to achieve the following performance:
 
 [LfD Autoplay](https://drive.google.com/file/d/1IPDHaJo3_qpbsW8bfZ0kSMOPiSkB2DLv/view?usp=sharing)
 
@@ -198,8 +200,7 @@ To stop the agent from wasting time exploring actions that are physically imposs
 
 ```
 Not near a ladder     →  Mask UP and DOWN
-Not on a bridge        →  Mask JUMP LEFT and JUMP RIGHT
-
+ Not on a bridge        →  Mask JUMP LEFT and JUMP RIGHT
 ```
 After masking, the remaining valid actions are converted into probabilities and the Actor selects from them.
 
@@ -233,7 +234,7 @@ For a non-terminal state:
 
 `TD Target = Reward + γV(s')`
 
-where γ is the discount factor (we use γ = 0.99), and V(s') is the estimated value of the next state.
+where γ is the discount factor (γ = 0.99 used here), and V(s') is the estimated value of the next state.
 
 If the episode ends, there's no next state to think about, so the TD target just becomes the final reward.
 
@@ -300,7 +301,7 @@ Repeat
 
 Barrel-ly Learning started with a fairly simple question: can we teach an agent to play a game by first showing it how humans play?
 
-Turns out, getting there involves a lot more than just training a neural network. Before we could even think about training, we had to build the entire system around it i.e, the game environment, movement and collisions, ladders and jumping, dynamic barrel behaviour, the state representation, the grid-based feature extraction, recording gameplay, converting it into state-action pairs, training the Behaviour Cloning model, initialising the Actor-Critic model from that pretrained policy, designing the reward function, and implementing TD learning.
+Turns out, getting there involves a lot more than just training a neural network. Before we could even think about training, we had to build the entire system around it i.e, the game environment, movement and collisions, ladders and jumping, dynamic barrel behaviour, the state representation, the grid-based feature extraction, recording gameplay, converting it into state-action pairs, training the Behaviour Cloning model, initialising the Actor-Critic model from that pretrained policy, designing the reward function, and implementing TD learning. That, along with having to fix all major bugs the agent could capitalize on were the challenges we had to face.
 
 The biggest lesson was just how interconnected all of these pieces are. The model's only as good as the state representation. The Behaviour Cloning model's only as good as the demonstrations it's trained on. And the RL stage lives or dies by the environment and reward structure underneath it.
 

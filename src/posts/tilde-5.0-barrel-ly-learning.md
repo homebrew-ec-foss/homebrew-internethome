@@ -272,7 +272,7 @@ Here's a demonstration of the agent after RL:  [RL Autoplay](https://drive.googl
 
 Put together, the full pipeline looks like this:
 
-![fullpipline](https://ibb.co/JXGV6Rm)
+![fullpipline](https://i.ibb.co/bMNp3XzB/fullpipeline.png)
 
 
 

@@ -1,0 +1,6 @@
+node_modules
+public
+package-lock.json
+bun.lockb
+*lock*
+

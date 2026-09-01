@@ -6,6 +6,9 @@ const htmlmin = require("html-minifier");
 const fs = require("fs");
 const path = require("path");
 
+const markdownIt = require("markdown-it");
+const markdownItGithubAlerts = require("markdown-it-github-alerts");
+
 const isDev = process.env.ELEVENTY_ENV === "development";
 const isProd = process.env.ELEVENTY_ENV === "production";
 
@@ -30,14 +33,55 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  // setup mermaid markdown highlighter
-  const highlighter = eleventyConfig.markdownHighlighter;
-  eleventyConfig.addMarkdownHighlighter((str, language) => {
-    if (language === "mermaid") {
-      return `<pre class="mermaid">${str}</pre>`;
-    }
-    return highlighter(str, language);
-  });
+  // Note: eleventyConfig.markdownHighlighter is null here (plugins are applied
+  // after this function returns). Syntax highlighting still works because
+  // Eleventy 1.0.2's Markdown engine re-applies config.markdownHighlighter to
+  // this library via `mdLib.set({ highlight })` on init.
+  const markdownLib = markdownIt({
+    html: true,
+    linkify: true,
+    highlight: eleventyConfig.markdownHighlighter,
+  })
+    .use(markdownItGithubAlerts.default || markdownItGithubAlerts)
+    .use(function (md) {
+      const originalFence = md.renderer.rules.fence;
+
+      md.renderer.rules.fence = function (tokens, idx, options, env, slf) {
+        const token = tokens[idx];
+        const info = token.info ? token.info.trim() : "";
+
+        const language = info.split(/\s+/)[0];
+
+        if (language === "mermaid") {
+          return `<pre class="mermaid">${md.utils.escapeHtml(token.content)}</pre>`;
+        }
+
+        let caption = "";
+
+        const captionMatch = info.match(/caption="([^"]+)"/);
+
+        if (captionMatch) {
+          caption = captionMatch[1];
+          token.info = info.replace(captionMatch[0], "").trim();
+        }
+
+        const renderedCode = originalFence(
+          tokens,
+          idx,
+          options,
+          env,
+          slf
+        );
+
+        if (caption) {
+          return `<div class="code-wrapper">${renderedCode}<div class="code-caption">${md.utils.escapeHtml(caption)}</div></div>`;
+        }
+
+        return renderedCode;
+      };
+    });
+
+  eleventyConfig.setLibrary("md", markdownLib);
 
   eleventyConfig.setDataDeepMerge(true);
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
@@ -84,6 +128,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("tagList", function (collection) {
     let tagSet = new Set();
+
     collection.getAll().forEach(function (item) {
       if ("tags" in item.data) {
         let tags = item.data.tags;

@@ -60,7 +60,7 @@
   margin-bottom: 1rem;
   color: inherit;
   border-left: 0.25em solid #444c56;
-  background-color: rgba(68, 76, 86, 0.1); 
+  background-color: rgba(68, 76, 86, 0.1);
   border-radius: 0 6px 6px 0;
 }
 
@@ -98,25 +98,24 @@
 }
 
 .code-caption {
-  background-color: #21252b; 
-  color: #abb2bf; 
+  background-color: #21252b;
+  color: #abb2bf;
   padding: 0.5rem 1rem;
   font-family: 'Iosevka Web', monospace;
   font-size: 0.85rem;
-  border-top: 1px solid #181a1f; 
-  /* text-align: center;  */
+  border-top: 1px solid #181a1f;
 }
 
 .code-wrapper pre[class*="language-"] {
   margin: 0;
-  border-radius: 0; 
+  border-radius: 0;
   background: transparent;
 }
 
 .markdown-alert .markdown-alert-title {
-    margin-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .markdown-alert .markdown-alert-title + p {
-    margin-top: 0;
+  margin-top: 0;
 }

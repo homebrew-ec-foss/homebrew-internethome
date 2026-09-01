@@ -33,9 +33,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  // Note: eleventyConfig.markdownHighlighter is null here (plugins are applied
+  // after this function returns). Syntax highlighting still works because
+  // Eleventy 1.0.2's Markdown engine re-applies config.markdownHighlighter to
+  // this library via `mdLib.set({ highlight })` on init.
   const markdownLib = markdownIt({
     html: true,
-    breaks: true,
     linkify: true,
     highlight: eleventyConfig.markdownHighlighter,
   })
@@ -50,7 +53,7 @@ module.exports = function (eleventyConfig) {
         const language = info.split(/\s+/)[0];
 
         if (language === "mermaid") {
-          return `<pre class="mermaid">${token.content}</pre>`;
+          return `<pre class="mermaid">${md.utils.escapeHtml(token.content)}</pre>`;
         }
 
         let caption = "";
@@ -71,7 +74,7 @@ module.exports = function (eleventyConfig) {
         );
 
         if (caption) {
-          return `<div class="code-wrapper">${renderedCode}<div class="code-caption">${caption}</div></div>`;
+          return `<div class="code-wrapper">${renderedCode}<div class="code-caption">${md.utils.escapeHtml(caption)}</div></div>`;
         }
 
         return renderedCode;

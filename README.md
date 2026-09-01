@@ -15,6 +15,18 @@ this repo and setup the preview.
 
 Note: Requires Bun (bun 1.3.1 or later) to be installed.
 
+## Before Submitting a PR
+
+Run these checks locally before opening a pull request:
+- `bun run build`: Production build of the site
+- `bun run validate-webring`: Check the webring links (only needed when `src/data/sites.json` changes)
+
+These checks need to be run only when modifying the JS or config files:
+- `bun run lint`: ESLint over all JavaScript files
+- `bun run format:check`: Prettier formatting of JS and config files
+- `bunx eslint --fix`: To fix lint issues
+- `bunx prettier --write <file>`: To fix formatting issues
+
 ## Markdown Features
 
 The website supports several extensions to standard Markdown for writing posts.

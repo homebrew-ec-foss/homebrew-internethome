@@ -15,6 +15,7 @@ Here, I try to get an abstracted overview of Tokio's architecture to build the f
 Most code that you write is executed sequentially
 <br/>
 ```rust caption="Completely innocent synchronous function"
+
 fn synchronous() {
     println!("1");
     println!("2");
@@ -26,6 +27,7 @@ This *synchronous* way is perfectly fine for most tasks, but some operations (li
 They 'block' the program from progressing until they are done, resulting in your application just sitting there doing nothing.
 <br/>
 ```rust caption="Evil and intimidating blocking code"
+
 fn evil_synchronous() {
     println!("Requesting user data...");
     
@@ -45,9 +47,13 @@ A very naive way to do this would be to [create a new process for each task](htt
 Instead, we use multiple [*threads*](https://en.wikipedia.org/wiki/Thread_(computing)) inside a single process.
 > *Thread*: The smallest sequence of programmed instructions that can be managed independently by a scheduler.
 
-In Rust, we can use the native `std::thread` interface
+While not as isolated as separate processes, each thread has its own program counter, register set and stack space but share memory space and resources with other threads within the same process.
+Threads can be either handled in userspace by the process spawning them or directly by the OS kernel. Kernel level threads can be independently scheduled by the kernel, allowing for parallel execution when multiple cores are available but they also have higher scheduling and context switching overhead.
+
+In Rust, threads are exposed for use via the native `std::thread` interface. A thread spawned by `std::thread` maps 1:1 onto a kernel level thread scheduled and managed not by Rust but by the OS.
 <br/>
 ```rust caption="Concurrent execution with OS threads (From doc.rust-lang.org/book/ch16-01-threads.html)"
+
 use std::thread;
 use std::time::Duration;
 
@@ -100,6 +106,7 @@ Rust gives us the `async/.await` syntax, allowing us to write asynchronous code 
 For example:
 <br/>
 ```rust caption="Standard, blocking I/O"
+
 fn synchronous_io() {
     let resp = fetch_data();
     println!("{resp}");
@@ -109,6 +116,7 @@ fn synchronous_io() {
 Can be written as:
 <br/>
 ```rust caption="Asynchronous I/O using async/.await"
+
 async fn asynchronous_io() {
     let resp = fetch_data_async().await;
     println!("{resp}");
@@ -131,6 +139,7 @@ Later, when the async function is polled again, the state machine resumes execut
 Very neat! Now let us run this function.
 <br/>
 ```rust
+
 fn main() {
     // Remember we need to await a Future to progress it since they are lazy
     asynchronous_io().await;
@@ -140,6 +149,7 @@ fn main() {
 Oh no! The Rust compiler requires any function that calls an async function to also be declared with `async`
 <br/>
 ```sh
+
 error[E0728]: `await` is only allowed inside `async` functions and blocks
  --> src/main.rs:6:23
   |
@@ -157,6 +167,7 @@ So no worries, we will just declare `main` also with the `async` keyword.
 Unfortunately, this too does not work.
 <br/>
 ```sh
+
 error[E0752]: `main` function is not allowed to be `async`
  --> src/main.rs:5:1
   |
@@ -191,6 +202,7 @@ The role of any async runtime is to schedule futures for polling, react to them 
 The `executor` is the component of an async runtime responsible for repeatedly polling futures.
 <br/>
 ```rust caption="A very simple executor"
+
 loop {
     match future.poll(&mut context) {
         Poll::Ready(_) => break,
@@ -214,7 +226,7 @@ Generally, this pattern is known as [green threads](https://en.wikipedia.org/wik
 
 ### The Tokio Scheduler
 
-This scheduler is responsible for deciding which runnable task should be executed next. In a simple runtime, this could be as easy as maintaining a queue of ready tasks and repeatedly choosing one to poll. In Tokio, which is a multi-threaded runtime, the scheduler has to coordinate M tasks across N threads. Having only a global queue means every worker threads has to contend for access, increasing synchronization overhead.
+This scheduler is responsible for deciding which runnable task should be executed next. In a simple runtime, this could be as easy as maintaining a queue of ready tasks and repeatedly choosing one to poll. In Tokio, which is a multi-threaded runtime, the scheduler has to coordinate M tasks (theoretically unlimited) across N threads (limited amount). Having only a global queue means every worker threads has to contend for access, increasing synchronization overhead.
 
 > [!NOTE]
 > Tokio, by default, is multi-threaded but can be configured to be a single-threaded event loop AKA `current_thread` which can actually be easier to work with in most cases as argued [here](https://emschwartz.me/async-rust-can-be-a-pleasure-to-work-with-without-send-sync-static/)
@@ -223,7 +235,8 @@ This scheduler is responsible for deciding which runnable task should be execute
 
 As you can see, Tokio solves this by having a global queue of tasks (implemented as a FIFO linked list) shared between all threads along with local queues for each thread/worker.
 <br/>
-```rust caption="Global 'Injection' queue definition"
+```rust caption="Global 'Injection' queue definition (From tokio/src/runtime/scheduler/inject.rs#L21-L26)"
+
 /// Growable, MPMC queue used to inject new tasks into the scheduler and as an
 /// overflow queue when the local, fixed-size, array queue overflows.
 pub(crate) struct Inject<T: 'static> {
@@ -234,7 +247,8 @@ pub(crate) struct Inject<T: 'static> {
 
 The local queue is a [ring buffer](https://en.wikipedia.org/wiki/Circular_buffer) which can hold upto 256 tasks at a time. When this local queue overflows, roughly half of the tasks from the local queue are moved to the global queue and held. This serves as spillway to catch overflowing tasks. Any task that wakes up from a thread which is not a worker thread is also placed into the global queue thus acting as a shared entry point too.
 <br/>
-```rust caption="Local queue definition"
+```rust caption="Local queue definition (From tokio/src/runtime/scheduler/multi_thread/queue.rs#L28-L57)"
+
 /// Producer handle. May only be used from a single thread.
 pub(crate) struct Local<T: 'static> {
     inner: Arc<Inner<T>>,
@@ -284,11 +298,29 @@ Work-stealing involves concurrent, unsynchronized access to head and tail across
 
 We've established before that Tokio tasks are lightweight units of work. These tasks are distributed among workers when they are runnable. But tasks do not remain runnable forever. Tokio is a runtime designed to handle asynchronous I/O bound tasks which spend most of their lifetime waiting for something to happen.
 
-When a task reaches a state where it cannot make any progress without waiting, it returns `Poll::Pending`. The I/O operation registers interest in the resource, while the task provides a `Waker` that can be used to schedule it again when that resource becomes ready.
+When a task reaches a state where it cannot make any progress without waiting, it returns `Poll::Pending`. The I/O operation registers interest in the underlying OS resource, while the task provides a `Waker` that can be used to schedule it again when that resource becomes ready.
 
-A task is a single heap allocation storing a `Header`, `Trailer`, user `Future`, and scheduler pointers. A Waker wraps a raw pointer (`NonNull<Header>`) with a custom `RawWakerVTable` (Tells what operation to perform on the pointer). Calling `.wake()` executes an atomic state transition directly on the task’s `Header` flags. If the transition succeeds and the task is woken, the task memory pointer is re-enqueued into a scheduler queue.
+A `Waker` is essentially a handle to something that knows how to make a suspended task runnable again. Internally, Rust represents this through a `RawWaker` containing a data pointer and a `RawWakerVTable`. The vtable tells the runtime what to do when the waker is cloned, woken, referenced without consuming it, or dropped.
+<br/>
+```rust caption="The vtable and raw waker are defined in the standard library. Tokio's custom vtable from tokio/src/runtime/task/waker.rs#L118-L119"
 
-![A task's lifecycle](https://gist.githubusercontent.com/Prana-vvb/7a1472b97344d5bbc596021ed9d0c9c0/raw/d1d254974e4398392364f51391a31f519a549268/tokio_whole_norm.svg)
+use std::task::{RawWaker, RawWakerVTable, Waker};
+
+fn wake_task(ptr: *const ()) {
+    // schedule the task
+}
+
+const VTABLE: RawWakerVTable = RawWakerVTable::new(
+    clone,
+    wake_task,
+    wake_by_ref,
+    drop,
+);
+```
+
+Tokio represents a task as a single heap allocation containing the task header, the future, output/state, and scheduler information. A Waker wraps a raw pointer (`NonNull<Header>`) with a custom `RawWakerVTable`. Calling `.wake()` executes an atomic state transition directly on the task’s `Header` flags. If the transition succeeds and the task is woken, the task memory pointer is re-enqueued into a scheduler queue.
+
+![A task's lifecycle](https://gist.githubusercontent.com/Prana-vvb/7a1472b97344d5bbc596021ed9d0c9c0/raw/9793f577c01b2e8e9124e676d98da0cde95bf704/tokio_whole_norm.svg)
 
 The I/O driver waits for events from the OS for the registered resources and wake the tasks when they become available. Tokio does not actually handle each specific I/O driver by itself but instead relies on the [`mio`](https://github.com/tokio-rs/mio) crate to abstract system specific drivers and provide a common API for all of them.
 
@@ -297,7 +329,6 @@ Note that the I/O driver mechanism is not controlled by a dedicated thread but i
 I/O is only one source of task wakeups. Timers and asynchronous synchronization primitives(`tokio::sync::*`) can also cause a pending task to become runnable again. A timer can wake a task when its deadline expires, while primitives such as channels, notifications, and semaphores can wake tasks when the state they are waiting for changes.
 
 ### When we are truly jobless
-<hr/>
 
 A worker which has finished all its tasks, has no tasks left in its local queue, no tasks to get from the global queue and nothing to steal from other workers is freeloading on precious CPU power. We need to be able to hibernate the worker until it is needed to handle more tasks. Constantly checking for new tasks is just wasteful so Tokio has a park/unpark mechanism for workers to transition into a sleeping state and block instead.
 
@@ -305,6 +336,7 @@ This is handled by a dedicated `runtime::park` module using a shared runtime dri
 `park()`/`unpark()` calls are coordinated by an [atomic](https://en.wikipedia.org/wiki/Linearizability) state machine
 <br/>
 ```rust caption="Atomic state machine states"
+
 const EMPTY: usize = 0;
 const PARKED_CONDVAR: usize = 1;
 const PARKED_DRIVER: usize = 2;

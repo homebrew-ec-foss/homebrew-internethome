@@ -16,7 +16,7 @@ const manifestPath = path.resolve(
   __dirname,
   "public",
   "assets",
-  "manifest.json"
+  "manifest.json",
 );
 
 const manifest = isDev
@@ -65,13 +65,7 @@ module.exports = function (eleventyConfig) {
           token.info = info.replace(captionMatch[0], "").trim();
         }
 
-        const renderedCode = originalFence(
-          tokens,
-          idx,
-          options,
-          env,
-          slf
-        );
+        const renderedCode = originalFence(tokens, idx, options, env, slf);
 
         if (caption) {
           return `<div class="code-wrapper">${renderedCode}<div class="code-caption">${md.utils.escapeHtml(caption)}</div></div>`;
@@ -106,7 +100,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
+      "dd LLL yyyy",
     );
   });
 

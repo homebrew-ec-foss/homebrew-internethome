@@ -37,6 +37,7 @@ module.exports = function (eleventyConfig) {
     html: true,
     breaks: true,
     linkify: true,
+    highlight: eleventyConfig.markdownHighlighter,
   })
     .use(markdownItGithubAlerts.default || markdownItGithubAlerts)
     .use(function (md) {

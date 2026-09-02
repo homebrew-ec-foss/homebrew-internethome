@@ -12,6 +12,12 @@ author_link: "https://github.com/homebrew-ec-foss/muSSHroom"
 
 muSSHroom is a chat server directly accessible right in your terminal, with a connection that’s set up using SSH protocol. There's no client to install, no web app to open - just enter the required `ssh` command and you’ll straight up enter a server with many other users along with you to chat with.
 
+![image of the musshroom terminal](https://i.postimg.cc/k4VvH17n/mush2.png)
+
+### Give it a try
+Once you've either **hosted it locally** or **hosted your own server**, joining is just:
+`ssh <hostname> -p <port>`
+swap in whatever host and port, and you're straight into the chat — no signup, no config.
 
 **Mentees**:
 

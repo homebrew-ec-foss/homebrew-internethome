@@ -16,7 +16,7 @@ muSSHroom is a chat server directly accessible right in your terminal, with a co
 
 ### Give it a try
 Once you've either **hosted it locally** or **hosted your own server**, joining is just:
-`ssh <hostname> -p <port>`
+```ssh <hostname> -p <port>```
 swap in whatever host and port, and you're straight into the chat — no signup, no config.
 
 **Mentees**:
@@ -79,7 +79,7 @@ This process is very similar to a website. You’re making an SSH app available 
 
 ### Timeline
 
-In **Week 1** we focused on learning Go from the ground up since that’s what we were building this entire thing with.
+**Week 1** we focused on learning Go from the ground up since that’s what we were building this entire thing with.
  
 **Week 2** we played around with the bubbletea library and got used to it by creating our own notes app TUI application. It had features like note saving and tabs to view multiple notes at once. This gave us a solid idea of how to work with the elm architecture and also how to implement UI components into our terminal app.
 
@@ -106,6 +106,44 @@ Type something or run a slash command, and that action hits `update()`. This is 
 User 1 sends a message, which hits their `bubbletea program UI`. That program iterates through the entire sessions slice — the same map holding every connected user — and broadcasts a `chatMsg` out to each of their programs.
 
 This is the actual broadcast step, and it's basically the same one loop we described earlier for `update()`, just sent globally instead of staying local to one user. System messages like users joining and leaving get sent through this exact same path, just tagged as a different message type instead of a chat one.
+
+### Running muSSHroom Yourself
+ 
+Enough about how it works internally, here's how to actually get a server up.
+ 
+**1. Clone the repo**
+ 
+```
+git clone https://github.com/homebrew-ec-foss/muSSHroom.git
+cd muSSHroom
+```
+ 
+**2. Build it**
+
+ You require Go 1.26.4 or newer.
+```
+go build -o musshroom .
+```
+ 
+**3. Run the server**
+ 
+```bash
+./musshroom
+```
+PS: the default port is 3000 this way.
+ 
+**Hosting it somewhere other than your laptop**
+ 
+ **Home box / Raspberry Pi**: run the binary, forward the port on your router, connect using your public IP or a dynamic DNS hostname.
+ **Free-tier VPS**: something like Oracle Cloud's free tier, a free server provider.
+ Whichever route you pick, the only real requirement is that the chosen port is reachable from outside (open in the firewall / security group), since that's the only thing a client needs to reach.
+  
+**4. Connect from the client side**
+
+assuming its already hosted on `<hostname>`
+```
+ssh <hostname> -p <port>
+```
 
 ### Challenges we faced along the way
 

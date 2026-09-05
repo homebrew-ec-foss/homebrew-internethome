@@ -8,7 +8,7 @@ author_name: "Team RepoLens"
 author_link: "https://github.com/homebrew-ec-foss/RepoLens"
 ---
 # RepoLens: A repository intelligence tool
-*Mentors:* [Navya SG](https://github.com/Navya2022), [Arjun Gowda](https://github.com/Gowda-Arjun), [], [Ananya]
+*Mentors:* [Navya SG](https://github.com/Navya2022), [Arjun Gowda](https://github.com/Gowda-Arjun), [Ananya](https://github.com/ananya97br)
 
 *Mentees:* [Anish Arvind Koikude](https://github.com/Anish-CodeDev), [Prajwal MM](https://github.com/dotpmm), [Ishaan Padashetty](https://github.com/ishaanpadashetty), [Harsh Pandya](https://github.com/Seaweed-Boi)
 

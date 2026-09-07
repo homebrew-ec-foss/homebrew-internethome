@@ -1,10 +1,10 @@
 ---
-title: "Barrel-ly-learning"
+title: "Tilde 5.0 Barrel-ly-learning - Creating a model to play donkey kong using imitation learning and actor-critic reinforcement learning."
 date: "2026-08-31"
 tags: [tilde-5.0, summer, mentoring, ReinforcementLearning, ImitationLearning, Actor-Critic, NeuralNetworks, GameAI]
-description: The Barrel-ly experience blog
+description: The Barrel-ly Learning experience blog
 permalink: posts/{{ title | slug }}/index.html
-author_name: "Team Barrel-ly"
+author_name: "Team Barrel-ly Learning"
 author_link: "https://github.com/homebrew-ec-foss/barrel-ly-learning"
 ---
 
@@ -159,7 +159,7 @@ That's where Reinforcement Learning comes in.
 
 ### Starting With What the Agent Already Knows
 
-Instead of train the RL model completely from scratch, we use the waits learned from the Behaviour Cloning model as a starting point.
+Instead of training the RL model completely from scratch, we use the weights learned from the Behaviour Cloning model as a starting point.
 We used the trained Behaviour Cloning model to initialise the Actor-Critic network.
 
 Hence the shared feature extractor used in the Behaviour Cloning model is kept the same:

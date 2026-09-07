@@ -46,11 +46,11 @@ This bottom-up approach keeps the context passed to the model small and relevant
 ### 5. Vectorization of summaries
 To let users actually converse with the repository, every node summary is embedded into a vector store. When a user asks a question, their query is embedded the same way and matched against these vectors: surfacing the most semantically relevant nodes, even when the user's wording doesn't match the code's exact terminology. This embedding layer is what turns a static summary tree into something queryable in natural language.
 
-![Output 1](../images/RepoLens_Tilde5.0/repolens_1.png)
+![Output 1](https://github.com/Anish-CodeDev/homebrew-internethome/blob/main/src/images/RepoLens_Tilde5.0/repolens_1.png?raw=True)
 ### 6. Interactive Graph Generation
 With every node summarized, `RepoLens` renders the file tree as an interactive graph, where nodes represent files, functions, and classes, and edges represent structural or reference relationships between them. Clicking into a node surfaces its generated summary, letting a user explore an unfamiliar codebase visually instead of jumping between files in an editor.
 
-![Output 2](../images/RepoLens_Tilde5.0/repolens_4.png)
+![Output 2](https://github.com/Anish-CodeDev/homebrew-internethome/blob/main/src/images/RepoLens_Tilde5.0/repolens_4.png?raw=True)
 ### 7. Hybrid Search: BM25 over Nodes
 Alongside the graph, every summarized node is indexed with BM25, giving users fast keyword-based search across the entire codebase: searching for a term like "auth middleware" surfaces the exact nodes (and their position in the tree) where that concept lives, ranked by relevance rather than requiring an exact filename match.
 
@@ -58,8 +58,8 @@ Alongside the graph, every summarized node is indexed with BM25, giving users fa
 The final piece ties the graph, the summaries, and the search index together into a conversational agent. When a user asks a question about the project: "how does authentication work here?", the agent retrieves the most relevant nodes via RAG, then generates an answer grounded in those specific nodes. Every claim in the answer is tied back to a citation: the exact file, function, or class it came from, so the explanation is verifiable rather than a plausible-sounding guess.
 
 This retrieval-grounded design is what separates `RepoLens` from just pointing a general-purpose LLM at a repo: because the agent's context comes from real, structurally-extracted nodes rather than arbitrary text chunks, every answer can point back to precisely where in the codebase it came from.
-![Output 3](../images/RepoLens_Tilde5.0/repolens_2.png)
-![Output 4](../images/RepoLens_Tilde5.0/repolens_3.png)
+![Output 3](https://github.com/Anish-CodeDev/homebrew-internethome/blob/main/src/images/RepoLens_Tilde5.0/repolens_2.png?raw=True)
+![Output 4](https://github.com/Anish-CodeDev/homebrew-internethome/blob/main/src/images/RepoLens_Tilde5.0/repolens_3.png?raw=True)
 ### Challenges and Learnings
 - Limited LLM quota: This was resolved by using the process of batching(Instead of generating AI summaries of individual nodes, we generate the summaries of several nodes to reduce the number of API Calls)
 - Limited Embedding model quota: This was resolved by giving the user an option to have their embeddings done locally

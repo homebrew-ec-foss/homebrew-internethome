@@ -73,7 +73,7 @@ Again, elm architecture is what we used to build our interactive ui and the [Bub
 It contains libraries like [lipgloss](https://github.com/charmbracelet/lipgloss) which is essentially just css for colours and styling, and [bubbles](https://github.com/charmbracelet/bubbles), with UI components like text input boxes etc. offering a wide range of options to design our UI.
 
 **WISH**
-Talking about wish, it’s an SSH server that allows you to make you apps accessible over SSH. It has a wide range of middlewares that allow us to define what the user can do. In our case we use its BubbleTea middleware to serve the TUI to the users.
+Talking about wish, it’s an SSH server that allows you to make your apps accessible over SSH. It has a wide range of middlewares that allow us to define what the user can do. In our case we use its BubbleTea middleware to serve the TUI to the users.
 This process is very similar to a website. You’re making an SSH app available running on a certain port and making that interface accessible to users. You have the SSH protocol backing the app which makes user authentication very easy to implement using SSH keys.
 
 
@@ -140,10 +140,16 @@ const (
 )
 ```
 to whatever port you want, make sure to rebuild with `go build -o musshroom .`
+
+**Hosting it somewhere other than your laptop**
+ 
+ **Home box / Raspberry Pi**: run the binary, forward the port on your router, connect using your public IP or a dynamic DNS hostname.
+ **Free-tier VPS**: something like Oracle Cloud's free tier, a free server provider.
+ Whichever route you pick, the only real requirement is that the chosen port is reachable from outside (open in the firewall / security group), since that's the only thing a client needs to reach.
   
 **4. Connect from the client side**
 
-assuming its already hosted on `<hostname>`
+assuming it's already hosted on `<hostname>`
 ```
 ssh <hostname> -p <port>
 ```

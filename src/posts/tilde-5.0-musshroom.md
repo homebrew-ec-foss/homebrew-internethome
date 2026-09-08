@@ -10,7 +10,7 @@ author_link: "https://github.com/homebrew-ec-foss/muSSHroom"
 
 # muSSHroom
 
-muSSHroom is a chat server directly accessible right in your terminal, with a connection that’s set up using SSH protocol. There's no client to install, no web app to open - just enter the required `ssh` command and you’ll straight up enter a server with many other users along with you to chat with.
+muSSHroom is a chat server directly accessible right in your terminal, with a connection that’s set up using SSH protocol. There's no client to install, no web app to open — just enter the required `ssh` command and you’ll straight up enter a server with many other users along with you to chat with.
 
 ![image of the musshroom terminal](https://i.postimg.cc/k4VvH17n/mush2.png)
 
@@ -40,7 +40,7 @@ SSH is normally something you use to do things like run commands on a shell in a
 To make this connection, all you'd have to do is enter a command of the form `ssh user@serverhost` where `serverhost` is domain name or IP where the required server is hosted.
 
 You can authenticate yourself to a server in two ways, either using a password or the key pair method, which is what we used.
-An SSH key pair has two parts - a public and a private key. 
+An SSH key pair has two parts — a public and a private key. 
 The private key remains on your local computer and the public one can be given to other resources, like the server you want to connect to, for verifying that those connections are from you. 
 
 Now imagine, could you use this secure encrypted channel to connect to a chat server?
@@ -98,7 +98,7 @@ It starts with a plain old SSH client — you running `ssh user@serverhost`. Thi
 
 Once you're in, WISH spins up your own `tea.Program` — every connected user gets their own instance running independently. This is where our elm architecture loop lives: a Model holds your current state, rendered out into a View, i.e. what you're staring at in your terminal.
 
-Type something or run a slash command, and that action hits `update()`. This is the function doing the real work — it talks to the Sessions map, the server's list of who's online and where their `*userSession` lives. Your `tea.Program` checks back into this same map too, like when resolving a `/room user1 user2 command.
+Type something or run a slash command, and that action hits `update()`. This is the function doing the real work — it talks to the Sessions map, the server's list of who's online and where their `*userSession` lives. Your `tea.Program` checks back into this same map too, like when resolving a `/room user1 user2` command.
 
 
 ![diagram showing how "messaging" is processed](https://i.postimg.cc/s2wghf7J/Screenshot-2026-08-30-100926.png)
@@ -124,7 +124,7 @@ cd muSSHroom
 ```
 go build -o musshroom .
 ```
- 
+
 **3. Run the server**
  
 ```bash
@@ -132,11 +132,14 @@ go build -o musshroom .
 ```
 PS: the default port is 3000 this way.
  
-**Hosting it somewhere other than your laptop**
- 
- **Home box / Raspberry Pi**: run the binary, forward the port on your router, connect using your public IP or a dynamic DNS hostname.
- **Free-tier VPS**: something like Oracle Cloud's free tier, a free server provider.
- Whichever route you pick, the only real requirement is that the chosen port is reachable from outside (open in the firewall / security group), since that's the only thing a client needs to reach.
+**Want a different port?** It's currently a hardcoded constant — open `internal/server/server.go` and change:
+```go
+const (
+    Host = "localhost"
+    Port = "3000"
+)
+```
+to whatever port you want, make sure to rebuild with `go build -o musshroom .`
   
 **4. Connect from the client side**
 
